@@ -1,0 +1,13 @@
+.registrations, .sessions {
+  br {
+    display: none;
+  }
+
+  form {
+    margin-bottom: $base-spacing;
+
+    ~ a {
+      display: block;
+    }
+  }
+}

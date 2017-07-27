@@ -1,0 +1,13 @@
+@mixin elevation($z-index, $include-box-shadow: true, $parent-z-index: 0) {
+  @if $include-box-shadow {
+    $z-index-diff: $z-index - $parent-z-index;
+    $offset-x: 0px;
+    $offset-y: 1px * $z-index-diff / 2;
+    $blur-radius: 1.25px * $z-index-diff;
+    $color: rgba(0, 0, 0, 0.26);
+
+    box-shadow: $offset-x $offset-y $blur-radius $color;
+  }
+
+  z-index: $z-index;
+}

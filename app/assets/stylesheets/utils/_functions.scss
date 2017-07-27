@@ -1,0 +1,8 @@
+@function text-color-for($background-color, $textShade: Text) {
+  @if lightness($background-color) > 75 {
+    @return palette(Black, $textShade);
+  } @else {
+    @return palette(White, $textShade);
+  }
+  @return returnValue;
+}

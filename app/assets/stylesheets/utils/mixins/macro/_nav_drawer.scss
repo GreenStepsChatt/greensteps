@@ -1,0 +1,59 @@
+@mixin nav-drawer-toggler {
+  @include styled-link($appbar-font-color);
+
+  margin-right: $base-spacing;
+}
+
+// Need to use a container until :backdrop pseudo element is supported by all
+// vendors and isn't buggy anymore. The nav-drawer element must be an immediate
+// child of the nav-drawer-container element.
+@mixin nav-drawer-container {
+  @include elevation(15);
+  background-color: rgba(0, 0, 0, 0.2);
+  display: none;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+@mixin nav-drawer {
+  @include elevation(16);
+
+  background-color: $base-background-color;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  max-width: 75%;
+  overflow: {
+    x: hidden;
+    y: auto;
+  }
+  padding: {
+    left: $base-spacing;
+    right: $base-spacing;
+  }
+  width: fit-content;
+
+  a {
+    @include styled-link($base-font-color);
+  }
+}
+
+@mixin nav-drawer-section {
+  padding: {
+    bottom: $small-spacing;
+    top: $small-spacing;
+  }
+
+  &:not(:last-child) {
+    border-bottom: $base-border;
+  }
+}
+
+@mixin nav-drawer-item {
+  &:not(:first-child) {
+    padding-top: $small-spacing;
+  }
+}

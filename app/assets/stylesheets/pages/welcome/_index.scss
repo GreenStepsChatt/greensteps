@@ -1,0 +1,70 @@
+.welcome.index {
+  display: flex;
+  flex-direction: column;
+
+  @media screen and (min-width: $medium-screen) {
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    > * {
+      flex: 1 1;
+      margin: $small-spacing;
+      flex-basis: 40%;
+    }
+  }
+}
+
+#site_entry {
+  position: relative;
+
+  form {
+    margin: 0 auto;
+    max-width: 25em;
+    min-width: 14em;
+  }
+
+  h2 {
+    border-bottom: $dark-border;
+    display: inline;
+    padding-bottom: $tiny-spacing;
+  }
+
+  header {
+    padding: $small-spacing;
+    margin-bottom: $small-spacing;
+    text-align: center;
+    width: 50%;
+  }
+
+  #sign_up,
+  #log_in {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 0;
+
+    &:not(.active) {
+      z-index: 1; // only visible part is header, and it needs to be clickable
+
+      form {
+        display: none;
+      }
+
+      h2 {
+        border-bottom: 0;
+      }
+
+      header {
+        @include styled-link(rgba($base-font-color, 0.5));
+      }
+    }
+  }
+
+  #log_in header {
+    margin-left: auto;
+  }
+
+  #sign_up header {
+    margin-right: auto;
+  }
+}

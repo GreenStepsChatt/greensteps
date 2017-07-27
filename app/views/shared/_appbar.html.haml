@@ -1,0 +1,17 @@
+%nav
+  %ul#appbar
+    %li= fa_icon 'navicon'
+  #nav_drawer_container
+    #nav_drawer
+      = link_to "#{t(:brand_name)} or logo here", root_path, class: 'logo'
+      %ul
+        %li= 'Link A'
+        %li= 'Link B'
+      - if user_signed_in?
+        %ul
+          %li= 'Users only link 1'
+          %li= 'Users only link 2'
+        %ul#account_tools
+          %li= link_to t('.edit_account'), edit_user_registration_path
+          %li= button_to t('.destroy_session'), destroy_user_session_path, method: :delete
+#appbar_spacer

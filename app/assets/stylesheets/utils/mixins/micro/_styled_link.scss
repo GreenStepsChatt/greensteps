@@ -1,0 +1,12 @@
+@mixin styled-link($color: $action-color) {
+  color: $color;
+  text-decoration: none;
+  transition: color $base-duration $base-timing;
+
+  &:active,
+  &:focus,
+  &:hover {
+    color: shade($color, 25%);
+    cursor: pointer;
+  }
+}

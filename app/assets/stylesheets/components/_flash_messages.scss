@@ -1,0 +1,45 @@
+.flash-message {
+  @include clearfix;
+
+  padding: $tiny-spacing;
+
+  button {
+    @include compact-button;
+    @include elevation(4, false, 2);
+
+    float: right;
+  }
+
+  &.alert {
+    background-color: palette(Red);
+    color: text-color-for(palette(Red));
+
+    button {
+      @include button-color(palette(Red, 800));
+    }
+  }
+
+  &.notice {
+    background-color: palette(Green);
+    color: text-color-for(palette(Green));
+
+    button {
+      @include button-color(palette(Green, 700));
+    }
+  }
+
+  &.warning {
+    background-color: palette(Yellow);
+    color: text-color-for(palette(Yellow));
+
+    button {
+      @include button-color(palette(Yellow, 700));
+    }
+  }
+}
+
+#flash_messages {
+  @include elevation(2);
+
+  text-align: center;
+}

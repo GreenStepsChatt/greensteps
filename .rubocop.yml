@@ -1,0 +1,18 @@
+AllCops:
+  Exclude:
+    - 'db/**/*'
+    - 'config/**/*'
+Layout/AlignHash:
+  EnforcedHashRocketStyle: separator
+  EnforcedColonStyle: separator
+Layout/IndentHeredoc:
+  EnforcedStyle: squiggly
+Metrics/BlockLength:
+  Exclude:
+    - 'Guardfile'
+Rails:
+  Enabled: true
+Style/Documentation:
+  Enabled: false
+Style/FrozenStringLiteralComment:
+  Enabled: false

@@ -1,0 +1,14 @@
+#error_explanation {
+  color: palette(Red);
+  margin-bottom: $small-spacing;
+
+  h2 {
+    font-size: modular-scale(0);
+    margin-bottom: $tiny-spacing;
+  }
+
+  ul {
+    list-style: disc inside;
+    margin-left: $small-spacing;
+  }
+}
