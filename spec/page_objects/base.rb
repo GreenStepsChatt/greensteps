@@ -16,7 +16,7 @@ module PageObjects
       PageObjects.module_eval do
         define_method po_name do
           page_object = send(int_method_nm)
-          raise NotFound.new(po_name) unless page_object.on_page?
+          raise NotFound, po_name unless page_object.on_page?
           return page_object
         end
       end
@@ -47,7 +47,7 @@ module PageObjects
 
   class NotFound < StandardError
     def initialize(po_name = nil)
-      details = " (#{po_name})" unless po_name.blank?
+      details = " (#{po_name})" if po_name.present?
       msg = <<~TEXT
         The page object#{details} wasn't on the page when the object was
         accessed.

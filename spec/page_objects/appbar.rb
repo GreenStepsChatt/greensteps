@@ -13,6 +13,7 @@ module PageObjects
     end
 
     private
+
     def toggler
       @toggler ||= find('.fa-navicon')
     end
@@ -21,5 +22,4 @@ module PageObjects
       @element_in_background ||= find('#nav_drawer_container')
     end
   end
-
 end

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "Welcome", type: :feature do
+RSpec.feature 'Welcome', type: :feature do
   scenario 'Visitor lands on welcome page' do
     visit root_path
 

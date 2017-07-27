@@ -12,6 +12,7 @@ module SessionHelpers
   end
 
   private
+
   def warden_helpers
     @warden_helpers ||= Class.new.extend(Warden::Test::Helpers)
   end
