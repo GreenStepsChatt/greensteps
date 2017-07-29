@@ -74,3 +74,5 @@ gem 'shoulda-matchers', group: :test
 gem 'simplecov', require: false, group: :test
 gem 'spring-commands-rspec', group: :test
 gem 'webmock', group: :test
+
+ruby '2.3.1'
