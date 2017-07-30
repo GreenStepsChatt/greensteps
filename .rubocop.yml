@@ -2,6 +2,7 @@ AllCops:
   Exclude:
     - 'db/**/*'
     - 'config/**/*'
+    - 'vendor/**/*'
 Layout/AlignHash:
   EnforcedHashRocketStyle: separator
   EnforcedColonStyle: separator
