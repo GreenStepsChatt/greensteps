@@ -14,7 +14,7 @@ Once you have a copy of this project on your machine, you should run `bin/setup`
 2) start the server and explore the app
 
 ## Where the Project is Headed
-Once I have things set up with Heroku, Semaphore, and Code Climate, we'll start with the following:
+We're ready to start with the following:
 - [ ] Users can log a trash bag
 - [ ] Users can log miles (per hike/walk)
 - [ ] Admins can log in to an admin interface
