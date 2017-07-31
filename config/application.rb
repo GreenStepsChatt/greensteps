@@ -19,20 +19,20 @@ Bundler.require(*Rails.groups)
 module Greensteps
   class Application < Rails::Application
     console do
-  require 'pry'
-  config.console = Pry
-end
+      require 'pry'
+      config.console = Pry
+    end
 
     config.i18n.load_path +=
-  Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
+      Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
 
     config.generators do |g|
-  g.stylesheets false
-  g.javascripts false
-  g.helper false
-  g.view_specs false
-  g.jbuilder false
-end
+      g.stylesheets false
+      g.javascripts false
+      g.helper false
+      g.view_specs false
+      g.jbuilder false
+    end
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
