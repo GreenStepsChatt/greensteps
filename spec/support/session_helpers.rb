@@ -8,13 +8,27 @@ module SessionHelpers
   def stubbed_login_as(user)
     warden_helpers.login_as(user)
     @current_user = user
-    visit welcome_index_path
+    visit after_sign_in_path_for(user)
+  end
+
+  def after_sign_in_path_for(resource)
+    resource_name = resource_name_for(resource)
+    try("#{resource_name.underscore}_root_path") || root_path
   end
 
   private
 
   def warden_helpers
     @warden_helpers ||= Class.new.extend(Warden::Test::Helpers)
+  end
+
+  def resource_name_for(resource_or_name)
+    case resource_or_name.class
+    when Symbol, String
+      resource_or_name
+    else
+      resource_or_name.class.name
+    end
   end
 end
 
