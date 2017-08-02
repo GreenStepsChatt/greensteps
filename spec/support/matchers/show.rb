@@ -8,6 +8,6 @@ RSpec::Matchers.define :show do |page_object_name|
   end
 
   define_method :page_object do
-    send "_#{page_object_name}_"
+    send(page_object_name, true)
   end
 end
