@@ -16,7 +16,7 @@ module PageObjects
       PageObjects.module_eval do
         define_method po_name do
           page_object = send(int_method_nm)
-          raise NotFound, po_name unless page_object.on_page?
+          raise NotFound.new(page, po_name) unless page_object.on_page?
           return page_object
         end
       end
@@ -46,13 +46,25 @@ module PageObjects
   end
 
   class NotFound < StandardError
-    def initialize(po_name = nil)
-      details = " (#{po_name})" if po_name.present?
+    def initialize(page, po_name)
+      @page = page
       msg = <<~TEXT
-        The page object#{details} wasn't on the page when the object was
+        The page object #{po_name} wasn't on the page when the object was
         accessed.
+          - The current page title is "#{page.title}".
+          - Classes applied to the main element are "#{main_classes}".
       TEXT
       super(msg)
+    end
+
+    def main_classes
+      main_element = @page.find('main')
+      if main_element.present?
+        classes = main_element[:class]
+        classes.present? ? classes : '(no classes applied to main element)'
+      else
+        '(no main element found)'
+      end
     end
   end
 end
