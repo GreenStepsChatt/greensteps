@@ -1,0 +1,5 @@
+%article#dashboard
+  %section.trash_bags
+    .count= current_user.trash_bags.size
+    = link_to trash_bags_path, method: :post, class: 'add' do
+      = fa_icon 'plus'

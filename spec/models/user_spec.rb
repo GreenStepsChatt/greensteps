@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
+  it { should have_many :trash_bags }
+
   it { should respond_to :email }
   it { should respond_to :encrypted_password }
   it { should respond_to :reset_password_token }

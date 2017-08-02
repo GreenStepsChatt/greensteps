@@ -9,7 +9,7 @@ RSpec.describe 'User Sessions', type: :feature do
     log_in_form.fill_and_submit_for user
 
     expect(page).to flash_message t('devise.sessions.signed_in')
-    expect(page).to show :welcome_page
+    expect(page).to show :dashboard
   end
 
   # js enabled b/c error only shows in this case

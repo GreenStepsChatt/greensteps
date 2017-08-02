@@ -1,0 +1,4 @@
+en:
+  trash_bags:
+    create:
+      success: "Trash bag successfully logged!"
