@@ -10,8 +10,26 @@ You will also need [PhantomJS](http://phantomjs.org/) installed. You can downloa
 
 Once you have a copy of this project on your machine, you should run `bin/setup`. At this point, it's a good idea to
 
-1) run `bin/rspec` to make sure everything was installed properly
-2) start the server and explore the app
+1. Select folder
+
+`$ cd greensteps`
+
+2. Install gems
+
+`$ bundle install`
+
+3. Create and migrate database
+
+`$ rake db:create`
+`$ rake db:migrate`
+
+4. Start your local server
+
+`$ rails s`
+
+5. In you browser visit this page
+
+`http://localhost:3000`
 
 ## Where the Project is Headed
 We're ready to start with the following:
