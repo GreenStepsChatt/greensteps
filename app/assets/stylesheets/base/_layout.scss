@@ -14,11 +14,11 @@ body {
 }
 
 body {
+  background-color: $base-background-color;
   margin: 0;
 }
 
 main {
-  background-color: $base-background-color;
   margin: $small-spacing;
 
   @media (min-width: $medium-screen) {

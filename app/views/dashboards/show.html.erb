@@ -1,0 +1,13 @@
+<article class="dashboard">
+  <section class="stats">
+    <h2>Your Stats</h2>
+    <section class="trash_bags">
+      <div class="count">
+        <%= pluralize(current_user.trash_bags.size, 'trash bag') %>
+      </div>
+      <%= link_to trash_bags_path, method: :post, class: 'add' do %>
+        <%= fa_icon 'plus' %>
+      <% end %>
+    </section>
+  </section>
+</article>

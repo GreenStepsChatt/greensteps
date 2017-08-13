@@ -5,11 +5,11 @@ module PageObjects
     end
 
     def trash_bag_count
-      this.find('.trash_bags .count').text
+      this.find('.trash_bags .count').text.to_i
     end
 
     def selector
-      '#dashboard'
+      '.dashboard'
     end
   end
 end
