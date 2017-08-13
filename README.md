@@ -15,7 +15,7 @@ Once you have a copy of this project on your machine, you should run `bin/setup`
 
 ## Where the Project is Headed
 We're ready to start with the following:
-- [ ] Users can log a trash bag
+- [x] Users can log a trash bag
 - [ ] Users can log miles (per hike/walk)
 - [ ] Admins can log in to an admin interface
 - [ ] Admins can define categories
