@@ -1,8 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe 'As a guest' do
-  scenario 'Cannot access dashboard page',
-           :js do
+RSpec.feature 'Dashboard', type: :feature do
+  scenario 'Guests are asked to log in first' do
     visit dashboards_show_path
 
     alert_message = 'You must be logged in to access this page'
