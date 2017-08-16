@@ -5,13 +5,29 @@ Here are some steps to open a pull request:
 1. Claim an issue by commenting on it (if one doesn't exist, open one).
 2. Fork and clone the repo.
 3. Run `bin/setup`.
-4. Run the specs and make sure everything passes.
-   - `bin/rspec` will use spring
-   - `bundle exec rake spec` won't use spring and will report test coverage
-   - `bundle exec guard` will watch for file modifications and run corresponding specs
+4. Run the specs and make sure everything passes (see below).
 5. Add one or more specs for your changes.
 6. Make your changes.
 7. Make sure your specs pass and that RuboCop doesn't report any new issues.
 8. Push to your fork and submit a pull request. Include the issue number in the PR description (e.g. "Resolves #19").
 
 Once you've submitted a PR, Heroku will create a review app with your code which you can access at https://greensteps-pr-###.herokuapp.com/ (replace ### with your PR number).
+
+## Running Specs
+
+We've set up two main ways to run specs...
+
+### During Development
+
+1. Use `bundle exec guard` to have specs automatically run when changes are saved
+2. Use `bin/rspec` followed by command line arguments to run RSpec on demand (you can run it for just specific files or folders, and give it other [command line options](https://relishapp.com/rspec/rspec-core/docs/command-line))
+
+Both of the above commands will run the specs using Spring. This makes it faster to run specs because the Rails environment doesn't have to be loaded each time, but can give an inacurrate test coverage, so that won't be calculated when Spring is running.
+
+### Before Committing, Pushing Changes, Submitting a PR, etc.
+
+`bundle exec rake` will do the following:
+
+1. Run RuboCop with autocorrections turned on
+2. Run the full spec suite without Spring and will calculate test coverage
+3. Perform a local CodeClimate analysis if you have docker installed and the CodeClimate image downloaded
