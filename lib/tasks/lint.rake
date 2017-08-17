@@ -9,4 +9,12 @@ namespace :lint do
       CodeClimateCli.give_install_instructions
     end
   end
+
+  namespace :rubocop do
+    task :autocorrect do
+      puts "\n"
+      system 'rubocop --auto-correct'
+      puts "\n"
+    end
+  end
 end
