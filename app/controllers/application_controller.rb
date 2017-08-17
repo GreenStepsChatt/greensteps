@@ -8,7 +8,6 @@ class ApplicationController < ActionController::Base
   def require_login
     return if user_signed_in?
     flash[:notice] = t('not_logged_in')
-    # flash[:alert] = 'You must be logged in to access this page'
     redirect_to root_path
   end
 end
