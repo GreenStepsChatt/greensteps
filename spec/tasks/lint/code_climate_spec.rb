@@ -10,7 +10,7 @@ RSpec.describe 'rake lint:codeclimate', type: :task do
 
   it 'performs a local CodeClimate analysis when the CLI is available' do
     allow(CodeClimateCli).to receive(:available?).and_return(true)
-    expect(CodeClimateCli).to receive(:run).with('analyze')
+    expect(CodeClimateCli).to receive(:run)
 
     task.execute
   end

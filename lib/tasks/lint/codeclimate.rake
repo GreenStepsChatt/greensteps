@@ -4,7 +4,7 @@ namespace :lint do
   desc 'Runs codeclimate cli if it is available'
   task :codeclimate do
     if CodeClimateCli.available?
-      CodeClimateCli.run('analyze')
+      CodeClimateCli.run
     else
       CodeClimateCli.give_install_instructions
     end
