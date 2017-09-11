@@ -11,6 +11,7 @@
   %body
     = render 'shared/appbar'
     = render 'shared/flash'
+
     %main{:class => "#{controller_name} #{action_name}"}= yield
     #medium_screen_indicator
     #large_screen_indicator
