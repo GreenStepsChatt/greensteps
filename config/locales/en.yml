@@ -22,7 +22,6 @@
 en:
   brand_name: "Brand Name"
   no_visitor_access: "Whoops, you must be signed in to do that."
-  not_logged_in: "You must be logged in to access this page"
   helpers:
     submit:
       create: "Save"

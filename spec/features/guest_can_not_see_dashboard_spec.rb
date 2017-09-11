@@ -5,6 +5,6 @@ RSpec.feature 'Dashboard', type: :feature do
     visit dashboards_show_path
 
     expect(page).to show :welcome_page
-    expect(page).to flash_message t('not_logged_in')
+    expect(page).to flash_message t('no_visitor_access')
   end
 end

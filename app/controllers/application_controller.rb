@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   def require_login
     return if user_signed_in?
-    flash[:alert] = t('not_logged_in')
+    flash[:alert] = t('no_visitor_access')
     redirect_to root_path
   end
 end
