@@ -1,4 +1,4 @@
-# An Intro to Autocato for Developers
+# An Intro to Greensteps for Developers
 
 ## Welcome
 Hi there! This project is just getting started. Currently, I just have basic user authentication set up (via Devise). I'd love your help with Developing this app! See the [contribution guidelines](CONTRIBUTING.md) for more information. You can check out the production version of this app at https://greensteps.herokuapp.com/.
