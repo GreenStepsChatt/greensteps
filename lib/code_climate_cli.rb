@@ -6,7 +6,7 @@ module CodeClimateCli
       system('docker image inspect codeclimate/codeclimate', out: File::NULL)
   end
 
-  def self.run(command)
+  def self.run
     system(<<~SHELL)
       docker run \
         --interactive --tty --rm \
@@ -14,7 +14,7 @@ module CodeClimateCli
         --volume "$PWD":/code \
         --volume /var/run/docker.sock:/var/run/docker.sock \
         --volume /tmp/cc:/tmp/cc \
-        codeclimate/codeclimate #{command}
+        codeclimate/codeclimate analyze
     SHELL
   end
 
