@@ -1,6 +1,22 @@
 # Contributing
 
-Here are some steps to open a pull request:
+## Special Issue Tags
+Issues might have one of two special tags:
+- **first-timers-only**: for developers who have never submitted a pull request
+  to **any** open source project
+- **great first issue**: beginner friendly; a typical beginner would go through
+quite a few of these before moving to more complex issues
+
+When I'm doing development, I'm always looking for small issues that are easy
+for new developers to tackle. Please try to respect these tags - it can be hard
+to come up with small, isolated issues like these and we want to make sure they
+are going to people of an appropriate skill level.
+
+That said, if these issues have been laying around for an extended period of
+time (like 1 month +), or other work is waiting for them to be completed, then
+it makes sense for more experienced developers to fix them.
+
+## Take the Following Steps to Open a PR
 
 1. Claim an issue by commenting on it (if one doesn't exist, open one).
 2. Fork and clone the repo.
