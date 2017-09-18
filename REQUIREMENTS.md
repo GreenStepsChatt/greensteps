@@ -34,7 +34,7 @@ a message will pop up saying I will get notification of my approved request).
   - sign up
   - link to Facebook page
 
-# Milestone 4
+## Milestone 4
 - Forum
 
 ## Stuff that can be handled by the existing website, for now
