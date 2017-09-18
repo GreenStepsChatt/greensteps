@@ -32,17 +32,12 @@ a message will pop up saying I will get notification of my approved request).
 - Trail raisers
   - Who are Trail raisers page
   - sign up
-  - link to forum
+  - link to Facebook page
+
+# Milestone 4
+- Forum
 
 ## Stuff that can be handled by the existing website, for now
 - Events page that shows upcoming clean up or fundraising events.
 - What’s new page that new projects, news, updates member of the month, ect.
 - Shop where you can buy our t-shirts, hats, trail raisers appeal.
-
-## Questions
-"*When you click on the forum, it will ask if you are a trail raiser member? NO:
-takes them to the sign up page to become trail raiser YES: asks them to enter
-code (tr2017) and then takes them to forum.*"
-  - Is the forum something that is already up or running, or is it another
-  feature you would like?
-  - What is the code tr2017?
