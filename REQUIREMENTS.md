@@ -1,15 +1,15 @@
 # Requirements
 
-## Milestone 1 - Minimum Viable Product
+## Milestone 1 (Minimum Viable Product)
 - [x] I sign in. I have a profile.
 - [ ] I enter how many bags I picked up and how many miles I walked.
 - [ ] There is a point system that meets the following requirements
   - [ ] Each bag is worth three points and every mile walked is worth one point.
   - [ ] Once I get 10 points, the app will then ask me if I want to redeem my
-  points now for a small prize or accumulate my points to 30 points for a
+  points now for a small prize or accumulate my points to 20 or 30 points for a
   larger prize.
-  - [ ] Once I redeem my points (either for 10 or 30), my app shows me a list of
-  prizes I can pick from.
+  - [ ] Once I redeem my points (either for 10, 20, or 30), my app shows me a
+  list of prizes I can pick from.
   - [ ] When a user picks a prize an admin is notified that they need to send it
   out
   - [ ] After a participant redeems their 10 or 30 points, their points are
