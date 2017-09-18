@@ -12,17 +12,3 @@ Once you have a copy of this project on your machine, you should run `bin/setup`
 
 1) run `bin/rspec` to make sure everything was installed properly
 2) start the server and explore the app
-
-## Where the Project is Headed
-We're ready to start with the following:
-- [x] Users can log a trash bag
-- [ ] Users can log miles (per hike/walk)
-- [ ] Admins can log in to an admin interface
-- [ ] Admins can define categories
-  - [ ] 10 points = category 1, 20 points = category 2, ...
-  - [ ] each category has an associated prize (or prize pool)
-- [ ] Trash bags are worth 3 points
-- [ ] One mile is worth 1 point
-- [ ] Each user's point total is updated when they log trash bags or miles
-- [ ] When a user's point total equals or surpasses a category level, they and an admin are notified via email
-- [ ] Customize the site's style
