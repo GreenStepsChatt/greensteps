@@ -1,11 +1,11 @@
 module PageObjects
   class DeedForm < Base
     def trash_bags=(number)
-      this.fill_in('Trash bags', with: number)
+      this.fill_in(User.human_attribute_name(:trash_bags), with: number)
     end
 
     def miles_walked=(number)
-      this.fill_in('Miles walked', with: number)
+      this.fill_in(User.human_attribute_name(:miles), with: number)
     end
 
     def submit

@@ -1,0 +1,6 @@
+en:
+  activerecord:
+    attributes:
+      deed:
+        trash_bags: 'Trash bags'
+        miles: 'Miles'
