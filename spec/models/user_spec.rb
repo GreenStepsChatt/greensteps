@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  it { should have_many :trash_bags }
+  it { should have_many :deeds }
 
   it { should respond_to :email }
   it { should respond_to :encrypted_password }
@@ -20,4 +20,28 @@ RSpec.describe User, type: :model do
   it { should validate_length_of(:password).is_at_least(6).is_at_most(128) }
   it { should allow_value('user@example.com').for(:email) }
   it { should_not allow_values('user', 'user@', '@example.com').for(:email) }
+
+  describe '.total_trash_bags' do
+    it 'should give the total number of trash bags the user has collected' do
+      user = create :user
+
+      [1, 2, 3].each do |num_bags|
+        user.deeds << create(:deed, trash_bags: num_bags)
+      end
+
+      expect(user.total_trash_bags).to eq 6
+    end
+  end
+
+  describe '.total_miles' do
+    it 'should give the total number of miles the user has walked' do
+      user = create :user
+
+      [1, 2, 3].each do |num_bags|
+        user.deeds << create(:deed, trash_bags: num_bags)
+      end
+
+      expect(user.total_trash_bags).to eq 6
+    end
+  end
 end

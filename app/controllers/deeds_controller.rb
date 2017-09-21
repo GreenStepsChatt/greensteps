@@ -1,8 +1,10 @@
-class TrashBagsController < ApplicationController
-  expose :trash_bag, scope: -> { current_user.trash_bags }
+class DeedsController < ApplicationController
+  expose :deed, scope: -> { current_user.deeds }
+
+  def new; end
 
   def create
-    if trash_bag.save
+    if deed.save
       flash[:notice] = t('.success')
     else
       # TODO: Add spec for this. There shouldn't be a way for save to fail yet,
@@ -10,5 +12,11 @@ class TrashBagsController < ApplicationController
       flash[:alert] = t('.failure')
     end
     render 'dashboards/show'
+  end
+
+  private
+
+  def deed_params
+    params.require(:deed).permit(:trash_bags, :miles)
   end
 end

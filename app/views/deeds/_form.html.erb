@@ -1,0 +1,9 @@
+<%= form_for deed do |f| %>
+  <%= f.label :trash_bags %>
+  <%= f.number_field :trash_bags, min: 1, step: 1 %>
+
+  <%= f.label :miles, 'Miles walked' %>
+  <%= f.number_field :miles, min: 1, step: 1 %>
+
+  <%= f.submit %>
+<% end %>
