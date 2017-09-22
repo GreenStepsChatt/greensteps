@@ -1,6 +1,12 @@
 <article class="dashboard">
   <section class="stats">
-    <h2>Your Stats</h2>
+    <header>
+      <h2>Your Stats</h2>
+      <%= link_to new_deed_path, class: 'add' do %>
+        <%= fa_icon 'plus' %>
+      <% end %>
+    </header>
+
     <section class="trash_bags">
       <div class="count">
         <%= pluralize(
@@ -18,9 +24,5 @@
         ) %>
       </div>
     </section>
-
-    <%= link_to new_deed_path, class: 'add' do %>
-      <%= fa_icon 'plus' %>
-    <% end %>
   </section>
 </article>
