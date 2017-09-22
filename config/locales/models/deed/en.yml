@@ -4,3 +4,7 @@ en:
       deed:
         trash_bags: 'Trash bags'
         miles: 'Miles'
+    errors:
+      models:
+        deed:
+          nothing_was_done: 'You must log at least one mile or trash bag.'
