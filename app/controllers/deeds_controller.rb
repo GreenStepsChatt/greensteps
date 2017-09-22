@@ -6,10 +6,10 @@ class DeedsController < ApplicationController
   def create
     if deed.save
       flash[:notice] = t('.success')
+      redirect_to dashboards_show_path
     else
-      flash[:alert] = t('.failure')
+      render 'new'
     end
-    render 'dashboards/show'
   end
 
   private
