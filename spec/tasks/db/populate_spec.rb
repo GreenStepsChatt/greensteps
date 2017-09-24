@@ -2,7 +2,6 @@ require 'rails_helper'
 
 RSpec.describe 'rake db:populate', type: :task do
   before(:all) do
-    DatabaseCleaner.start
     Rake::Task['db:populate'].execute
   end
 
