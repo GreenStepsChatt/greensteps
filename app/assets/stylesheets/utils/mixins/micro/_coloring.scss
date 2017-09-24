@@ -1,0 +1,8 @@
+@mixin bg-color-with-computed-text-color($color) {
+  background-color: $color;
+  color: text-color-for($color);
+}
+
+@mixin error-coloring {
+  @include bg-color-with-computed-text-color(palette(Red));
+}

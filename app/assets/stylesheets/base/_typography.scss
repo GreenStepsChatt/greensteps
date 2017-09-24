@@ -17,6 +17,11 @@ h6 {
   margin: 0 0 $small-spacing;
 }
 
+h1 { font-size: modular-scale(3) }
+h2 { font-size: modular-scale(2) }
+h3 { font-size: modular-scale(1)  }
+h4, h5, h6 { font-size: modular-scale(0) }
+
 p {
   margin: 0 0 $small-spacing;
 }

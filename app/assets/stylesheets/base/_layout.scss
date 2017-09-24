@@ -19,9 +19,5 @@ body {
 }
 
 main {
-  margin: $small-spacing;
-
-  @media (min-width: $medium-screen) {
-    margin: $base-spacing;
-  }
+  margin: $base-spacing;
 }

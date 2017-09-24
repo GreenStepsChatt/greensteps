@@ -11,8 +11,7 @@
   }
 
   &.alert {
-    background-color: palette(Red);
-    color: text-color-for(palette(Red));
+    @include error-coloring;
 
     button {
       @include button-color(palette(Red, 800));
@@ -20,8 +19,7 @@
   }
 
   &.notice {
-    background-color: palette(Green);
-    color: text-color-for(palette(Green));
+    @include bg-color-with-computed-text-color(palette(Green));
 
     button {
       @include button-color(palette(Green, 700));
@@ -29,8 +27,7 @@
   }
 
   &.warning {
-    background-color: palette(Yellow);
-    color: text-color-for(palette(Yellow));
+    @include bg-color-with-computed-text-color(palette(Yellow));
 
     button {
       @include button-color(palette(Yellow, 700));
