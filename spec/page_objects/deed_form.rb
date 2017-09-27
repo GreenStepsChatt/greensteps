@@ -1,0 +1,19 @@
+module PageObjects
+  class DeedForm < Base
+    def trash_bags=(number)
+      this.fill_in(User.human_attribute_name(:trash_bags), with: number)
+    end
+
+    def miles_walked=(number)
+      this.fill_in(User.human_attribute_name(:miles), with: number)
+    end
+
+    def submit
+      this.click_on t('helpers.submit.create')
+    end
+
+    def selector
+      '#new_deed'
+    end
+  end
+end

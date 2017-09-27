@@ -4,15 +4,13 @@
     @include compact-button;
   }
 
-  .trash_bags {
+  header {
     display: flex;
+    align-items: baseline;
     justify-content: space-between;
-    margin: 0 auto;
-    max-width: 15em;
+  }
 
-    @media all and (min-width: $medium-screen) {
-      margin: 0;
-      margin-left: $base-spacing;
-    }
+  .stats {
+    max-width: 14em;
   }
 }

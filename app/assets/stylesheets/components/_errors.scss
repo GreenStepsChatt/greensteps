@@ -1,9 +1,9 @@
-#error_explanation {
-  color: palette(Red);
+.error_explanation {
+  @include error-coloring;
   margin-bottom: $small-spacing;
+  padding: $small-spacing;
 
-  h2 {
-    font-size: modular-scale(0);
+  h3 {
     margin-bottom: $tiny-spacing;
   }
 

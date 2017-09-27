@@ -62,8 +62,8 @@ gem 'capybara', group: %i[development test]
 gem 'database_cleaner', group: :test
 gem 'decent_exposure'
 gem 'devise'
-gem 'factory_girl_rails', group: %i[development test]
-gem 'faker', group: %i[development test]
+gem 'factory_girl_rails' # need in production b/c use for sample data in staging
+gem 'faker' # ditto above
 gem 'font-awesome-rails'
 gem 'guard-rspec', require: false, group: :development
 gem 'haml-rails'
