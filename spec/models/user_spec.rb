@@ -44,4 +44,24 @@ RSpec.describe User, type: :model do
       expect(user.total_trash_bags).to eq 6
     end
   end
+
+  describe 'with deeds' do
+    let(:user) { create(:user, :with_deeds) }
+
+    describe '.total_points' do
+      it 'returns the sum of trash_points and mile_points' do
+        expect(user.total_points).to eq(user.trash_points + user.mile_points)
+      end
+    end
+    describe '.trash_points' do
+      it 'returns 3 points for every trash bag' do
+        expect(user.trash_points).to eq(user.total_trash_bags * 3)
+      end
+    end
+    describe '.mile_points' do
+      it 'returns 1 point for every mile walked' do
+        expect(user.mile_points).to eq user.total_miles
+      end
+    end
+  end
 end

@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :deeds
+  validates_associated :deeds
 
   def total_trash_bags
     deeds.sum(:trash_bags)
@@ -7,6 +8,18 @@ class User < ApplicationRecord
 
   def total_miles
     deeds.sum(:miles)
+  end
+
+  def total_points
+    trash_points + mile_points
+  end
+
+  def trash_points
+    total_trash_bags * 3
+  end
+
+  def mile_points
+    total_miles
   end
 
   # Include default devise modules. Others available are:
