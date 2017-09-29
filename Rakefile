@@ -10,7 +10,6 @@ Rake::Task[:default].clear if Rake::Task.task_defined?(:default)
 
 task default: [
   'lint:rubocop:autocorrect',
-  'lint:factory_girl',
   :spec,
   'lint:codeclimate'
 ]
