@@ -3,7 +3,7 @@
 ## Special Issue Tags
 Issues might have one of two special tags:
 - **first-timers-only**: for developers who have never submitted a pull request
-  to **any** open source project
+  to an open source project
 - **beginner-friendly**: like it sounds; a typical beginner would go through
 quite a few of these before moving to more complex issues
 
