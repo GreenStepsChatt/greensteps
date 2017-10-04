@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+    <title>Greensteps</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+    <%= render 'shared/appbar' %>
+    <%= render 'shared/flash' %>
+    <main class="<%= controller_name %> <%= action_name %>">
+      <%= yield %>
+    </main>
+    <div id="medium_screen_indicator"></div>
+    <div id="large_screen_indicator"></div>
+  </body>
+</html>
+
