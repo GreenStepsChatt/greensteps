@@ -1,9 +1,0 @@
-%article#site_description
-  %h1= t('.greeting')
-  %p
-    Put brief site description here.
-
-- unless user_signed_in?
-  %article#site_entry
-    = render 'devise/registrations/form'
-    = render 'devise/sessions/form'
