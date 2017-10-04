@@ -1,0 +1,16 @@
+<article id="sign_up">
+  <header>
+    <h2>
+      <%= t '.header' %>
+    </h2>
+  </header>
+  <%= form_for :user, url: user_registration_path, html: { id: 'new_user_registration' } do |form| %>
+    <%= form.label :email, t('.email') %>
+    <%= form.email_field :email, autofocus: true %>
+    <%= form.label :password, t('.password') %>
+    <%= form.password_field :password, autocomplete: 'off' %>
+    <%= form.label :password_confirmation, t('.password_confirmation') %>
+    <%= form.password_field :password_confirmation, autocomplete: 'off' %>
+    <%= form.submit t('.submit') %>
+  <% end %>
+</article>
