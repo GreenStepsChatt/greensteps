@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.4.1'
+ruby '2.4.2'
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?('/')
@@ -28,18 +28,29 @@ gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
-# Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 3.0'
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
 
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+gem 'bitters'
+gem 'bourbon'
+gem 'decent_exposure'
+gem 'devise'
+gem 'factory_girl_rails' # need in production b/c use for sample data in staging
+gem 'faker' # ditto above
+gem 'font-awesome-rails'
+gem 'haml-rails'
+gem 'jquery-ui-rails'
+gem 'pry'
+gem 'record_tag_helper'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger
   # console
   gem 'byebug', platform: :mri
+  gem 'capybara'
+  gem 'guard-rspec', require: false
+  gem 'rails-controller-testing'
+  gem 'rspec-rails', '~> 3.6'
+  gem 'rubocop', '~> 0.49.1', require: false
+  gem 'shoulda-matchers'
 end
 
 group :development do
@@ -53,29 +64,14 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
+group :test do
+  gem 'database_cleaner'
+  gem 'launchy'
+  gem 'poltergeist'
+  gem 'simplecov', require: false
+  gem 'spring-commands-rspec'
+  gem 'webmock', group: :test
+end
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
-
-gem 'bitters'
-gem 'bourbon'
-gem 'capybara', group: %i[development test]
-gem 'database_cleaner', group: :test
-gem 'decent_exposure'
-gem 'devise'
-gem 'factory_girl_rails' # need in production b/c use for sample data in staging
-gem 'faker' # ditto above
-gem 'font-awesome-rails'
-gem 'guard-rspec', require: false, group: :development
-gem 'haml-rails'
-gem 'jquery-ui-rails'
-gem 'launchy', group: :test
-gem 'poltergeist', group: :test
-gem 'pry'
-gem 'rails-controller-testing', group: :test
-gem 'record_tag_helper'
-gem 'rspec-rails', '~> 3.6', group: %i[development test]
-gem 'rubocop', '~> 0.49.1', require: false, group: %i[development test]
-gem 'shoulda-matchers', group: :test
-gem 'simplecov', require: false, group: :test
-gem 'spring-commands-rspec', group: :test
-gem 'webmock', group: :test

@@ -19,14 +19,15 @@ default: &default
   encoding: unicode
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
-  pool: <%= ENV.fetch("DEVELOPMENT_RAILS_MAX_THREADS") { 5 } %>
-  host: <%= ENV["DEVELOPMENT_DATABASE_HOST"] || 'postgres' %>
-  username: <%= ENV["DEVELOPMENT_DATABASE_USERNAME"] || 'postgres' %>
-  password: <%= ENV["DEVELOPMENT_DATABASE_PASSWORD"] || 'password' %>
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  host: <%= ENV["DATABASE_HOST"] || 'postgres' %>
+  port: <%= ENV["DATABASE_PORT"] || 5432 %>
 
 development:
   <<: *default
   database: greensteps_development
+  username: <%= ENV["DEVELOPMENT_DATABASE_USERNAME"] || 'postgres' %>
+  password: <%= ENV["DEVELOPMENT_DATABASE_PASSWORD"] || 'development_password' %>
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -61,6 +62,8 @@ development:
 test:
   <<: *default
   database: greensteps_test
+  username: <%= ENV["TEST_DATABASE_USERNAME"] || 'postgres' %>
+  password: <%= ENV["TEST_DATABASE_PASSWORD"] || 'test_password' %>
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -85,5 +88,6 @@ production:
   <<: *default
   database: greensteps_production
   host: <%= ENV["PRODUCTION_DATABASE_HOST"] %>
+  port: <%= ENV["PRODUCTION_DATABASE_PORT"] %>
   username: <%= ENV["PRODUCTION_DATABASE_USERNAME"] %>
   password: <%= ENV["PRODUCTION_DATABASE_PASSWORD"] %>

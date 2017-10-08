@@ -23,3 +23,9 @@ mkmf.log
 # Ignore config/database.yml file & .env variables
 /config/database.yml
 .env
+
+# Ignore docker-compose.override file
+docker-compose.override.yml
+
+# Ignore postgres data inside docker
+/docker/containers/postgres/data
