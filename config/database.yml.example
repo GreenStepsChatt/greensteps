@@ -19,7 +19,10 @@ default: &default
   encoding: unicode
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  pool: <%= ENV.fetch("DEVELOPMENT_RAILS_MAX_THREADS") { 5 } %>
+  host: <%= ENV["DEVELOPMENT_DATABASE_HOST"] || 'postgres' %>
+  username: <%= ENV["DEVELOPMENT_DATABASE_USERNAME"] || 'postgres' %>
+  password: <%= ENV["DEVELOPMENT_DATABASE_PASSWORD"] || 'password' %>
 
 development:
   <<: *default
@@ -81,5 +84,6 @@ test:
 production:
   <<: *default
   database: greensteps_production
-  username: greensteps
-  password: <%= ENV['GREENSTEPS_DATABASE_PASSWORD'] %>
+  host: <%= ENV["PRODUCTION_DATABASE_HOST"] %>
+  username: <%= ENV["PRODUCTION_DATABASE_USERNAME"] %>
+  password: <%= ENV["PRODUCTION_DATABASE_PASSWORD"] %>
