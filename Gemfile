@@ -73,6 +73,7 @@ gem 'poltergeist', group: :test
 gem 'pry'
 gem 'rails-controller-testing', group: :test
 gem 'record_tag_helper'
+gem 'rolify'
 gem 'rspec-rails', '~> 3.6', group: %i[development test]
 gem 'rubocop', '~> 0.49.1', require: false, group: %i[development test]
 gem 'shoulda-matchers', group: :test

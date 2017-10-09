@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   it { should have_many :deeds }
+  it { should have_and_belong_to_many :roles }
 
   it { should respond_to :email }
   it { should respond_to :encrypted_password }
