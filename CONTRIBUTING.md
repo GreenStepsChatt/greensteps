@@ -1,11 +1,12 @@
 # Contributing
 
 ## Special Issue Tags
-Issues might have one of two special tags:
+Issues might have one of three special tags:
 - **first-timers-only**: for developers who have never submitted a pull request
   to an open source project
 - **beginner-friendly**: like it sounds; a typical beginner would go through
 quite a few of these before moving to more complex issues
+- **ready**: it is ready for someone to start working on making the changes
 
 ## Take the Following Steps to Open a PR
 
