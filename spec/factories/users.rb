@@ -3,6 +3,10 @@ FactoryGirl.define do
     "user#{n}@example.com"
   end
 
+  sequence :admin_email do |n|
+    "admin#{n}@example.com"
+  end
+
   factory :user do
     email { generate(:email) }
     password 'password'
@@ -17,6 +21,11 @@ FactoryGirl.define do
 
     trait :with_one_deed do
       after(:create) { |user| user.deeds.create(attributes_for(:sample_deed)) }
+    end
+
+    factory :admin do
+      email { generate(:admin_email) }
+      after(:build) { |user| user.add_role :admin }
     end
   end
 end

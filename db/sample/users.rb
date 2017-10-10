@@ -7,3 +7,6 @@ FactoryGirl.create_list :user, 15, :with_one_deed
 
 # these are the consistent users
 FactoryGirl.create_list :user, 5, :with_deeds
+
+# users with admin privelidges
+FactoryGirl.create_list :admin, 3

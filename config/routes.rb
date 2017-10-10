@@ -9,5 +9,10 @@ Rails.application.routes.draw do
   resources :deeds, only: [:new, :create]
 
   get 'dashboard', to: 'dashboards#show', as: :user_root
+
+  namespace :admin do
+    get 'dashboards/show'
+  end
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
