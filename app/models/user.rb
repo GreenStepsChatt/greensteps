@@ -15,7 +15,7 @@ class User < ApplicationRecord
   end
 
   def trash_points
-    total_trash_bags * 3
+    total_trash_bags * 4
   end
 
   def mile_points
