@@ -66,7 +66,6 @@ gem 'factory_girl_rails' # need in production b/c use for sample data in staging
 gem 'faker' # ditto above
 gem 'font-awesome-rails'
 gem 'guard-rspec', require: false, group: :development
-gem 'haml-rails'
 gem 'jquery-ui-rails'
 gem 'launchy', group: :test
 gem 'poltergeist', group: :test

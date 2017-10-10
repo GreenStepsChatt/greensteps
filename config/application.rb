@@ -27,11 +27,12 @@ module Greensteps
       Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
 
     config.generators do |g|
-      g.stylesheets false
-      g.javascripts false
-      g.helper false
-      g.view_specs false
-      g.jbuilder false
+      g.template_engine :erb
+      g.stylesheets     false
+      g.javascripts     false
+      g.helper          false
+      g.view_specs      false
+      g.jbuilder        false
     end
 
     # Settings in config/environments/* take precedence over those specified here.
