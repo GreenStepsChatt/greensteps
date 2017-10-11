@@ -5,7 +5,6 @@ class AdminController < ApplicationController
 
   def ensure_admin
     return if current_user.has_role? :admin
-    flash[:alert] = t('restricted_to_admins')
-    redirect_back fallback_location: root_path
+    redirect_back fallback_location: root_path, alert: t('restricted_to_admins')
   end
 end
