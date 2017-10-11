@@ -18,11 +18,13 @@ quite a few of these before moving to more complex issues
 6. Make your changes.
 7. Make sure your specs pass and that RuboCop doesn't report any new issues.
 8. Push to your fork and submit a pull request. Include the issue number in the
-   PR description (e.g. "Resolves #19").
+   PR description (e.g. "Resolves #19").*
 
 Once you've submitted a PR, Heroku will create a review app with your code which
 you can access at https://greensteps-pr-###.herokuapp.com/ (replace ### with
 your PR number).
+
+*NOTE: In order for Heroku to create and update your PR app, please make your pull request against a feature branch, NOT your master branch. Any changes made to PR's against master will not result in an update to your PR application on heroku.
 
 ## Running Specs
 
