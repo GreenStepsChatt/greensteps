@@ -24,7 +24,7 @@ Once you've submitted a PR, Heroku will create a review app with your code which
 you can access at https://greensteps-pr-###.herokuapp.com/ (replace ### with
 your PR number).
 
-*NOTE: In order for Heroku to create and update your PR app, please make your pull request against a feature branch, NOT your master branch. Any changes made to PR's against master will not result in an update to your PR application on heroku.
+*NOTE: In order for Heroku to create and update your PR app you need to open a pull request from a feature branch in your fork against the master branch in the this repo.
 
 ## Running Specs
 
