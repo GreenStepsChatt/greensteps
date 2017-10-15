@@ -14,7 +14,6 @@ gem 'devise'
 gem 'factory_girl_rails'
 gem 'faker'
 gem 'font-awesome-rails'
-gem 'haml-rails'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
@@ -50,4 +49,3 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
 end
-
