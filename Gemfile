@@ -11,12 +11,15 @@ gem 'bourbon'
 gem 'coffee-rails', '~> 4.2'
 gem 'decent_exposure'
 gem 'devise'
+gem 'factory_girl_rails'
+gem 'faker'
 gem 'font-awesome-rails'
 gem 'haml-rails'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'pg', '~> 0.18'
+gem 'pry'
 gem 'puma', '~> 3.0'
 gem 'rails', '~> 5.0.4'
 gem 'record_tag_helper'
@@ -28,10 +31,6 @@ gem 'uglifier', '>= 1.3.0'
 group :development, :test do
   gem 'byebug', platform: :mri
   gem 'capybara'
-  gem 'factory_girl_rails'
-  gem 'faker'
-  gem 'guard-rspec', require: false
-  gem 'pry'
   gem 'rails-controller-testing'
   gem 'rspec-rails', '~> 3.6'
   gem 'rubocop', '~> 0.49.1', require: false
@@ -39,8 +38,10 @@ group :development, :test do
 end
 
 group :development do
+  gem 'guard-rspec', require: false
   gem 'listen', '~> 3.0.5'
   gem 'spring'
+  gem 'spring-commands-rspec'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
 end
@@ -50,6 +51,5 @@ group :test do
   gem 'launchy'
   gem 'poltergeist'
   gem 'simplecov', require: false
-  gem 'spring-commands-rspec'
   gem 'webmock'
 end
