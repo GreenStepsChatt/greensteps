@@ -23,6 +23,7 @@ gem 'pry'
 gem 'puma', '~> 3.0'
 gem 'rails', '~> 5.0.4'
 gem 'record_tag_helper'
+gem 'rolify'
 gem 'sass-rails', '~> 5.0'
 gem 'turbolinks', '~> 5'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
@@ -31,10 +32,8 @@ gem 'uglifier', '>= 1.3.0'
 group :development, :test do
   gem 'byebug', platform: :mri
   gem 'capybara'
-  gem 'rails-controller-testing'
   gem 'rspec-rails', '~> 3.6'
   gem 'rubocop', '~> 0.49.1', require: false
-  gem 'shoulda-matchers'
 end
 
 group :development do
@@ -50,6 +49,8 @@ group :test do
   gem 'database_cleaner'
   gem 'launchy'
   gem 'poltergeist'
+  gem 'rails-controller-testing'
+  gem 'shoulda-matchers'
   gem 'simplecov', require: false
   gem 'webmock'
 end

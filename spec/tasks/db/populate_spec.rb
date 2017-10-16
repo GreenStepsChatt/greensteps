@@ -15,7 +15,11 @@ RSpec.describe 'rake db:populate', type: :task do
   end
 
   it 'adds 50 users to the database' do
-    expect(User.count).to eq 50
+    expect(User.without_role(:admin).count).to eq 50
+  end
+
+  it 'adds 3 admins to the database' do
+    expect(User.with_role(:admin).count).to eq 3
   end
 
   it 'creates a random number of deeds for some user' do
