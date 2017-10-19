@@ -6,26 +6,18 @@ $(document).on 'turbolinks:load', ->
       <div class="quantity-button quantity-down">-</div></div>')
         .insertAfter(input)
     nav = input.next('.quantity-nav')
-    btnUp = nav.find('.quantity-up')
-    btnDown = nav.find('.quantity-down')
+    btns = nav.find('.quantity-button')
     min = input.attr('min')
     max = input.attr('max')
-    btnUp.click ->
-      oldValue = parseFloat(input.val())
-      if oldValue >= max
-        newVal = oldValue
-      else
-        newVal = oldValue + 1
-      input.val newVal
-      input.trigger 'change'
-      return
-    btnDown.click ->
-      oldValue = parseFloat(input.val())
-      if oldValue <= min
-        newVal = oldValue
-      else
-        newVal = oldValue - 1
-      input.val newVal
-      input.trigger 'change'
-      return
+    btns.each ->
+      this.addEventListener 'click', (e) =>
+        operator = e.target.innerHTML
+        oldValue = parseFloat(input.val())
+        if oldValue >= max && operator == '+' || oldValue <= min && operator == '-'
+          newVal = oldValue
+        else
+          newVal = eval(oldValue + operator + 1)
+        input.val newVal
+        input.trigger 'change'
+        return
     return
