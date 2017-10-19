@@ -6,13 +6,13 @@ $(document).on 'turbolinks:load', ->
     min = input.attr('min')
     max = input.attr('max')
     btns.each ->
-      this.addEventListener 'click', (event) =>
+      this.addEventListener 'click', (event) ->
         operator = event.target.innerHTML
-        oldValue = parseFloat(input.val())
-        if oldValue >= max && operator == '+' || oldValue <= min && operator == '-'
+        oldVal = parseFloat(input.val())
+        if oldVal >= max && operator == '+' || oldVal <= min && operator == '-'
           newVal = oldValue
         else
-          newVal = eval(oldValue + operator + 1)
+          newVal = eval(oldVal + operator + 1)
         input.val newVal
         input.trigger 'change'
         return
