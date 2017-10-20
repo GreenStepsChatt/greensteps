@@ -19,8 +19,8 @@ RSpec.describe DeviseHelper, type: :helper do
     end
 
     it 'returns h3 error message header' do
-      header = '<h3>2 errors prohibited this modelname from being saved:</h3>'
-      expect(helper.devise_error_messages!).to include(header)
+      header_regex = Regexp.new('<h3>.*</h3>')
+      expect(helper.devise_error_messages!).to match(header_regex)
     end
 
     it 'returns list of error messages' do
@@ -31,6 +31,10 @@ RSpec.describe DeviseHelper, type: :helper do
     it 'returns div with error_explanation as id' do
       div = '<div id="error_explanation">'
       expect(helper.devise_error_messages!).to include(div)
+    end
+
+    it 'returns html safe string' do
+      expect(helper.devise_error_messages!.html_safe?).to be(true)
     end
   end
 end
