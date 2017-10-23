@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resource 'prizes', only: [:new, :create]
+
   get 'dashboards/show'
 
   root to: 'welcome#index'

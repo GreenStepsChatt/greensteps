@@ -1,0 +1,2 @@
+class Prize < ApplicationRecord
+end

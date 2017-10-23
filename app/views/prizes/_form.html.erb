@@ -1,0 +1,14 @@
+<%= form_for prize do |f| %>
+  <%= render 'shared/errors', record: prize %>
+
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :quantity %>
+  <%= f.number_field :quantity, min: 0, step: 1 %>
+
+  <%= f.label :cost %>
+  <%= f.number_field :cost, min: 0, step: 1 %>
+
+  <%= f.submit %>
+<% end %>
