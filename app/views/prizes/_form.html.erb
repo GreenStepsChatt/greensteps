@@ -2,13 +2,13 @@
   <%= render 'shared/errors', record: prize %>
 
   <%= f.label :title %>
-  <%= f.text_field :title %>
+  <%= f.text_field :title, required: true %>
 
   <%= f.label :quantity %>
-  <%= f.number_field :quantity, min: 0, step: 1 %>
+  <%= f.number_field :quantity, min: 0, step: 1, required: true %>
 
   <%= f.label :cost %>
-  <%= f.number_field :cost, min: 0, step: 1 %>
+  <%= f.number_field :cost, min: 0, step: 1, required: true %>
 
   <%= f.submit %>
 <% end %>
