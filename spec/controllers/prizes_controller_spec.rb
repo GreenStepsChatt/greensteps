@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe PrizesController, type: :controller do
-  describe "POST #create" do
+  describe 'POST #create' do
     context 'invalid prize' do
       it 're-renders the form' do
         sign_in create(:admin)
