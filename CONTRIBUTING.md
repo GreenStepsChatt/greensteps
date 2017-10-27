@@ -16,10 +16,11 @@ setup](DEVELOPMENT_SETUP.md) instructions.
 2. Fork and clone the repo.
 3. Run `bin/setup`.
 4. Run the specs and make sure everything passes (see below).
-5. Add one or more specs for your changes.
-6. Make your changes.
-7. Make sure your specs pass and that RuboCop doesn't report any new issues.
-8. Push to your fork and submit a pull request. Include the issue number in the
+5. Create a branch to work on.
+6. Add one or more specs for your changes.
+7. Make your changes.
+8. Make sure your specs pass and that RuboCop doesn't report any new issues.
+9. Push to your fork and submit a pull request. Include the issue number in the
    PR description (e.g. "Resolves #19").
 
 Once you've submitted a PR, Heroku will create a review app with your code which
