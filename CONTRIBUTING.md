@@ -23,10 +23,6 @@ setup](DEVELOPMENT_SETUP.md) instructions.
 9. Push to your fork and submit a pull request. Include the issue number in the
    PR description (e.g. "Resolves #19").
 
-Once you've submitted a PR, Heroku will create a review app with your code which
-you can access at https://greensteps-pr-###.herokuapp.com/ (replace ### with
-your PR number).
-
 ## Running Specs
 
 We've set up two main ways to run specs...
