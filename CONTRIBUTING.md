@@ -9,6 +9,8 @@ quite a few of these before moving to more complex issues
 - **ready**: it is ready for someone to start working on making the changes
 
 ## Take the Following Steps to Open a PR
+If you haven't already done so, please read our [development
+setup](DEVELOPMENT_SETUP.md) instructions.
 
 1. Claim an issue by commenting on it (if one doesn't exist, open one).
 2. Fork and clone the repo.
