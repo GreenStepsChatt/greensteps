@@ -15,8 +15,8 @@ let us know what you need!
 
 ### Examples Low Priority Pull Requests
 If a pull request isn't aligned with this project's priorities or doesn't follow
-established processes, it might not be accepted, or might not be reviewed as
-quickly as other pull requests. Here are some examples:
+established processes, it might be closed with out merging. Here are some
+examples:
 - **PRs that do not address an existing issue.** If you find a bug or think
 a feature should be implemented, we encourage you to submit an issue. After the
 issue is opened, we'll discuss the issue's priority and this will help us decide
@@ -41,9 +41,11 @@ setup](DEVELOPMENT_SETUP.md) instructions.
 5. Create a branch to work on.
 6. Add one or more specs for your changes.
 7. Make your changes.
-8. Make sure your specs pass and that RuboCop doesn't report any new issues.
-9. Push to your fork and submit a pull request. Include the issue number in the
-   PR description (e.g. "Resolves #19").
+8. Run `bundle exec rake` and make sure your specs pass and that RuboCop doesn't
+   report any issues.
+9. Push to your fork and submit a pull request. Include a [closing
+   keyword](https://help.github.com/articles/closing-issues-using-keywords/) and
+   then the issue number in the PR description (e.g. "Resolves #19").
 
 ## Running Specs
 

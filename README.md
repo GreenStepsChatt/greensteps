@@ -6,7 +6,7 @@ minimum viable product (MVP) by December 2017. For more details on what we're
 planning to have in the MVP, checkout the [project
 requirements](REQUIREMENTS.md).
 
-We'd love your help with developing this app! See the [contribution
+We'd love your help with this project! See the [contribution
 guidelines](CONTRIBUTING.md) for more information.
 
 ## Explore the App
