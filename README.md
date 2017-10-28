@@ -23,3 +23,12 @@ Conduct](CODE_OF_CONDUCT.md).
 Also, please keep in mind that our current focus is on developing a minimum
 viable product. Pull requests that are focused on this will be prioritized.
 Thank you (in advance :slightly_smiling_face:) for understanding!
+
+## Who's Who
+[Amanda Dolan](amandacrawfordalc@gmail.com) is the project maintainer. Feel free
+to contact her with questions or concerns!
+
+[Alyssa Grizenko\`](
+alyssandra@greenstepschatt.com) is the founder of Greensteps. She'll be opening
+issues but has no coding background, so keep this in mind and be nice when
+commenting on her issues :slightly_smiling_face:.
