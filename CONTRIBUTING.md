@@ -47,6 +47,10 @@ setup](DEVELOPMENT_SETUP.md) instructions.
    keyword](https://help.github.com/articles/closing-issues-using-keywords/) and
    then the issue number in the PR description (e.g. "Resolves #19").
 
+\*NOTE: In order for Heroku to update your PR app as you add commits, you need
+to open a pull request from a feature branch in your fork against the master
+branch in the this repo.
+
 ## Running Specs
 
 We've set up two main ways to run specs...
