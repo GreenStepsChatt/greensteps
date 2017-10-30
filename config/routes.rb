@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  resource 'prizes', only: [:new, :create]
-
   get 'dashboards/show'
 
   root to: 'welcome#index'
@@ -15,6 +13,8 @@ Rails.application.routes.draw do
   namespace :admin do
     get 'dashboards/show'
   end
+
+  resource 'prizes', only: [:new, :create]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

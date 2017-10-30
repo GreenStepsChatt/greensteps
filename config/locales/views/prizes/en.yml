@@ -3,4 +3,4 @@ en:
     new:
       header: "New Prize"
     create:
-      success: "Prize successfully logged!"
+      success: "Prize successfully created!"

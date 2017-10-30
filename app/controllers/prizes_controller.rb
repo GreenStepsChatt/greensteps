@@ -5,8 +5,7 @@ class PrizesController < ApplicationController
 
   def create
     if prize.save
-      flash[:notice] = t('.success')
-      redirect_to admin_dashboards_show_path
+      redirect_to admin_dashboards_show_path, notice: t('.success')
     else
       render 'new'
     end
