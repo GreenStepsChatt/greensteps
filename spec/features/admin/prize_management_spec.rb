@@ -5,7 +5,7 @@ RSpec.describe 'Prize management', type: :feature do
     stubbed_login_as create(:admin)
 
     appbar.open_drawer
-    click_on t('shared.appbar.admin_dashboard')
+    nav_drawer.open_admin_dashboard
     admin_dashboard.add_prize
     prize_form.title = 'Two free drinks at the brew pub'
     prize_form.quantity = 15
