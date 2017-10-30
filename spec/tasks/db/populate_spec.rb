@@ -22,6 +22,10 @@ RSpec.describe 'rake db:populate', type: :task do
     expect(User.with_role(:admin).count).to eq 3
   end
 
+  it 'adds 5 prizes to the database' do
+    expect(Prize.count).to eq 5
+  end
+
   it 'creates a random number of deeds for some user' do
     expect(Deed.count).to be > 0
   end
