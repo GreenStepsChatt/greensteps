@@ -1,6 +1,6 @@
 FactoryGirl.define do
   # TODO: implement this via Faker (will need to add a module for this to Faker)
-  PRIZE_TITLES = [
+  PRIZE_TITLES ||= [
     "Two free drinks at local pub",
     "$20 gift card to REI",
     "Pack of 3 carabiners",
