@@ -1,17 +1,15 @@
-<article class="admin_dashboard">
-  <h2>Admin Dashboard</h2>
+<h2>Admin Dashboard</h2>
 
-  <section class="prize_management">
-    <h3>Prize Management</h3>
+<section class="prize_management">
+  <h3>Prize Management</h3>
 
-    <%= link_to new_prizes_path, class: 'add_prize' do %>
-      <%= fa_icon 'plus' %>
+  <%= link_to new_prizes_path, class: 'add_prize' do %>
+    <%= fa_icon 'plus' %>
+  <% end %>
+
+  <ul class="prizes">
+    <% prizes.each do |prize| %>
+      <li><%= prize.title %></li>
     <% end %>
-
-    <ul class="prizes">
-      <% prizes.each do |prize| %>
-        <li><%= prize.title %></li>
-      <% end %>
-    </ul>
-  </section>
-</article>
+  </ul>
+</section>
