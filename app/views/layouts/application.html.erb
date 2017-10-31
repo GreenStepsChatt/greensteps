@@ -12,11 +12,10 @@
   <body>
     <%= render 'shared/appbar' %>
     <%= render 'shared/flash' %>
-    <main class="<%= controller_name %> <%= action_name %>">
+    <main class="<%= css_classes_for_main %>">
       <%= yield %>
     </main>
     <div id="medium_screen_indicator"></div>
     <div id="large_screen_indicator"></div>
   </body>
 </html>
-
