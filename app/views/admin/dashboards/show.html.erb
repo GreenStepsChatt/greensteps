@@ -1,11 +1,14 @@
 <h2><%= t('.header') %></h2>
 
 <section class="prize_management">
-  <h3><%= t('.prize_management.header') %></h3>
+  <header>
+    <h3><%= t('.prize_management.header') %></h3>
 
-  <%= link_to new_prizes_path, class: 'add_prize' do %>
-    <%= fa_icon 'plus' %>
-  <% end %>
+    <%= link_to new_prizes_path, class: 'add_prize' do %>
+      <%= fa_icon('plus') %>
+      <%= t('.prize_management.add') %>
+    <% end %>
+  </header>
 
   <ul class="prizes">
     <% prizes.each do |prize| %>
