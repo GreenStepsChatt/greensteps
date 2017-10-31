@@ -13,7 +13,7 @@ module PageObjects
     end
 
     def selector
-      ':not(.admin).dashboards'
+      '.dashboards'
     end
   end
 end

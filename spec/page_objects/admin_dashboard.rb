@@ -5,7 +5,7 @@ module PageObjects
     end
 
     def selector
-      '.admin.dashboards'
+      '.admin-dashboards'
     end
   end
 end

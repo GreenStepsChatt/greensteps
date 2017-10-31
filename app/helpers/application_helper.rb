@@ -6,6 +6,6 @@ module ApplicationHelper
   end
 
   def css_classes_for_main
-    "#{controller_path.split('/').join(' ')} #{action_name}"
+    "#{controller_path.split('/').join('-')} #{action_name}"
   end
 end
