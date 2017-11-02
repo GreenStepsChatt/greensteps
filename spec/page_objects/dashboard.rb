@@ -13,7 +13,7 @@ module PageObjects
     end
 
     def selector
-      '.dashboard'
+      '.dashboards'
     end
   end
 end
