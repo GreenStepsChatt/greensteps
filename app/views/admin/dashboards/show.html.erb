@@ -1,3 +1,18 @@
-<article class="admin_dashboard">
-  <h2>Admin Dashboard</h2>
-</article>
+<h2><%= t('.header') %></h2>
+
+<section class="prize_management">
+  <header>
+    <h3><%= t('.prize_management.header') %></h3>
+
+    <%= link_to new_admin_prize_path, class: 'add_prize' do %>
+      <%= fa_icon('plus') %>
+      <%= t('.prize_management.add') %>
+    <% end %>
+  </header>
+
+  <ul class="prizes">
+    <% prizes.each do |prize| %>
+      <li><%= prize.title %></li>
+    <% end %>
+  </ul>
+</section>

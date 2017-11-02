@@ -1,0 +1,8 @@
+en:
+  admin:
+    dashboards:
+      show:
+        header: "Admin Dashboard"
+        prize_management:
+          header: "Prize Management"
+          add: "Add prize"
