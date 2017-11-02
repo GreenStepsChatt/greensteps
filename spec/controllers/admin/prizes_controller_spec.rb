@@ -1,6 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe PrizesController, type: :controller do
+RSpec.describe Admin::PrizesController, type: :controller do
+  it_should_behave_like 'an admin controller'
+
   describe 'POST #create' do
     context 'invalid prize' do
       it 're-renders the form' do

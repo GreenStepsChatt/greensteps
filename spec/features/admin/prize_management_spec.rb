@@ -12,7 +12,7 @@ RSpec.describe 'Prize management', type: :feature do
     prize_form.cost = 20
     prize_form.submit
 
-    expect(page).to flash_message t('prizes.create.success')
+    expect(page).to flash_message t('admin.prizes.create.success')
     expect(prize_list).to include 'Two free drinks'
   end
 end
