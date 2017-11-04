@@ -55,7 +55,7 @@ RSpec.describe User, type: :model do
     end
     describe '.trash_points' do
       it 'returns 3 points for every trash bag' do
-        expect(user.trash_points).to eq(user.total_trash_bags * 3)
+        expect(user.trash_points).to eq(user.total_trash_bags * 4)
       end
     end
     describe '.mile_points' do

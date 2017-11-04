@@ -12,7 +12,7 @@ RSpec.feature 'User logs deed', type: :feature do
     expect(page).to flash_message t('deeds.create.success')
     expect(dashboard.trash_bag_count).to eq 1
     expect(dashboard.miles_walked).to eq 2
-    expect(dashboard.total_points).to eq 5
+    expect(dashboard.total_points).to eq 6
   end
 
   scenario 'with 0 miles and trash bags' do
