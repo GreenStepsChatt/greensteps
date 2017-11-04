@@ -1,6 +1,5 @@
 class User < ApplicationRecord
   has_many :deeds
-  validates_associated :deeds
 
   def total_trash_bags
     deeds.sum(:trash_bags)
