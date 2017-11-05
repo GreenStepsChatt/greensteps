@@ -24,13 +24,12 @@ RSpec.describe 'Navigation' do
 
   scenario 'User clicks the browser back button and then tries to open the '\
            'navigation drawer', :js do
-    skip 'This test is flaky, but the functionality works... from what I can'\
-         'tell. Need to fix. I think it is a timing thing?'
     create_and_login_user
+    visit root_path
 
     appbar.open_drawer
     nav_drawer.edit_account_settings
-    click_browser_back_button
+    go_back
     wait_for '.welcome.index'
     appbar.open_drawer
 
