@@ -1,0 +1,10 @@
+<ul id="flash_messages">
+  <% flash_filtered_for_display.each do |type, message| %>
+    <li class="flash-message <%= type %>">
+      <%= message %>
+      <button type="button">
+        <%= fa_icon 'close' %>
+      </button>
+    </li>
+  <% end %>
+</ul>

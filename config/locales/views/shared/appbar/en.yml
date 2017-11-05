@@ -3,3 +3,4 @@ en:
     appbar:
       edit_account: "Account Settings"
       destroy_session: "Sign Out"
+      admin_dashboard: "Admin Dashboard"

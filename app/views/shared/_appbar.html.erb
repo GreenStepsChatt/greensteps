@@ -1,0 +1,47 @@
+<nav>
+  <ul id="appbar">
+    <li>
+      <%= fa_icon 'navicon' %>
+    </li>
+  </ul>
+  <div id="nav_drawer_container">
+    <div id="nav_drawer">
+      <%= link_to "#{t(:brand_name)} or logo here", root_path, class: 'logo' %>
+      <ul>
+        <li>
+          <%= 'Link A' %>
+        </li>
+        <li>
+          <%= 'Link B' %>
+        </li>
+      </ul>
+      <% if user_signed_in? %>
+        <ul>
+          <li>
+            <%= 'Users only link 1' %>
+          </li>
+          <li>
+            <%= 'Users only link 2' %>
+          </li>
+        </ul>
+        <ul id="account_tools">
+          <li>
+            <%= link_to t('.edit_account'), edit_user_registration_path %>
+          </li>
+          <li>
+            <%= button_to t('.destroy_session'), destroy_user_session_path, method: :delete %>
+          </li>
+        </ul>
+      <% end %>
+
+      <% if user_signed_in? && current_user.has_role?(:admin) %>
+        <ul id="admin_links">
+          <li>
+            <%= link_to t('.admin_dashboard'), admin_dashboards_show_path %>
+          </li>
+        </ul>
+      <% end %>
+    </div>
+  </div>
+</nav>
+<div id="appbar_spacer"></div>

@@ -1,0 +1,14 @@
+<article id="site_description">
+  <h1>
+    <%= t('.greeting') %>
+  </h1>
+  <p>
+   Put brief site description here.
+  </p>
+</article>
+<% unless user_signed_in? %>
+  <article id="site_entry">
+    <%= render 'devise/registrations/form' %>
+    <%= render 'devise/sessions/form' %>
+  </article>
+<% end %>
