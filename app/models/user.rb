@@ -10,18 +10,6 @@ class User < ApplicationRecord
     deeds.sum(:miles)
   end
 
-  def total_points
-    trash_points + mile_points
-  end
-
-  def trash_points
-    total_trash_bags * 4
-  end
-
-  def mile_points
-    total_miles
-  end
-
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

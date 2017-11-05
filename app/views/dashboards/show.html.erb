@@ -27,7 +27,7 @@
   <section class="total_points">
     <div class="count">
       <%= pluralize(
-        current_user.total_points,
+        PointCalculator.new(current_user).total_points,
         User.human_attribute_name(:points)
       ) %>
     </div>
