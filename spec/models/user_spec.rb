@@ -11,7 +11,7 @@ RSpec.describe User, type: :model do
       user = create :user
 
       [1, 2, 3].each do |num_bags|
-        user.deeds << create(:deed, trash_bags: num_bags)
+        create(:deed, trash_bags: num_bags, user: user)
       end
 
       expect(user.total_trash_bags).to eq 6
@@ -23,7 +23,7 @@ RSpec.describe User, type: :model do
       user = create :user
 
       [1, 2, 3].each do |num_bags|
-        user.deeds << create(:deed, trash_bags: num_bags)
+        create(:deed, trash_bags: num_bags, user: user)
       end
 
       expect(user.total_trash_bags).to eq 6

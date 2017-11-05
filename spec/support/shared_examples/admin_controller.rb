@@ -16,7 +16,11 @@ RSpec.shared_examples 'an admin controller' do
     next unless described_class.action_methods.include? action.to_s
 
     describe "#{verb.upcase} ##{action}" do
-      before { sign_in create(:user); send(verb, action) }
+      before do
+        sign_in create(:user)
+        send(verb, action)
+      end
+
       it { should redirect_to 'http://www.previous_page.com' }
     end
   end
