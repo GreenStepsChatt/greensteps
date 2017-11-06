@@ -49,6 +49,7 @@ group :test do
   gem 'launchy'
   gem 'poltergeist'
   gem 'rails-controller-testing'
+  gem 'rspec-collection_matchers'
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
   gem 'webmock'
