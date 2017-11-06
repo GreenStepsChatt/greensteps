@@ -8,7 +8,7 @@ FactoryGirl.define do
   end
 
   factory :user do
-    email { generate(:email) }
+    email { generate :email }
     password 'password'
 
     trait :with_deeds do
@@ -24,7 +24,7 @@ FactoryGirl.define do
     end
 
     factory :admin do
-      email { generate(:admin_email) }
+      email { generate :admin_email }
       after(:build) { |user| user.add_role :admin }
     end
   end

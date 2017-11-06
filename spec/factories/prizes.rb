@@ -13,7 +13,7 @@ FactoryGirl.define do
   end
 
   factory :prize do
-    title 'Two free drinks at local pub'
+    title { generate :prize_title }
     quantity { Faker::Number.between(1, 30) }
     cost { Faker::Number.between(1, 3) * 10 }
 
