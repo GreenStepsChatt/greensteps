@@ -10,8 +10,8 @@ Fixes #`<issue number>`
 ## Developer Checklist
 *You can mark items off by replacing `[ ]` with `[x]` or in the rendered
 markdown, you can simply check the checkbox.*
-- [ ] I have read and followed the [contribution guidelines]
-      (https://github.com/crawfoal/greensteps/blob/master/CONTRIBUTING.md).
+- [ ] I have read and followed the [contribution guidelines](
+      https://github.com/crawfoal/greensteps/blob/master/CONTRIBUTING.md).
 - [ ] All specs and linters pass (including Code Climate)
 - [ ] I have followed the style of nearby code
 - [ ] The build on Semaphore is successful
