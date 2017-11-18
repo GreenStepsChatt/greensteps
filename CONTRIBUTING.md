@@ -2,10 +2,15 @@
 
 ## How to Find Something to Work On
 First, checkout the issues that [are labelled as "ready" and listed under the
-current milestone (#1)](https://github.com/crawfoal/greensteps/issues?q=is%3Aopen+is%3Aissue+label%3Aready+milestone%3A%22Milestone+%231+%28MVP%29%22).
+current milestone (#1)](
+https://github.com/crawfoal/greensteps/issues?q=is%3Aopen+is%3Aissue+label%3Aready+milestone%3A%22Milestone+%231+%28MVP%29%22).
 Pull requests that address these issues will be a top priority. Pull requests
 that address issues that are labelled "ready" but aren't in the current
-milestone are still appreciated :slightly_smiling_face:.
+milestone are still appreciated :slightly_smiling_face:. Other pull requests,
+including those that update gems or the Ruby version unnecessarily, will be a
+lower priority and might even be closed without merging. That said, we'd love to
+hear your suggestions on how to make the web app better, so please don't
+hesitate to open an issue if you think of something!
 
 ### Tips for Beginners
 - Issues labelled "good first issue" or "first-timers-only" are a good place to
@@ -13,26 +18,9 @@ start.
 - We are happy to help you through process of submitting your first PR - just
 let us know what you need!
 
-### Examples Low Priority Pull Requests
-If a pull request isn't aligned with this project's priorities or doesn't follow
-established processes, it might be closed with out merging. Here are some
-examples:
-- **PRs that do not address an existing issue.** If you find a bug or think
-a feature should be implemented, we encourage you to submit an issue. After the
-issue is opened, we'll discuss the issue's priority and this will help us decide
-what milestone it should belong to.
-- **PRs that address an issue that is not labelled "ready".** Typically these
-issues need other issues to be addressed first.
-- **PRs that upgrade gems or the version of Ruby that we're using.** This will
-be done once after each milestone, or about once every three months. There are
-two exceptions to this rule - (1) when an upgrade is needed in order to
-implement or fix something that is already a part of the current milestone and
-(2) when an upgrade fixes or is needed in order to address a serious security
-vulnerability in this project.
-
 ## Pull Request Guidelines
-If you haven't already done so, please read our [development
-setup](DEVELOPMENT_SETUP.md) instructions.
+If you haven't already done so, please read our [development setup](
+DEVELOPMENT_SETUP.md) instructions.
 
 1. Claim an issue by commenting on it (if one doesn't exist, open one).
 2. Fork and clone the repo.
