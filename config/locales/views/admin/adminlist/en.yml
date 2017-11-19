@@ -1,0 +1,7 @@
+en:
+  admin:
+    adminlist:
+      index:
+        header: "Admin Dashboard"
+        adminlist:
+          header: "List of Admins"
