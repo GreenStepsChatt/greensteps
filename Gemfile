@@ -6,6 +6,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'acts_as_paranoid', '~> 0.5.0'
 gem 'bitters'
 gem 'bourbon'
 gem 'coffee-rails', '~> 4.2'
