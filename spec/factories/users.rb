@@ -23,6 +23,10 @@ FactoryGirl.define do
       after(:create) { |user| user.deeds.create(attributes_for(:sample_deed)) }
     end
 
+    trait :soft_deleted do
+      after(:create) { |user| user.destroy }
+    end
+
     factory :admin do
       email { generate :admin_email }
       after(:build) { |user| user.add_role :admin }
