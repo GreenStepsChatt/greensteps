@@ -1,5 +1,7 @@
 class User < ApplicationRecord
+  acts_as_paranoid
   rolify
+
   has_many :deeds
 
   def total_trash_bags

@@ -18,6 +18,6 @@ module DeviseHelper
   def error_header
     I18n.t('errors.messages.not_saved',
            count: resource.errors.count,
-        resource: resource.class.model_name.human.downcase)
+           resource: resource.class.model_name.human.downcase)
   end
 end
