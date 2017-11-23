@@ -9,7 +9,6 @@ RSpec.describe 'User account soft deletion', type: :feature do
     log_in_form.fill_and_submit_for user
 
     expect(page).to flash_message t('devise.sessions.account_deleted')
-    # expect(flash).to have_link 'restore your account' # TODO: implement this
     expect(page).to_not show :dashboard
   end
 
@@ -21,6 +20,5 @@ RSpec.describe 'User account soft deletion', type: :feature do
 
     expect(flash).to have_content \
       t('users.registrations.create.account_deleted')
-    # expect(flash).to have_link 'restore account' # TODO: implement this
   end
 end
