@@ -11,4 +11,14 @@ RSpec.describe 'User account soft deletion', type: :feature do
     expect(page).to flash_message /cannot login.*deleted/
     expect(page).to_not show :dashboard
   end
+
+  scenario 'Soft-deleted user tries to re-register with same email' do
+    user = create :user, :soft_deleted
+
+    visit root_path
+    sign_up_form.fill_and_submit_with user
+
+    expect(flash).to have_content \
+      t('users.registrations.create.account_deleted')
+  end
 end
