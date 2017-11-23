@@ -35,7 +35,7 @@ RSpec.feature 'User Registrations:', type: :feature do
 
     expect(page).to flash_message t('devise.registrations.destroyed')
     expect(User).to_not exist email: user.email
-    expect(User.with_deleted).to exist email: user.email
+    expect(User.only_deleted).to exist email: user.email
   end
 
   def delete_account
