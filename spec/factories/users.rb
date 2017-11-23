@@ -24,7 +24,7 @@ FactoryGirl.define do
     end
 
     trait :soft_deleted do
-      after(:create) { |user| user.destroy }
+      after(:create, &:destroy)
     end
 
     factory :admin do

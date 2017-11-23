@@ -8,7 +8,7 @@ RSpec.describe 'User account soft deletion', type: :feature do
     welcome_page.open_log_in_form
     log_in_form.fill_and_submit_for user
 
-    expect(page).to flash_message /cannot login.*deleted/
+    expect(page).to flash_message(/cannot login.*deleted/)
     # expect(flash).to have_link 'restore your account' # TODO: implement this
     expect(page).to_not show :dashboard
   end

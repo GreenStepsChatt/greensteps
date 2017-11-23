@@ -27,7 +27,7 @@ RSpec.describe 'rake db:populate', type: :task do
   end
 
   it 'creates a variety prize titles' do
-    expect(Prize.pluck(:title).uniq).to have(5).unique_titles
+    expect(Prize.distinct.pluck(:title)).to have(5).unique_titles
   end
 
   it 'creates a random number of deeds for some user' do

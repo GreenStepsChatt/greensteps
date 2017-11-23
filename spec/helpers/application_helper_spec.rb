@@ -5,14 +5,14 @@ RSpec.describe ApplicationHelper, type: :helper do
     it "includes flash messages of types 'alert', 'notice', and 'warning'" do
       allow(helper).to receive(:flash).and_return(
         'alert' => 'This is an alert.',
-       'notice' => 'This is a notice.',
-      'warning' => 'This is a warning.'
+        'notice' => 'This is a notice.',
+        'warning' => 'This is a warning.'
       )
 
       expect(helper.flash_filtered_for_display).to eq(
         'alert' => 'This is an alert.',
-       'notice' => 'This is a notice.',
-      'warning' => 'This is a warning.'
+        'notice' => 'This is a notice.',
+        'warning' => 'This is a warning.'
       )
     end
 

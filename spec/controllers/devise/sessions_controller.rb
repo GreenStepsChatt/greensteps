@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Devise::SessionsController, type: :controller do
-  before(:each) { @request.env["devise.mapping"] = Devise.mappings[:user] }
+  before(:each) { @request.env['devise.mapping'] = Devise.mappings[:user] }
 
   describe 'POST #create' do
     it 'should not check if user is soft deleted when a regular user is '\

@@ -19,7 +19,7 @@ RSpec::Matchers.define :flash_message do |expected_message|
     if page.has_css?('.flash-message')
       page.find('.flash-message').native.to_html
     else
-      "(no flash element present)"
+      '(no flash element present)'
     end
   end
 end
