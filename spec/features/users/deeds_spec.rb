@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature 'User logs deed', type: :feature do
+RSpec.describe 'User logs deed', type: :feature do
   scenario 'from dashboard' do
     create_and_login_user
 
