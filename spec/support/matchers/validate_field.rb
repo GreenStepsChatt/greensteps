@@ -1,10 +1,14 @@
-RSpec::Matchers.define :validate_field do |selector, validations|
+RSpec::Matchers.define :validate_field do |selector|
   match do |actual|
     expect(actual).to have_selector(selector_with_val_attrs)
   end
 
+  chain :with do |validations|
+    @validations = validations
+  end
+
   define_method :selector_with_val_attrs do
-    validations.reduce(selector) do |accumulator, (attribute, value)|
+    @validations.reduce(selector) do |accumulator, (attribute, value)|
       accumulator + "[#{attribute}='#{value}']"
     end
   end

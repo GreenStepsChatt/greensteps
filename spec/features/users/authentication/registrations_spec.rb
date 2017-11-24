@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'User Registrations:', type: :feature do
+RSpec.describe 'User Registrations', type: :feature do
   scenario 'Visitor signs up', :js do
     new_user_info = build_stubbed :user
 
