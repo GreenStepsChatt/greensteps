@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature 'User Registrations:', type: :feature do
+RSpec.describe 'User Registrations', type: :feature do
   scenario 'Visitor signs up', :js do
     new_user_info = build_stubbed :user
 
@@ -36,6 +36,16 @@ RSpec.feature 'User Registrations:', type: :feature do
     expect(page).to flash_message t('devise.registrations.destroyed')
     expect(User).to_not exist email: user.email
     expect(User.only_deleted).to exist email: user.email
+  end
+
+  scenario 'Soft-deleted user tries to re-register with same email' do
+    user = create :user, :soft_deleted
+
+    visit root_path
+    sign_up_form.fill_and_submit_with user
+
+    expect(flash).to have_content \
+      t('users.registrations.create.account_deleted')
   end
 
   def delete_account

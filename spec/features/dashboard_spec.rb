@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature 'Dashboard', type: :feature do
+RSpec.describe 'Dashboard', type: :feature do
   scenario 'Guests are asked to log in first' do
     visit dashboards_show_path
 

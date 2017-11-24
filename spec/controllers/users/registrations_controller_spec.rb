@@ -1,11 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe Users::RegistrationsController, type: :controller do
-  before(:each, type: :controller) do
-    @request.env['devise.mapping'] = Devise.mappings[:user]
-  end
-
-  describe '#create' do
+RSpec.describe Users::RegistrationsController, :devise, type: :controller do
+  describe 'POST #create' do
     context 'for a soft deleted user' do
       it 'redirects back' do
         user = create :user, :soft_deleted

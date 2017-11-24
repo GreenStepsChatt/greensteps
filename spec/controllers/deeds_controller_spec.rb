@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe DeedsController, type: :controller do
   describe 'POST #create' do
-    context 'invalid deed' do
+    context 'with invalid deed' do
       it 're-renders the form' do
         sign_in create(:user)
 

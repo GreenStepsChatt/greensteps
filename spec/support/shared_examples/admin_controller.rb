@@ -21,7 +21,9 @@ RSpec.shared_examples 'an admin controller' do
         send(verb, action)
       end
 
-      it { should redirect_to 'http://www.previous_page.com' }
+      it 'should redirect back' do
+        expect(response).to redirect_to 'http://www.previous_page.com'
+      end
     end
   end
 end
