@@ -38,6 +38,16 @@ RSpec.feature 'User Registrations:', type: :feature do
     expect(User.only_deleted).to exist email: user.email
   end
 
+  scenario 'Soft-deleted user tries to re-register with same email' do
+    user = create :user, :soft_deleted
+
+    visit root_path
+    sign_up_form.fill_and_submit_with user
+
+    expect(flash).to have_content \
+      t('users.registrations.create.account_deleted')
+  end
+
   def delete_account
     accept_confirm do
       click_on 'Cancel my account'
