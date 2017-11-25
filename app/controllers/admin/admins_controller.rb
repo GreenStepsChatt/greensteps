@@ -1,5 +1,5 @@
 module Admin
-  class AdminlistController < AdminController
+  class AdminsController < BaseController
     expose :admins, -> { User.with_role(:admin) }
 
     def index; end
