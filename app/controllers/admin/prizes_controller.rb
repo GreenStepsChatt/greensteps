@@ -1,5 +1,5 @@
 module Admin
-  class PrizesController < AdminController
+  class PrizesController < BaseController
     expose :prize
 
     def new; end
