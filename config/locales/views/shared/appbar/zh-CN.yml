@@ -1,0 +1,6 @@
+en:
+  shared:
+    appbar:
+      edit_account: "帐户设置"
+      destroy_session: "注销"
+      admin_dashboard: "管理员面板"

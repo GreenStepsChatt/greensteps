@@ -1,0 +1,7 @@
+en:
+  admin:
+    prizes:
+      new:
+        header: "新奖励"
+      create:
+        success: "成功创建奖励！"

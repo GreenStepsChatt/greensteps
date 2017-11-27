@@ -1,0 +1,8 @@
+zh-CN:
+  admin:
+    dashboards:
+      show:
+        header: "管理员面板"
+        prize_management:
+          header: "奖励管理"
+          add: "添加奖励"
