@@ -8,7 +8,7 @@ RSpec.describe 'List of admins', type: :feature do
 
     click_on t('admin.dashboards.show.miscellaneous.admins')
 
-    expect(page).to have_content t('admin.admins.index.admins.header')
+    expect(page).to have_content t('admin.admins.index.header')
   end
 
   scenario 'Regular user tries to view list of admins using the url' do
@@ -16,7 +16,7 @@ RSpec.describe 'List of admins', type: :feature do
 
     visit admin_admins_path
 
-    expect(page).to_not have_content t('admin.admins.index.admins.header')
+    expect(page).to_not have_content t('admin.admins.index.header')
     expect(page).to flash_message t('restricted_to_admins')
   end
 end

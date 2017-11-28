@@ -2,6 +2,4 @@ en:
   admin:
     admins:
       index:
-        header: "Admin Dashboard"
-        admins:
-          header: "List of Admins"
+        header: "List of Admins"
