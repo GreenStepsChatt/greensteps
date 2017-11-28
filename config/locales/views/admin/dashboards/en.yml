@@ -6,3 +6,6 @@ en:
         prize_management:
           header: "Prize Management"
           add: "Add prize"
+        miscellaneous:
+          header: "Miscellaneous"
+          admins: "List of Admins"

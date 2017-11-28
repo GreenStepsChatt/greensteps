@@ -5,6 +5,10 @@ module SessionHelpers
     stubbed_login_as FactoryGirl.create :user
   end
 
+  def create_and_login_admin
+    stubbed_login_as FactoryGirl.create :admin
+  end
+
   def stubbed_login_as(user)
     warden_helpers.login_as(user)
     @current_user = user
