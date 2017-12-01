@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   get 'dashboard', to: 'dashboards#show', as: :user_root
 
-  namespace :admin do
+  namespace :admins do
     get 'dashboards/show'
     resources 'prizes', only: [:new, :create]
     resources 'admins', only: [:index]

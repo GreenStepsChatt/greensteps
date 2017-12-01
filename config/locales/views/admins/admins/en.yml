@@ -1,5 +1,5 @@
 en:
-  admin:
+  admins:
     admins:
       index:
         header: "List of Admins"

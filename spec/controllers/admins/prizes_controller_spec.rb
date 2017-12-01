@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Admin::PrizesController, type: :controller do
+RSpec.describe Admins::PrizesController, type: :controller do
   it_should_behave_like 'an admin controller'
 
   describe 'POST #create' do

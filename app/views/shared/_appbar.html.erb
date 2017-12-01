@@ -37,7 +37,7 @@
       <% if user_signed_in? && current_user.has_role?(:admin) %>
         <ul id="admin_links">
           <li>
-            <%= link_to t('.admin_dashboard'), admin_dashboards_show_path %>
+            <%= link_to t('.admin_dashboard'), admins_dashboards_show_path %>
           </li>
         </ul>
       <% end %>

@@ -1,4 +1,4 @@
-module Admin
+module Admins
   class BaseController < ApplicationController
     before_action :ensure_admin
 

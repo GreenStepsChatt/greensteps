@@ -24,7 +24,7 @@ RSpec.describe 'Admin dashboard', type: :feature do
   scenario 'Regular user tries to view admin dashboard using the url' do
     create_and_login_user
 
-    visit admin_dashboards_show_path
+    visit admins_dashboards_show_path
 
     expect(page).to_not show :admin_dashboard
     expect(page).to flash_message t('restricted_to_admins')

@@ -1,4 +1,4 @@
-module Admin
+module Admins
   class PrizesController < BaseController
     expose :prize
 
@@ -6,7 +6,7 @@ module Admin
 
     def create
       if prize.save
-        redirect_to admin_dashboards_show_path, notice: t('.success')
+        redirect_to admins_dashboards_show_path, notice: t('.success')
       else
         render 'new'
       end

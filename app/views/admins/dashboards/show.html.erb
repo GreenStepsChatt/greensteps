@@ -4,7 +4,7 @@
   <header>
     <h3><%= t('.prize_management.header') %></h3>
 
-    <%= link_to new_admin_prize_path, class: 'add_prize' do %>
+    <%= link_to new_admins_prize_path, class: 'add_prize' do %>
       <%= fa_icon('plus') %>
       <%= t('.prize_management.add') %>
     <% end %>
@@ -22,5 +22,5 @@
     <h3><%= t('.miscellaneous.header') %></h3>
   </header>
   
-  <%= link_to t('.miscellaneous.admins'), admin_admins_path %>
+  <%= link_to t('.miscellaneous.admins'), admins_admins_path %>
 </section>
