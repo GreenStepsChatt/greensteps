@@ -2,7 +2,7 @@ en:
   admins:
     admins:
       index:
-        header: "List of Admins"
+        header: "Users with Admin Privileges"
       new:
         header: "Grant Admin Privileges"
       create:

@@ -24,6 +24,9 @@ en:
   no_visitor_access: "Whoops, you must be signed in to do that."
   restricted_to_admins: "You must be an admin to access that page."
   helpers:
+    label:
+      admin:
+        email: "User's email"
     submit:
       create: "Save"
       update: "Save"

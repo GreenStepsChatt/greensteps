@@ -5,7 +5,6 @@ en:
         header: "Admin Dashboard"
         prize_management:
           header: "Prize Management"
-          add: "Add prize"
         miscellaneous:
-          header: "Miscellaneous"
-          admins: "List of Admins"
+          header: "Other Tools"
+          admins: "Manage admin privileges"
