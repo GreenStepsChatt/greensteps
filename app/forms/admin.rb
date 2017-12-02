@@ -1,15 +1,11 @@
-class Admin
-  include ActiveModel::Model
-
+class Admin < ApplicationForm
   attr_accessor :email
   validates_presence_of :email
   validate :user_exists
 
   def save
-    if valid?
+    super do
       user.add_role :admin
-    else
-      false
     end
   end
 
