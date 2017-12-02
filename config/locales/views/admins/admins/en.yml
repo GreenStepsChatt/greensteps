@@ -3,3 +3,7 @@ en:
     admins:
       index:
         header: "List of Admins"
+      new:
+        header: "Grant Admin Privileges"
+      create:
+        success: "Admin privileges successfully granted!"
