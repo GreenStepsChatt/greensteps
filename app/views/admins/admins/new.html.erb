@@ -3,7 +3,7 @@
   <%= render 'shared/errors', record: admin %>
 
   <%= f.label :email %>
-  <%= f.email_field :email %>
+  <%= f.email_field :email, required: true %>
 
   <%= f.submit %>
 <% end %>
