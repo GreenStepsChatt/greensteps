@@ -16,6 +16,6 @@ class Admin < ApplicationForm
   end
 
   def user_exists
-    errors.add(:email, :user_does_not_exist) unless user.present?
+    errors.add(:email, :user_does_not_exist) if user.blank?
   end
 end

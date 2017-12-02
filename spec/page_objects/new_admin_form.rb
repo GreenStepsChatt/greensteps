@@ -1,7 +1,7 @@
 module PageObjects
   class NewAdminForm < Base
     def email=(email)
-      this.fill_in User.human_attribute_name(:email), with: email
+      this.fill_in t('helpers.label.admin.email'), with: email
     end
 
     def submit
