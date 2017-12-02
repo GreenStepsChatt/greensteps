@@ -24,6 +24,10 @@ RSpec.shared_examples 'an admin controller' do
       it 'should redirect back' do
         expect(response).to redirect_to 'http://www.previous_page.com'
       end
+
+      it 'should flash an alert message' do
+        expect(flash[:alert]).to eq t('restricted_to_admins')
+      end
     end
   end
 end
