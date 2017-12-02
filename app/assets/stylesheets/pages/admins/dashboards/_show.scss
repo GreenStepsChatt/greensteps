@@ -1,0 +1,21 @@
+.admins-dashboards.show {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+  > * {
+    &:not(last-child) {
+      margin-right: $base-spacing;
+    }
+  }
+
+  h2 {
+    margin-right: 0;
+    text-align: center;
+    width: 100%;
+  }
+
+  h3 {
+    text-align: center;
+  }
+}

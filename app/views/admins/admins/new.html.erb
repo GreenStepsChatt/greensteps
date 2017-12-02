@@ -1,0 +1,9 @@
+<h2><%= t('.header') %></h2>
+<%= form_for [:admins, admin] do |f| %>
+  <%= render 'shared/errors', record: admin %>
+
+  <%= f.label :email %>
+  <%= f.email_field :email, required: true %>
+
+  <%= f.submit %>
+<% end %>

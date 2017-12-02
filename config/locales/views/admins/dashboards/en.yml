@@ -1,0 +1,10 @@
+en:
+  admins:
+    dashboards:
+      show:
+        header: "Admin Dashboard"
+        prize_management:
+          header: "Prize Management"
+        miscellaneous:
+          header: "Other Tools"
+          admins: "Manage admin privileges"
