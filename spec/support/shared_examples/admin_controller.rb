@@ -1,33 +1,27 @@
-RSpec.shared_examples 'an admin controller' do
-  RESOURCEFUL_VERB_ACTION_PAIRS ||= [
-    %i[get index],
-    %i[get new],
-    %i[post create],
-    %i[get show],
-    %i[get edit],
-    %i[patch update],
-    %i[put update], # TODO: what happens in here if only one verb is defined?
-    %i[delete destroy]
-  ].freeze
+RSpec.shared_examples 'restricted to admins html response' do |method, action|
+  before(:each) do
+    request.env['HTTP_REFERER'] = 'http://www.previous_page.com'
+    sign_in create(:user)
+  end
 
-  before { request.env['HTTP_REFERER'] = 'http://www.previous_page.com' }
+  let(:params) {}
 
-  RESOURCEFUL_VERB_ACTION_PAIRS.each do |verb, action|
-    next unless described_class.action_methods.include? action.to_s
+  describe "#{method.to_s.upcase} ##{action}" do
+    it 'redirects back' do
+      send(method, action, params: params)
+      expect(response).to redirect_to 'http://www.previous_page.com'
+    end
 
-    describe "#{verb.upcase} ##{action}" do
-      before do
-        sign_in create(:user)
-        send(verb, action)
-      end
+    it 'flashes an alert message' do
+      send(method, action, params: params)
+      expect(flash[:alert]).to eq t('restricted_to_admins')
+    end
+  end
+end
 
-      it 'should redirect back' do
-        expect(response).to redirect_to 'http://www.previous_page.com'
-      end
 
-      it 'should flash an alert message' do
-        expect(flash[:alert]).to eq t('restricted_to_admins')
-      end
+
+
     end
   end
 end

@@ -1,8 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Admins::AdminsController, type: :controller do
-  it_should_behave_like 'an admin controller'
-
   describe 'POST #create' do
     context 'invalid admin' do
       it 're-renders the form' do
@@ -14,4 +12,13 @@ RSpec.describe Admins::AdminsController, type: :controller do
       end
     end
   end
+
+  context 'non-admin user' do
+    [
+      %i[get index],
+      %i[get new],
+      %i[post create]
+    ].each do |method, action|
+      include_examples 'restricted to admins html response', method, action
+    end
 end
