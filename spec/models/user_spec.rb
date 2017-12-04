@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   it { should have_many :deeds }
   it { should have_and_belong_to_many :roles }
+  it { should act_as_paranoid }
 
   it_should_behave_like 'a devise model'
 
@@ -11,7 +12,7 @@ RSpec.describe User, type: :model do
       user = create :user
 
       [1, 2, 3].each do |num_bags|
-        user.deeds << create(:deed, trash_bags: num_bags)
+        create(:deed, trash_bags: num_bags, user: user)
       end
 
       expect(user.total_trash_bags).to eq 6
@@ -23,7 +24,7 @@ RSpec.describe User, type: :model do
       user = create :user
 
       [1, 2, 3].each do |num_bags|
-        user.deeds << create(:deed, trash_bags: num_bags)
+        create(:deed, trash_bags: num_bags, user: user)
       end
 
       expect(user.total_trash_bags).to eq 6

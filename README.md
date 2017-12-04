@@ -1,60 +1,34 @@
-# An Intro to Greensteps for Developers
+# Greensteps Web App
 
 ## Welcome
-Hi there! This project is just getting started. Currently, I just have basic user authentication set up (via Devise). I'd love your help with Developing this app! See the [contribution guidelines](CONTRIBUTING.md) for more information. You can check out the production version of this app at https://greensteps.herokuapp.com/.
+Hi there! We are just getting started with this project. The goal is to have a
+minimum viable product (MVP) by December 2017. For more details on what we're
+planning to have in the MVP, checkout the [project
+requirements](REQUIREMENTS.md).
 
-## Getting Started
-Before getting started, you'll need to have Ruby 2.4.1, Rails 5.0.4, and Postgres 9.6 installed on your machine. If you need help with this, check out the setup guide from [Go Rails](https://gorails.com/setup). Rather than following the last set of steps to create a new app, you'll [fork](https://help.github.com/articles/fork-a-repo/) this repo and then create a local clone to work with.
+We'd love your help with this project! See the [contribution
+guidelines](CONTRIBUTING.md) for more information.
 
-You will also need [PhantomJS](http://phantomjs.org/) installed. You can download it from that webpage, or on a Mac simply run `brew install phantomjs`.
+## Explore the App
+A sample version of the app is hosted at
+https://greensteps-staging.herokuapp.com/. Feel free to explore and play around
+with it. If you find something that doesn't seem quite right be sure to [open an
+issue](https://github.com/crawfoal/greensteps/issues/new)!
 
-Once you have a copy of this project on your machine, you should run `bin/setup`. At this point, it's a good idea to
+## Contributing
+We'd love for you to contribute to our project! First, please read our
+[contribution guidelines](CONTRIBUTING.md) and [Code of
+Conduct](CODE_OF_CONDUCT.md).
 
-1) run `bin/rspec` to make sure everything was installed properly
-2) start the server and explore the app
+Also, please keep in mind that our current focus is on developing a minimum
+viable product. Pull requests that are focused on this will be prioritized.
+Thank you (in advance :slightly_smiling_face:) for understanding!
 
-Also you can run the app with a help of Docker...
+## Who's Who
+[Amanda Dolan](amandacrawfordalc@gmail.com) is the project maintainer. Feel free
+to contact her with questions or concerns!
 
-## Bootstrapping using Docker
-1) Create `config/database.yml`(it stores the db configs) file:
-
-  ```bash
-  cp config/database.yml.example config/database.yml
-  ```
-
-2) Create `docker-compose.override.yml` file with docker preferences for development environment:
-
-  ```bash
-  cp docker-compose.development.yml docker-compose.override.yml
-  ```
-
-3) Create `.env` file to store all env. variables (uncomment the line with variable you wanna change):
-
-  ```bash
-  cp .env.example .env
-  ```
-
-4) Install [docker](https://docs.docker.com/engine/installation/) & [docker-compose](https://docs.docker.com/compose/install/) if you haven't got them yet and then run:
-
-  ```bash
-  docker-compose build
-  ```
-
-5) Create external volume for gems by running:
-
-  ```bash
-  docker volume create --name=greensteps_gems
-  ```
-
-6) Run the project:
-
-  ```bash
-  docker-compose up
-  docker-compose up -d # Without logs
-  ```
-
-7) Create development & test PostgreSQL db's & run migrations inside docker's `web` container:
-
-  ```bash
-  docker-compose exec web rails db:create && docker-compose exec web rails db:migrate
-  ```
+[Alyssa Grizenko\`](
+alyssandra@greenstepschatt.com) is the founder of Greensteps. She'll be opening
+issues but has no coding background, so keep this in mind and be nice when
+commenting on her issues :slightly_smiling_face:.

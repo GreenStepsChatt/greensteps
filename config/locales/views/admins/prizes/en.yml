@@ -1,0 +1,7 @@
+en:
+  admins:
+    prizes:
+      new:
+        header: "New Prize"
+      create:
+        success: "Prize successfully created!"

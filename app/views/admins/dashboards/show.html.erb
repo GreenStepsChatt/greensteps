@@ -1,0 +1,21 @@
+<h2><%= t('.header') %></h2>
+
+<section class="prize_management">
+  <h3><%= t('.prize_management.header') %></h3>
+
+  <ul class="prizes">
+    <% prizes.each do |prize| %>
+      <li><%= prize.title %></li>
+    <% end %>
+  </ul>
+
+  <%= link_to new_admins_prize_path, class: 'add_prize' do %>
+    <%= fa_icon('plus') %>
+  <% end %>
+</section>
+
+<section class="miscellaneous">
+  <h3><%= t('.miscellaneous.header') %></h3>
+
+  <%= link_to t('.miscellaneous.admins'), admins_admins_path %>
+</section>

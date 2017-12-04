@@ -1,0 +1,9 @@
+en:
+  admins:
+    admins:
+      index:
+        header: "Users with Admin Privileges"
+      new:
+        header: "Grant Admin Privileges"
+      create:
+        success: "Admin privileges successfully granted!"

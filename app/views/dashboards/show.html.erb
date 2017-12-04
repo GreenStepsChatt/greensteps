@@ -1,28 +1,35 @@
-<article class="dashboard">
-  <section class="stats">
-    <header>
-      <h2>Your Stats</h2>
-      <%= link_to new_deed_path, class: 'add' do %>
-        <%= fa_icon 'plus' %>
-      <% end %>
-    </header>
+<section class="stats">
+  <header>
+    <h2><%= t('.stats_title') %></h2>
+    <%= link_to new_deed_path, class: 'add' do %>
+      <%= fa_icon 'plus' %>
+    <% end %>
+  </header>
 
-    <section class="trash_bags">
-      <div class="count">
-        <%= pluralize(
-          current_user.total_trash_bags,
-          User.human_attribute_name(:trash_bags)
-        ) %>
-      </div>
-    </section>
-
-    <section class="miles">
-      <div class="count">
-        <%= pluralize(
-          current_user.total_miles,
-          User.human_attribute_name(:miles)
-        ) %>
-      </div>
-    </section>
+  <section class="trash_bags">
+    <div class="count">
+      <%= pluralize(
+        current_user.total_trash_bags,
+        User.human_attribute_name(:trash_bags)
+      ) %>
+    </div>
   </section>
-</article>
+
+  <section class="miles">
+    <div class="count">
+      <%= pluralize(
+        current_user.total_miles,
+        User.human_attribute_name(:miles)
+      ) %>
+    </div>
+  </section>
+
+  <section class="total_points">
+    <div class="count">
+      <%= pluralize(
+        PointCalculator.new(current_user).total_points,
+        t('.points')
+      ) %>
+    </div>
+  </section>
+</section>

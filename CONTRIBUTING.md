@@ -1,28 +1,43 @@
 # Contributing
 
-## Special Issue Tags
-Issues might have one of three special tags:
-- **first-timers-only**: for developers who have never submitted a pull request
-  to an open source project
-- **beginner-friendly**: like it sounds; a typical beginner would go through
-quite a few of these before moving to more complex issues
-- **ready**: it is ready for someone to start working on making the changes
+## How to Find Something to Work On
+First, checkout the issues that [are labelled as "ready" and listed under the
+current milestone (#1)](
+https://github.com/crawfoal/greensteps/issues?q=is%3Aopen+is%3Aissue+label%3Aready+milestone%3A%22Milestone+%231+%28MVP%29%22).
+Pull requests that address these issues will be a top priority. Pull requests
+that address issues that are labelled "ready" but aren't in the current
+milestone are still appreciated :slightly_smiling_face:. Other pull requests,
+including those that update gems or the Ruby version unnecessarily, will be a
+lower priority and might even be closed without merging. That said, we'd love to
+hear your suggestions on how to make the web app better, so please don't
+hesitate to open an issue if you think of something!
 
-## Take the Following Steps to Open a PR
+### Tips for Beginners
+- Issues labelled "good first issue" or "first-timers-only" are a good place to
+start.
+- We are happy to help you through process of submitting your first PR - just
+let us know what you need!
+
+## Pull Request Guidelines
+If you haven't already done so, please read our [development setup](
+DEVELOPMENT_SETUP.md) instructions.
 
 1. Claim an issue by commenting on it (if one doesn't exist, open one).
 2. Fork and clone the repo.
 3. Run `bin/setup`.
 4. Run the specs and make sure everything passes (see below).
-5. Add one or more specs for your changes.
-6. Make your changes.
-7. Make sure your specs pass and that RuboCop doesn't report any new issues.
-8. Push to your fork and submit a pull request. Include the issue number in the
-   PR description (e.g. "Resolves #19").
+5. Create a branch to work on.
+6. Add one or more specs for your changes.
+7. Make your changes.
+8. Run `bundle exec rake` and make sure your specs pass and that RuboCop doesn't
+   report any issues.
+9. Push to your fork and submit a pull request. Include a [closing
+   keyword](https://help.github.com/articles/closing-issues-using-keywords/) and
+   then the issue number in the PR description (e.g. "Resolves #19").
 
-Once you've submitted a PR, Heroku will create a review app with your code which
-you can access at https://greensteps-pr-###.herokuapp.com/ (replace ### with
-your PR number).
+\*NOTE: In order for Heroku to update your PR app as you add commits, you need
+to open a pull request from a feature branch in your fork against the master
+branch in the this repo.
 
 ## Running Specs
 

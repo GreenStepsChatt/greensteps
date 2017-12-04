@@ -12,8 +12,12 @@ module PageObjects
       this.find('.miles .count').text.to_i
     end
 
+    def total_points
+      this.find('.total_points .count').text.to_i
+    end
+
     def selector
-      '.dashboard'
+      '.dashboards'
     end
   end
 end

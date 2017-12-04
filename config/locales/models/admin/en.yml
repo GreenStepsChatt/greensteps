@@ -1,0 +1,8 @@
+en:
+  activemodel:
+    errors:
+      models:
+        admin:
+          attributes:
+            email:
+              user_does_not_exist: "must be an existing user's email address"

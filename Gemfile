@@ -6,6 +6,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'acts_as_paranoid', '~> 0.5.0'
 gem 'bitters'
 gem 'bourbon'
 gem 'coffee-rails', '~> 4.2'
@@ -14,7 +15,6 @@ gem 'devise'
 gem 'factory_girl_rails'
 gem 'faker'
 gem 'font-awesome-rails'
-gem 'haml-rails'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
@@ -30,6 +30,7 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'uglifier', '>= 1.3.0'
 
 group :development, :test do
+  gem 'bullet'
   gem 'byebug', platform: :mri
   gem 'capybara'
   gem 'rspec-rails', '~> 3.6'
@@ -50,6 +51,7 @@ group :test do
   gem 'launchy'
   gem 'poltergeist'
   gem 'rails-controller-testing'
+  gem 'rspec-collection_matchers'
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
   gem 'webmock'
