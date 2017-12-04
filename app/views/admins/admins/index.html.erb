@@ -2,7 +2,12 @@
 
 <ul class="admins">
   <% admins.each do |admin| %>
-    <li><%= admin.email %></li>
+    <li>
+      <%= admin.email %>
+      <%= link_to admins_admin_path(admin), class: 'delete_admin', remote: true, method: :delete do %>
+        <%= fa_icon('minus') %>
+      <% end %>
+    </li>
   <% end %>
 </ul>
 

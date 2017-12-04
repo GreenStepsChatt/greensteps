@@ -15,6 +15,11 @@ module Admins
       end
     end
 
+    def destroy
+      admin.demote
+      flash.now.notice = t('.success')
+    end
+
     private
 
     def admin_params

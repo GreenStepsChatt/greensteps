@@ -7,3 +7,5 @@ en:
         header: "Grant Admin Privileges"
       create:
         success: "Admin privileges successfully granted!"
+      destroy:
+        success: "Admin privileges successfully revoked!"

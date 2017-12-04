@@ -9,6 +9,21 @@ class Admin < ApplicationForm
     end
   end
 
+  def demote
+    user.remove_role :admin
+  end
+
+  def self.find(*args)
+    new.tap do |admin|
+      admin.user = User.with_role(:admin).find(*args)
+    end
+  end
+
+  def user=(user)
+    @user = user
+    @email = user.email
+  end
+
   private
 
   def user

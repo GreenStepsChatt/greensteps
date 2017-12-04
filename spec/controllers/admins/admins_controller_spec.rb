@@ -21,4 +21,9 @@ RSpec.describe Admins::AdminsController, type: :controller do
     ].each do |method, action|
       include_examples 'restricted to admins html response', method, action
     end
+
+    include_examples('restricted to admins ajax response', :delete, :destroy) do
+      let(:params) { { id: create(:admin) } }
+    end
+  end
 end

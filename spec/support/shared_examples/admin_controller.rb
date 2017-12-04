@@ -19,9 +19,20 @@ RSpec.shared_examples 'restricted to admins html response' do |method, action|
   end
 end
 
+RSpec.shared_examples 'restricted to admins ajax response' do |method, action|
+  before(:each) { sign_in create(:user) }
 
+  let(:params) {}
 
+  describe "#{method.to_s.upcase} ##{action} (XHR)" do
+    it 'gives a 401: Unauthorized response' do
+      send(method, action, params: params, xhr: true)
+      expect(response).to have_http_status :unauthorized
+    end
 
+    it 'flashes an alert message' do
+      send(method, action, params: params, xhr: true)
+      expect(flash[:alert]).to eq t('restricted_to_admins')
     end
   end
 end

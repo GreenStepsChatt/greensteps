@@ -6,10 +6,19 @@ module Admins
 
     def ensure_admin
       return if current_user.has_role? :admin
-      redirect_back(
-        fallback_location: root_path,
-        alert: t('restricted_to_admins')
-      )
+      respond_to do |format|
+        format.html do
+          redirect_back(
+            fallback_location: root_path,
+            alert: t('restricted_to_admins')
+          )
+        end
+
+        format.js do
+          flash.now.alert = t('restricted_to_admins')
+          render 'shared/update_flash', status: :unauthorized
+        end
+      end
     end
   end
 end
