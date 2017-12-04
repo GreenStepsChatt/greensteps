@@ -20,8 +20,7 @@ spec/examples.txt
 coverage/**
 mkmf.log
 
-# Ignore config/database.yml file & .env variables
-/config/database.yml
+# Ignore .env variables
 .env
 
 # Ignore docker-compose.override file

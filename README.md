@@ -25,7 +25,7 @@ Also you can run the app with a help of Docker...
 2) Create `docker-compose.override.yml` file with docker preferences for development environment:
 
   ```bash
-  cp docker-compose.override.yml docker-compose.development.yml
+  cp docker-compose.development.yml docker-compose.override.yml
   ```
 
 3) Create `.env` file to store all env. variables (uncomment the line with variable you wanna change):
@@ -34,16 +34,16 @@ Also you can run the app with a help of Docker...
   cp .env.example .env
   ```
 
-4) Create external volume for gems by running:
-
-  ```bash
-  docker volume create --name=greensteps_gems
-  ```
-
-5) Install [docker](https://docs.docker.com/engine/installation/) & [docker-compose](https://docs.docker.com/compose/install/) if you haven't got them yet and then run:
+4) Install [docker](https://docs.docker.com/engine/installation/) & [docker-compose](https://docs.docker.com/compose/install/) if you haven't got them yet and then run:
 
   ```bash
   docker-compose build
+  ```
+
+5) Create external volume for gems by running:
+
+  ```bash
+  docker volume create --name=greensteps_gems
   ```
 
 6) Run the project:
