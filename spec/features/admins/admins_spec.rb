@@ -23,4 +23,17 @@ RSpec.describe 'List of admins', type: :feature do
     expect(admin_list).to include admin_to_be
     expect(flash).to have_content t('admins.admins.create.success')
   end
+
+  scenario 'Admin revokes a user\'s admin privileges', :js do
+    create_and_login_admin
+    admin_to_loose_privileges = create :admin
+    visit admins_dashboards_show_path
+
+    admin_dashboard.manage_admins
+    admin_list.remove admin_to_loose_privileges
+    wait_for_ajax
+
+    expect(admin_list).to_not include admin_to_loose_privileges
+    expect(flash).to have_content t('admins.admins.destroy.success')
+  end
 end

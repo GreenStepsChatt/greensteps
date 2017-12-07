@@ -1,8 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Admins::PrizesController, type: :controller do
-  it_should_behave_like 'an admin controller'
-
   describe 'POST #create' do
     context 'invalid prize' do
       it 're-renders the form' do
@@ -12,6 +10,15 @@ RSpec.describe Admins::PrizesController, type: :controller do
 
         expect(response).to render_template(:new)
       end
+    end
+  end
+
+  context 'non-admin user' do
+    [
+      %i[get new],
+      %i[post create]
+    ].each do |method, action|
+      include_examples 'restricted to admins html response', method, action
     end
   end
 end
