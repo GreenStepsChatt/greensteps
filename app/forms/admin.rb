@@ -19,6 +19,7 @@ class Admin < ApplicationForm
     end
   end
 
+  # internal
   def user=(user)
     @user = user
     @email = user.email

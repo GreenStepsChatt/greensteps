@@ -8,4 +8,36 @@ RSpec.describe Admin, type: :form do
 
     expect(admin).to be_invalid
   end
+
+  describe '#save' do
+    it 'grants the user the admin role' do
+      user = create :user
+      admin = Admin.new(email: user.email)
+
+      admin.save
+
+      expect(user).to have_role(:admin)
+    end
+  end
+
+  describe '#demote' do
+    it 'removes the admin role' do
+      user = create :admin
+      admin = Admin.new(email: user.email)
+
+      admin.demote
+
+      expect(user).to_not have_role(:admin)
+    end
+  end
+
+  describe '.find' do
+    it 'initializes a new admin object that is tied to the specified user' do
+      user = create :admin
+
+      admin = Admin.find(user.id)
+
+      expect(admin.email).to eq user.email
+    end
+  end
 end
