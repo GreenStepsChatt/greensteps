@@ -21,6 +21,9 @@
     },
     "SECRET_KEY_BASE": {
       "required": true
+    },
+    "USE_SAMPLE_DATA": {
+      "required": false
     }
   },
   "formation": {
