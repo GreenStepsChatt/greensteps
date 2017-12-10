@@ -1,7 +1,7 @@
 {
   "name": "greensteps",
   "scripts": {
-    "postdeploy": "bin/rake heroku:review_apps:postdeploy"
+    "postdeploy": "bin/rake heroku:postdeploy"
   },
   "env": {
     "LANG": {
