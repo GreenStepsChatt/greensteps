@@ -6,7 +6,7 @@ namespace :heroku do
   end
 
   desc 'Tasks to be run after each deployment'
-  task :release do
+  task release: :environment do
     if ActiveRecord::Migrator.current_version.zero?
       Rake::Task['db:schema:load'].invoke
     else
