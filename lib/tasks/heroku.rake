@@ -1,7 +1,6 @@
 namespace :heroku do
   desc 'Tasks to be run just once, after the first deployment'
   task postdeploy: 'db:seed' do
-    Rails.logger.debug "ENV['USE_SAMPLE_DATA'] = #{ENV['USE_SAMPLE_DATA']}"
     Rake::Task['db:populate'].invoke if ENV['USE_SAMPLE_DATA']
   end
 
