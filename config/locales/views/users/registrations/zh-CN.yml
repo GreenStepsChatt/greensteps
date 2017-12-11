@@ -1,0 +1,5 @@
+zh-CN:
+  users:
+    registrations:
+      create:
+        account_deleted: "和这个电子邮件管理的帐户已存在，但已被删除。"
