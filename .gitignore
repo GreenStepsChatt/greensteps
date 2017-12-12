@@ -21,6 +21,7 @@ coverage/**
 mkmf.log
 
 # Ignore .env variables
+.env
 .env.development
 .env.test
 
