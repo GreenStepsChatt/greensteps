@@ -1,0 +1,10 @@
+zh-CN:
+  activerecord:
+    attributes:
+      deed:
+        trash_bags: '垃圾袋'
+        miles: '英里'
+    errors:
+      models:
+        deed:
+          nothing_was_done: '你必须记录至少一英里或者垃圾袋。'

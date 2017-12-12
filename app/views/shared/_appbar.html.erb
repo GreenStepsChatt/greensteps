@@ -7,23 +7,7 @@
   <div id="nav_drawer_container">
     <div id="nav_drawer">
       <%= link_to "#{t(:brand_name)} or logo here", root_path, class: 'logo' %>
-      <ul>
-        <li>
-          <%= 'Link A' %>
-        </li>
-        <li>
-          <%= 'Link B' %>
-        </li>
-      </ul>
       <% if user_signed_in? %>
-        <ul>
-          <li>
-            <%= 'Users only link 1' %>
-          </li>
-          <li>
-            <%= 'Users only link 2' %>
-          </li>
-        </ul>
         <ul id="account_tools">
           <li>
             <%= link_to t('.edit_account'), edit_user_registration_path %>

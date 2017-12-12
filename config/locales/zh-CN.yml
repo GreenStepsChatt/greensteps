@@ -1,0 +1,30 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= scoped_t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+zh-CN:
+  brand_name: "品牌名称"
+  no_visitor_access: "你必须要登录后才能进行这个操作。"
+  restricted_to_admins: "只有管理员才能访问这个页面。"
+  helpers:
+    submit:
+      create: "保存"
+      update: "保存"
+    cancel: "取消"
