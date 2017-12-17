@@ -1,0 +1,14 @@
+<%= form_for [:admins, station] do |f| %>
+  <%= render 'shared/errors', record: station %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name, required: true %>
+
+  <%= f.label :lat %>
+  <%= f.number_field :lat, required: true, value: number_with_precision(f.object.lat, :precision => 10), step: :any%>
+
+  <%= f.label :lng %>
+  <%= f.number_field :lng, required: true, value: number_with_precision(f.object.lng, :precision => 10), step: :any%>
+
+  <%= f.submit %>
+<% end %>

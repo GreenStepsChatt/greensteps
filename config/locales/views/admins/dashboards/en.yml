@@ -5,6 +5,8 @@ en:
         header: "Admin Dashboard"
         prize_management:
           header: "Prize Management"
+        stations_management:
+          header: "Stations Management"
         miscellaneous:
           header: "Other Tools"
           admins: "Manage admin privileges"
