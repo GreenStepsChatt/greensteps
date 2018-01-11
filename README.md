@@ -2,7 +2,7 @@
 
 ## Welcome
 Hi there! We are just getting started with this project. The goal is to have a
-minimum viable product (MVP) by December 2017.
+minimum viable product (MVP) by April 2017.
 
 We'd love your help with this project! See the [contribution
 guidelines](CONTRIBUTING.md) for more information.
