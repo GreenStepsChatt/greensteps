@@ -16,3 +16,5 @@ Once you have a copy of this project on your machine, you should run
 
 1. run `bin/rspec` to make sure everything was installed properly
 2. start the server and explore the app
+
+Also you can run the app [with a help of Docker](DOCKER_SETUP.md).

@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  postgres:
+    volumes:
+      # Postgres folder for data
+      - $PWD/docker/containers/postgres/data/var/lib/postgresql/data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+
+  web:
+    ports:
+      - 3000:3000
+    # For using pry inside docker container
+    stdin_open: true
+    tty: true
