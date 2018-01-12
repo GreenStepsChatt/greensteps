@@ -45,6 +45,7 @@ We've set up two main ways to run specs...
 
 ### During Development
 
+Two options:
 1. Use `bundle exec guard` to have specs automatically run when changes are
    saved
 2. Use `bin/rspec` followed by command line arguments to run RSpec on demand

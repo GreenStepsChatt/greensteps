@@ -15,13 +15,8 @@ markdown, you can simply check the checkbox.*
 - [ ] All specs and linters pass (including Code Climate)
 - [ ] I have followed the style of nearby code
 - [ ] The build on Semaphore is successful
-- [ ] I have added tests for my changes and these tests would fail without my
-      changes.
+- [ ] I have added tests for my changes.
 - [ ] I have gone through my changes by hand, either in the browser or terminal,
       which ever makes sense
 - [ ] I have [internationalized](http://guides.rubyonrails.org/i18n.html) my
       changes
-
-## Maintainer Checklist
-- [ ] Run migrations (if necessary) in production after deployment
-- [ ] Review issues and update labels
