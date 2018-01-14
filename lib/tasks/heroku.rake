@@ -11,7 +11,5 @@ namespace :heroku do
     else
       Rake::Task['db:migrate'].invoke
     end
-
-    Rake::Task['after_party:run'].invoke
   end
 end
