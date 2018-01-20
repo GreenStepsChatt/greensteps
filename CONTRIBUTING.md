@@ -12,6 +12,8 @@ lower priority and might even be closed without merging. That said, we'd love to
 hear your suggestions on how to make the web app better, so please don't
 hesitate to open an issue if you think of something!
 
+From time to time we also have [abandonded PRs](https://github.com/crawfoal/greensteps/pulls?q=is%3Aopen+is%3Apr+label%3Aabandoned) that need to be finished - if there are any in that list we'd love your help there too!
+
 ### Tips for Beginners
 - Issues labelled "good first issue" or "first-timers-only" are a good place to
 start.
