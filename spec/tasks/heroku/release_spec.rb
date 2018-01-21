@@ -11,4 +11,9 @@ RSpec.describe 'rake heroku:release', type: :task do
     expect(Rake::Task['db:migrate']).to receive(:invoke)
     task.execute
   end
+
+  it 'runs after party tasks' do
+    expect(Rake::Task['after_party:run']).to receive(:invoke)
+    task.execute
+  end
 end
