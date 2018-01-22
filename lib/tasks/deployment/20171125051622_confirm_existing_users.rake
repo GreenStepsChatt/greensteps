@@ -1,7 +1,7 @@
 namespace :after_party do
   desc 'Deployment task: confirm_existing_users'
   task confirm_existing_users: :environment do
-    puts "Running deploy task 'confirm_existing_users'"
+    Rails.logger.info "Running deploy task 'confirm_existing_users'"
 
     User.update confirmed_at: Time.zone.now
 
