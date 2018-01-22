@@ -4,6 +4,9 @@
     "postdeploy": "bin/rake heroku:postdeploy"
   },
   "env": {
+    "INTERCEPT_EMAILS": {
+      "required": true
+    },
     "LANG": {
       "required": true
     },
@@ -20,6 +23,24 @@
       "required": true
     },
     "SECRET_KEY_BASE": {
+      "required": true
+    },
+    "SEND_INTERCEPTED_EMAILS_TO": {
+      "required": true
+    },
+    "SMTP_ADDRESS": {
+      "required": true
+    },
+    "SMTP_DOMAIN": {
+      "required": true
+    },
+    "SMTP_PASSWORD": {
+      "required": true
+    },
+    "SMTP_USERNAME": {
+      "required": true
+    },
+    "SMTP_ADDRESS": {
       "required": true
     },
     "USE_SAMPLE_DATA": {
