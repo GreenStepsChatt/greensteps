@@ -14,7 +14,7 @@ RSpec.describe 'User email confirmation', type: :feature do
     expect(page).to_not show :log_in_form
   end
 
-  scenario 'User is sent confirmation email when they register', :focus do
+  scenario 'User is sent confirmation email when they register' do
     new_user_info = build_stubbed :user
 
     visit root_path
