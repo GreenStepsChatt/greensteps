@@ -7,6 +7,7 @@ git_source(:github) do |repo_name|
 end
 
 gem 'acts_as_paranoid', '~> 0.5.0'
+gem 'after_party'
 gem 'bitters'
 gem 'bourbon'
 gem 'coffee-rails', '~> 4.2'
@@ -40,6 +41,7 @@ end
 
 group :development do
   gem 'guard-rspec', require: false
+  gem 'letter_opener'
   gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'spring-commands-rspec'
