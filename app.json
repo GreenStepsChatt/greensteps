@@ -4,6 +4,9 @@
     "postdeploy": "bin/rake heroku:postdeploy"
   },
   "env": {
+    "APPLICATION_HOST": {
+      "required": true
+    },
     "INTERCEPT_EMAILS": {
       "required": true
     },
