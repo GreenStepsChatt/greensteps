@@ -72,8 +72,7 @@ Rails.application.configure do
     user_name: ENV.fetch("SMTP_USERNAME")
   }
   config.action_mailer.default_url_options = {
-    host: ENV.fetch("APPLICATION_HOST"),
-    port: ENV.fetch("PORT")
+    host: ENV.fetch("APPLICATION_HOST")
   }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
