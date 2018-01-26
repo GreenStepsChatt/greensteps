@@ -37,7 +37,7 @@ group :development, :test do
   gem 'capybara'
   gem 'dotenv-rails'
   gem 'rspec-rails', '~> 3.6'
-  gem 'rubocop', '~> 0.49.1', require: false
+  gem 'rubocop', '~> 0.52', require: false
 end
 
 group :development do
