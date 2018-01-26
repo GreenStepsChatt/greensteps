@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: greensteps_production
-  username: greensteps
+  username: <%= ENV.fetch('GREENSTEPS_DATABASE_USERNAME', 'greensteps') %>
   password: <%= ENV['GREENSTEPS_DATABASE_PASSWORD'] %>

@@ -10,6 +10,14 @@ namespace :heroku do
     Rake::Task['after_party:run'].invoke
   end
 
+  desc 'Creates a local Heroku release (for local prod. env. testing)'
+  task local_release: [
+    'db:drop',
+    'db:create',
+    'db:schema:load',
+    'assets:precompile'
+  ]
+
   def migrate_or_load_schema
     if ActiveRecord::Migrator.current_version.zero?
       Rake::Task['db:schema:load'].invoke
