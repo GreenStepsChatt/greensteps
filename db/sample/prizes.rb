@@ -1,1 +1,1 @@
-FactoryGirl.create_list :prize, 5
+FactoryBot.create_list :prize, 5

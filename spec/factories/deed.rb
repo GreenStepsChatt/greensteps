@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   # the basic factory only has what's needed for the record to be valid
   factory :deed do
     user

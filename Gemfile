@@ -13,7 +13,7 @@ gem 'bourbon'
 gem 'coffee-rails', '~> 4.2'
 gem 'decent_exposure'
 gem 'devise'
-gem 'factory_girl_rails'
+gem 'factory_bot_rails'
 gem 'faker'
 gem 'font-awesome-rails'
 gem 'jbuilder', '~> 2.5'
@@ -43,7 +43,7 @@ end
 group :development do
   gem 'guard-rspec', require: false
   gem 'letter_opener'
-  gem 'listen', '~> 3.0.5'
+  gem 'listen'
   gem 'spring'
   gem 'spring-commands-rspec'
   gem 'spring-watcher-listen', '~> 2.0.0'
