@@ -24,3 +24,7 @@ mkmf.log
 .env
 .env.development
 .env.test
+.env.production
+
+# Ignore locally compiled assets
+public/assets

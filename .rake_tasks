@@ -1,4 +1,7 @@
 about
+after_party:confirm_existing_users
+after_party:run
+after_party:status
 app:template
 app:update
 assets:clean[keep]
@@ -26,6 +29,8 @@ db:structure:dump
 db:structure:load
 db:version
 dev:cache
+heroku:ensure_db_user_exists
+heroku:local_release
 heroku:postdeploy
 heroku:release
 initializers

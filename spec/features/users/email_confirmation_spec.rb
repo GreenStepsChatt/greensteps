@@ -14,9 +14,19 @@ RSpec.describe 'User email confirmation', type: :feature do
     expect(page).to_not show :log_in_form
   end
 
+  scenario 'User is sent confirmation email when they register' do
+    new_user_info = build_stubbed :user
+
+    visit root_path
+    sign_up_form.fill_and_submit_with new_user_info
+
+    expect(last_email.subject).to eq 'Confirmation instructions'
+    expect(last_email.to).to eq [new_user_info.email]
+  end
+
   scenario 'User has not confirmed their account and grace period ended', :js do
     user = create :user
-    user.update(confirmation_sent_at: 3.days.ago)
+    user.update(confirmation_sent_at: 4.days.ago)
 
     visit root_path
     welcome_page.open_log_in_form
@@ -37,7 +47,7 @@ RSpec.describe 'User email confirmation', type: :feature do
 
   scenario 'User tries to confirm their account after grace period', :js do
     user = create :user
-    user.update(confirmation_sent_at: 3.days.ago)
+    user.update(confirmation_sent_at: 8.days.ago)
 
     visit user_confirmation_path(confirmation_token: user.confirmation_token)
 
