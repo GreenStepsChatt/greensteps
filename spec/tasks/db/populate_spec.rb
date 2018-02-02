@@ -6,8 +6,7 @@ RSpec.describe 'rake db:populate', type: :task do
   end
 
   after(:all) do
-    DatabaseCleaner.clean_with :deletion
-    Rails.application.load_seed
+    reset_db_with_database_cleaner
   end
 
   it 'preloads the Rails environment' do
