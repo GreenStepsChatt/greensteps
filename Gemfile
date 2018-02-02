@@ -6,7 +6,9 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'acts_as_paranoid', '~> 0.5.0'
+gem 'acts_as_paranoid',
+    git: 'https://github.com/ActsAsParanoid/acts_as_paranoid.git',
+    ref: '085b5cc'
 gem 'after_party'
 gem 'bitters'
 gem 'bourbon'
@@ -23,7 +25,7 @@ gem 'mail_interceptor'
 gem 'pg', '~> 0.18'
 gem 'pry'
 gem 'puma', '~> 3.0'
-gem 'rails', '~> 5.0.4'
+gem 'rails', '~> 5.1.4'
 gem 'record_tag_helper'
 gem 'rolify'
 gem 'sass-rails', '~> 5.0'
