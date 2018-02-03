@@ -4,7 +4,7 @@ namespace :lint do
     if Rails.env.test?
       begin
         DatabaseCleaner.start
-        FactoryGirl.lint
+        FactoryBot.lint
       ensure
         DatabaseCleaner.clean
       end

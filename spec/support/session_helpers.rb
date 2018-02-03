@@ -2,11 +2,11 @@ module SessionHelpers
   attr_reader :current_user
 
   def create_and_login_user
-    stubbed_login_as FactoryGirl.create :user
+    stubbed_login_as FactoryBot.create :user
   end
 
   def create_and_login_admin
-    stubbed_login_as FactoryGirl.create :admin
+    stubbed_login_as FactoryBot.create :admin
   end
 
   def stubbed_login_as(user)

@@ -19,7 +19,7 @@ module PageObjects
       main_element = @page.find('main')
       if main_element.present?
         classes = main_element[:class]
-        classes.present? ? classes : '(no classes applied to main element)'
+        classes.presence || '(no classes applied to main element)'
       else
         '(no main element found)'
       end

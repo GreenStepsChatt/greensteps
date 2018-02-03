@@ -4,7 +4,7 @@ RSpec.shared_examples 'restricted to admins html response' do |method, action|
     sign_in create(:user)
   end
 
-  let(:params) {}
+  let(:params) { {} }
 
   describe "#{method.to_s.upcase} ##{action}" do
     it 'redirects back' do
@@ -22,7 +22,7 @@ end
 RSpec.shared_examples 'restricted to admins ajax response' do |method, action|
   before(:each) { sign_in create(:user) }
 
-  let(:params) {}
+  let(:params) { {} }
 
   describe "#{method.to_s.upcase} ##{action} (XHR)" do
     it 'gives a 401: Unauthorized response' do
