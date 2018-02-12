@@ -1,4 +1,4 @@
-.registrations, .sessions {
+.users-registrations, .users-sessions {
   br {
     display: none;
   }
@@ -9,5 +9,9 @@
     ~ a {
       display: block;
     }
+  }
+
+  .field label {
+    margin-top: $base-spacing;
   }
 }
