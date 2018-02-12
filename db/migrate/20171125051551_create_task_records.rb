@@ -1,4 +1,4 @@
-class CreateTaskRecords < ActiveRecord::Migration
+class CreateTaskRecords < ActiveRecord::Migration[5.1]
   def change
     create_table :task_records, :id => false do |t|
       t.string :version, :null => false
