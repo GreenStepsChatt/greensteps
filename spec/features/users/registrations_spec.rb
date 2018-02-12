@@ -1,13 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe 'User Registrations', type: :feature do
-  scenario 'Visitor signs up', :js do
+  scenario 'Visitor signs up', :js, :with_active_job_test_adapter do
     new_user_info = build_stubbed :user
 
     visit root_path
     sign_up_form.fill_and_submit_with new_user_info
 
     expect(page).to flash_message t('devise.registrations.signed_up')
+    expect(ActionMailer::DeliveryJob).to have_been_enqueued
     expect(User).to exist email: new_user_info.email
     expect(page).to_not show :sign_up_form
     expect(page).to_not show :log_in_form
