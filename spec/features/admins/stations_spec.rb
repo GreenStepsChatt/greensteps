@@ -10,7 +10,7 @@ RSpec.describe 'Stations management', type: :feature do
     station_form.name = 'Downtown - Central'
     station_form.street = '121 Main Street'
     station_form.city = 'Chattanooga'
-    station_form.state = 'Tennessee'
+    station_form.select_state 'Tennessee'
     station_form.zip = '10101'
     station_form.submit
 

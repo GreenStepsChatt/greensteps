@@ -12,8 +12,8 @@ module PageObjects
       this.fill_in t('helpers.label.station_form.city'), with: city
     end
 
-    def state=(state)
-      this.fill_in t('helpers.label.station_form.state'), with: state
+    def select_state(state)
+      this.select state, from: t('helpers.label.station_form.state')
     end
 
     def zip=(zip)

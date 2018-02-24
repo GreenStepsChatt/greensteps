@@ -11,7 +11,7 @@
   <%= f.text_field :city, required: true %>
 
   <%= f.label :state %>
-  <%= f.text_field :state, required: true %>
+  <%= f.select :state, StatesHelper::US_STATES, required: true %>
 
   <%= f.label :zip %>
   <%= f.number_field :zip, required: true %>
