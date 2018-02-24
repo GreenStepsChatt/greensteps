@@ -37,6 +37,12 @@ en:
     label:
       admin:
         email: "User's email"
+      station_form:
+        name: "Name"
+        street: "Street"
+        city: "City"
+        state: "State"
+        zip: "Zip"
     submit:
       create: "Save"
       update: "Save"

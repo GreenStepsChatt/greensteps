@@ -10,7 +10,21 @@
   </ul>
 
   <%= link_to new_admins_prize_path, class: 'add_prize' do %>
-    <%= fa_icon('plus') %>
+    <%= fa_icon 'plus' %>
+  <% end %>
+</section>
+
+<section class="station_management">
+  <h3><%= t('.station_management.header') %></h3>
+
+  <ul class="stations">
+    <% stations.each do |station| %>
+      <li><%= station.name %></li>
+    <% end %>
+  </ul>
+
+  <%= link_to new_admins_station_path, class: 'add_station' do %>
+    <%= fa_icon 'plus' %>
   <% end %>
 </section>
 

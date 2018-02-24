@@ -1,0 +1,20 @@
+<%= form_for [:admins, station_form], url: admins_stations_path do |f| %>
+  <%= render 'shared/errors', record: station_form %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name, required: true %>
+
+  <%= f.label :street %>
+  <%= f.text_field :street, required: true %>
+
+  <%= f.label :city %>
+  <%= f.text_field :city, required: true %>
+
+  <%= f.label :state %>
+  <%= f.text_field :state, required: true %>
+
+  <%= f.label :zip %>
+  <%= f.number_field :zip, required: true %>
+
+  <%= f.submit %>
+<% end %>
