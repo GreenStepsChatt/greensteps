@@ -1,4 +1,5 @@
 class Station < ApplicationRecord
+  validates :name, presence: true
   has_one :address,
           as: :addressable,
           dependent: :destroy,

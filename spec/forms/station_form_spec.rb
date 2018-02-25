@@ -15,11 +15,21 @@ RSpec.describe StationForm, type: :form do
       station_form = build :station_form,
                            street: '101 Main Street',
                            city: 'Chattanooga',
-                           state: 'Tennessee',
+                           state: 'TN',
                            zip: '10101'
 
       expect { station_form.save }.to change { Address.count }.by(1)
       expect(Address).to exist street: '101 Main Street'
     end
+  end
+
+  context 'station model is invalid' do
+    subject { build :station_form, :invalid_station }
+    it { should be_invalid }
+  end
+
+  context 'address model is invalid' do
+    subject { build :station_form, :invalid_address }
+    it { should be_invalid }
   end
 end

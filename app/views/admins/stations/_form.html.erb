@@ -11,10 +11,10 @@
   <%= f.text_field :city, required: true %>
 
   <%= f.label :state %>
-  <%= f.select :state, StatesHelper::US_STATES, required: true %>
+  <%= f.select :state, StatesHelper::US_STATES, {}, required: true %>
 
   <%= f.label :zip %>
-  <%= f.number_field :zip, required: true %>
+  <%= f.text_field :zip, required: true, minlength: 5 %>
 
   <%= f.submit %>
 <% end %>

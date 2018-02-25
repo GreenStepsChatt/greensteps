@@ -3,7 +3,20 @@ FactoryBot.define do
     name 'Station Name'
     street '100 Main Street'
     city 'Chattanooga'
-    state 'Tennessee'
+    state 'TN'
     zip '10101'
+
+    trait :invalid_station do
+      name nil
+    end
+
+    trait :invalid_address do
+      street nil
+    end
+
+    trait :invalid do
+      invalid_address
+      invalid_station
+    end
   end
 end
