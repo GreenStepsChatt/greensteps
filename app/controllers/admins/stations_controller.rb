@@ -15,9 +15,7 @@ module Admins
     private
 
     def station_form_params
-      params.require(:station_form).permit(
-        :name, :street, :city, :state, :zip, :latitude, :longitude
-      )
+      params.require(:station_form).permit(:name, :street, :city, :state, :zip)
     end
   end
 end
