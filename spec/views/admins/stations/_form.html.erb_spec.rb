@@ -10,5 +10,8 @@ RSpec.describe 'stations/_form' do
   it { should require_field '#station_form_city' }
   it { should require_field '#station_form_state' }
   it { should require_field '#station_form_zip' }
-  it { should validate_field('#station_form_zip').with(minlength: 5) }
+  it do
+    should validate_field('#station_form_zip')
+      .with(pattern: '\A\d{5}(-\d{4})?\z')
+  end
 end

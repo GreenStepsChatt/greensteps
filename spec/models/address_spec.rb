@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Address, of_type: :model do
+  subject { build :address }
   it { should have_db_column(:street).of_type(:string) }
   it { should have_db_column(:city).of_type(:string) }
   it { should have_db_column(:state).of_type(:string) }
@@ -13,5 +14,14 @@ RSpec.describe Address, of_type: :model do
   it { should validate_presence_of(:state) }
   it { should validate_length_of(:state).is_equal_to(2) }
   it { should validate_presence_of(:zip) }
-  it { should validate_length_of(:zip).is_at_least(5) }
+  it { should allow_value('CA').for(:state) }
+  it { should_not allow_value('01').for(:state) }
+  it { should_not allow_value('.a').for(:state) }
+  it { should allow_value('31088').for(:zip) }
+  it { should allow_value('31088-1010').for(:zip) }
+  it { should_not allow_value('310-881010').for(:zip) }
+  it { should_not allow_value('31088-10').for(:zip) }
+  it { should_not allow_value('31088--1010').for(:zip) }
+  it { should_not allow_value('abcdef').for(:zip) }
+  it { should_not allow_value('100.00').for(:zip) }
 end
