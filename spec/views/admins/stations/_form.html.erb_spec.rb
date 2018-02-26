@@ -12,6 +12,6 @@ RSpec.describe 'stations/_form' do
   it { should require_field '#station_form_zip' }
   it do
     should validate_field('#station_form_zip')
-      .with(pattern: '\A\d{5}(-\d{4})?\z')
+      .with(pattern: '^\d{5}(-\d{4})?$')
   end
 end

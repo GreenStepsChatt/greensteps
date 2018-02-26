@@ -14,7 +14,7 @@
   <%= f.select :state, StatesHelper::US_STATES, {}, required: true %>
 
   <%= f.label :zip %>
-  <%= f.text_field :zip, required: true, pattern: '\A\d{5}(-\d{4})?\z' %>
+  <%= f.text_field :zip, required: true, pattern: '^\d{5}(-\d{4})?$' %>
 
   <%= f.submit %>
 <% end %>
