@@ -10,7 +10,12 @@ namespace :heroku do
     Rake::Task['after_party:run'].invoke
   end
 
-  desc 'Creates a local Heroku release (for local prod. env. testing)'
+  desc <<~TEXT
+    Creates a local Heroku release for local testing of the production
+    environment. Run this task with
+      heroku local:run rails heroku:local_release -e .env.production \
+        DISABLE_DATABASE_ENVIRONMENT_CHECK=1
+  TEXT
   task local_release: [
     'db:drop',
     'db:create',
