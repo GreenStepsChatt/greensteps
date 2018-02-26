@@ -15,7 +15,7 @@ RSpec::Matchers.define :validate_field do |selector|
 
   failure_message do |actual|
     <<~TEXT + actual.to_s
-      expected the form to validate field \"#{selector}\" with #{validations}
+      expected the form to validate field \"#{selector}\" with #{@validations}
       but the html was\n
     TEXT
   end

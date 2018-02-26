@@ -3,10 +3,8 @@ class Admin < ApplicationForm
   validates_presence_of :email
   validate :user_exists
 
-  def save
-    super do
-      user.add_role :admin
-    end
+  def save!
+    user.add_role :admin
   end
 
   def demote

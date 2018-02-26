@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   namespace :admins do
     get 'dashboards/show'
     resources 'prizes', only: [:new, :create]
+    resources 'stations', only: [:new, :create]
     resources 'admins', only: [:index, :new, :create, :destroy]
   end
 

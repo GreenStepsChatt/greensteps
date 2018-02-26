@@ -8,6 +8,10 @@ module PageObjects
       this.find('.add_prize').click
     end
 
+    def add_station
+      this.find('.add_station').click
+    end
+
     def selector
       '.admins-dashboards'
     end
