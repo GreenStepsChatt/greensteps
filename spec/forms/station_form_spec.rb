@@ -1,7 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe StationForm, type: :form do
+  subject { build :station_form }
+
   it { should respond_to :name, :street, :city, :state, :zip }
+
+  it { should validate_models :station, :address }
 
   describe '#save' do
     it 'creates a station record' do
@@ -21,15 +25,5 @@ RSpec.describe StationForm, type: :form do
       expect { station_form.save }.to change { Address.count }.by(1)
       expect(Address).to exist street: '101 Main Street'
     end
-  end
-
-  context 'station model is invalid' do
-    subject { build :station_form, :invalid_station }
-    it { should be_invalid }
-  end
-
-  context 'address model is invalid' do
-    subject { build :station_form, :invalid_address }
-    it { should be_invalid }
   end
 end

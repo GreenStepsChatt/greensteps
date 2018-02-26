@@ -1,7 +1,7 @@
 class StationForm < ApplicationForm
   attr_accessor :name, :street, :city, :state, :zip
 
-  validate_models :station, :address
+  validates_models :station, :address
 
   def save!
     ActiveRecord::Base.transaction do
