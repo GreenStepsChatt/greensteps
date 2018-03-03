@@ -1,3 +1,5 @@
+require "#{Rails.root}/lib/swapper"
+
 RSpec::Matchers.define :validate_models do |*model_names|
   match do |form|
     raise StandardError, <<~TEXT if form.invalid?
@@ -11,9 +13,10 @@ RSpec::Matchers.define :validate_models do |*model_names|
   define_method :validated_models do
     @validated_models ||= @model_names.select do |model_name|
       model = @form.send(model_name)
-      model.temp_set(:attributes, invalid_attributes_for(model_name)) do
-        @form.invalid?
-      end
+      Swapper.while(model).has(:attributes).
+        set_to(invalid_attributes_for(model_name)) do
+          @form.invalid?
+        end
     end
   end
 
