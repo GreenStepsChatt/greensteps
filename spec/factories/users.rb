@@ -27,6 +27,20 @@ FactoryBot.define do
       after(:create, &:destroy)
     end
 
+    trait :confirmed do
+      confirmed_at { created_at }
+    end
+
+    trait :unconfirmed do
+      confirmed_at nil
+    end
+
+    trait :unconfirmed_and_locked_out do
+      unconfirmed
+      created_at { 4.days.ago }
+      after(:create) { |user| user.update(confirmation_sent_at: 4.days.ago) }
+    end
+
     factory :admin do
       email { generate :admin_email }
       after(:build) { |user| user.add_role :admin }
