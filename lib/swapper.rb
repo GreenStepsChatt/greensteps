@@ -27,12 +27,14 @@ module Swapper
       @object = object
     end
 
-    def has(attribute_name) # attr_writer w/out equals sign
+    # attribute_name should be the attr_reader (and attr_writer w/out equals
+    # sign)
+    def has(attribute_name)
       @attribute_name = attribute_name
       self
     end
 
-    def set_to(value)
+    def set_to(value) # rubocop:disable Naming/AccessorMethodName
       original_value = object.send(attribute_name)
       object.send("#{attribute_name}=", value)
       yield.tap { object.send("#{attribute_name}=", original_value) }

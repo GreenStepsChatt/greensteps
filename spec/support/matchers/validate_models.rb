@@ -1,4 +1,4 @@
-require "#{Rails.root}/lib/swapper"
+require Rails.root.join('lib', 'swapper')
 
 RSpec::Matchers.define :validate_models do |*model_names|
   match do |form|
@@ -13,10 +13,11 @@ RSpec::Matchers.define :validate_models do |*model_names|
   define_method :validated_models do
     @validated_models ||= @model_names.select do |model_name|
       model = @form.send(model_name)
-      Swapper.while(model).has(:attributes).
-        set_to(invalid_attributes_for(model_name)) do
-          @form.invalid?
-        end
+      Swapper.while(model)
+             .has(:attributes)
+             .set_to(invalid_attributes_for(model_name)) do
+        @form.invalid?
+      end
     end
   end
 

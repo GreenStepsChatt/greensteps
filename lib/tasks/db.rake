@@ -1,4 +1,4 @@
-require "#{Rails.root}/lib/swapper"
+require Rails.root.join('lib', 'swapper')
 
 namespace :db do
   desc 'Populates the database with sample data (defined in db/sample)'
