@@ -1,31 +1,90 @@
 #appbar {
-  @include appbar;
+  @include elevation(4);
+  @include position(fixed, 0 0 null 0);
+
+  background-color: $appbar-background-color;
+  display: flex;
+  padding: $base-spacing;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  a {
+    @include styled-link($appbar-font-color);
+  }
 
   li {
-    @include appbar-item;
+    &:not(:last-child) {
+      margin-right: $small-spacing;
+    }
   }
 
   .fa-navicon {
-    @include nav-drawer-toggler;
+    @include styled-link($appbar-font-color);
+
+    margin-right: $base-spacing;
   }
 }
 
+// Until `position: sticky` works on all major browsers, and it is actually
+// initially placed in the normal document flow, we'll need to use an extra div
+// to push the top of the page content down below the appbar.
 #appbar_spacer {
-  @include appbar-spacer;
+  height: $base-line-height + 2 * $base-spacing;
+  width: 100vw;
 }
 
 #nav_drawer {
-  @include nav-drawer;
+  @include elevation(16);
+
+  background-color: $base-background-color;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  max-width: 75%;
+  overflow: {
+    x: hidden;
+    y: auto;
+  }
+  padding: {
+    left: $base-spacing;
+    right: $base-spacing;
+  }
+  width: fit-content;
+
+  a {
+    @include styled-link($base-font-color);
+  }
 
   > * {
-    @include nav-drawer-section;
+    padding: {
+      bottom: $small-spacing;
+      top: $small-spacing;
+    }
+
+    &:not(:last-child) {
+      border-bottom: $base-border;
+    }
 
     > * {
-      @include nav-drawer-item;
+      &:not(:first-child) {
+        padding-top: $small-spacing;
+      }
     }
   }
 }
 
+// Need to use a container until :backdrop pseudo element is supported by all
+// vendors and isn't buggy anymore. The nav-drawer element must be an immediate
+// child of the nav-drawer-container element.
 #nav_drawer_container {
-  @include nav-drawer-container;
+  @include elevation(15);
+  background-color: rgba(0, 0, 0, 0.2);
+  display: none;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
