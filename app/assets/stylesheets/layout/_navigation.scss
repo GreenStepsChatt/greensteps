@@ -2,7 +2,7 @@
   @include elevation(4);
   @include position(fixed, 0 0 null 0);
 
-  background-color: $appbar-background-color;
+  background-color: $primary-color;
   display: flex;
   padding: $base-spacing;
   position: fixed;
@@ -11,7 +11,7 @@
   right: 0;
 
   a {
-    @include styled-link($appbar-font-color);
+    @include styled-link($primary-text-light);
   }
 
   li {
@@ -21,7 +21,7 @@
   }
 
   .fa-navicon {
-    @include styled-link($appbar-font-color);
+    @include styled-link($primary-text-light);
 
     margin-right: $base-spacing;
   }
@@ -52,10 +52,6 @@
     right: $base-spacing;
   }
   width: fit-content;
-
-  a {
-    @include styled-link($base-font-color);
-  }
 
   > * {
     padding: {

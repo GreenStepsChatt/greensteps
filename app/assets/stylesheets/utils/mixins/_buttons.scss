@@ -15,7 +15,7 @@
   }
 }
 
-@mixin lighten-on-hover($color: $action-color) {
+@mixin lighten-on-hover($color: $primary-color) {
   &:hover,
   &:focus {
     background-color: lighten($color, 5%);
@@ -51,7 +51,7 @@
 }
 
 @mixin button {
-  @include button-color($action-color);
+  @include button-color($primary-color);
 
   appearance: none;
   border: 0;
@@ -142,8 +142,8 @@ Expects the following:
       cursor: pointer;
 
       &:not(.hideHint) {
-        background-color: $action-color;
-        color: text-color-for($action-color);
+        background-color: $primary-color;
+        color: text-color-for($primary-color);
         opacity: .7;
         -webkit-font-smoothing: antialiased;
       }
@@ -151,9 +151,9 @@ Expects the following:
   }
 
   input:checked + label {
-    background-color: $action-color;
-    border: 1px solid shade($action-color, 15%);
-    color: text-color-for($action-color);
+    background-color: $primary-color;
+    border: 1px solid shade($primary-color, 15%);
+    color: text-color-for($primary-color);
     opacity: 1.0;
     -webkit-font-smoothing: antialiased;
 
