@@ -7,7 +7,7 @@
   <div id="nav_drawer_container">
     <div id="nav_drawer">
       <% if user_signed_in? %>
-        <%= link_to "#{t(:brand_name)} or logo here", dashboards_show_path, class: 'logo' %>
+        <%= link_to "#{t(:brand_name)} or logo here", dashboard_path, class: 'logo' %>
         <ul id="account_tools">
           <li>
             <%= link_to t('.edit_account'), edit_user_registration_path %>
@@ -23,7 +23,7 @@
       <% if user_signed_in? && current_user.has_role?(:admin) %>
         <ul id="admin_links">
           <li>
-            <%= link_to t('.admin_dashboard'), admins_dashboards_show_path %>
+            <%= link_to t('.admin_dashboard'), admins_dashboard_path %>
           </li>
         </ul>
       <% end %>
