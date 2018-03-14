@@ -51,4 +51,4 @@ class Greensteps.NavDrawer
       @overlay.hide('fade', 'fast')
 
   isStale: ->
-    !document.contains(@drawer[0])
+    !document.body.contains(@drawer[0])
