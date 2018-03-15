@@ -5,7 +5,8 @@
 
   <ul class="prizes">
     <% prizes.each do |prize| %>
-      <li><%= prize.title %></li>
+      <li><%= prize.title %> <%= link_to edit_admins_prize_path(prize), class: 'edit_prize' do %> <%= fa_icon 'edit' %> <% end %> </li> 
+      
     <% end %>
   </ul>
 
