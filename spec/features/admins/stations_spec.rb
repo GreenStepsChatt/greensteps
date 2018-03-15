@@ -4,7 +4,7 @@ RSpec.describe 'Stations management', type: :feature do
   scenario 'Admin adds a new station with an address', :js do
     stubbed_login_as create(:admin)
 
-    appbar.open_drawer
+    app_bar.open_drawer
     nav_drawer.open_admin_dashboard
     admin_dashboard.add_station
     station_form.name = 'Downtown - Central'

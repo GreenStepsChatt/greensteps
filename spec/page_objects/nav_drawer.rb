@@ -1,15 +1,15 @@
 module PageObjects
   class NavDrawer < Base
     def open_admin_dashboard
-      click_on t('shared.appbar.admin_dashboard')
+      click_on t('shared.navigation.admin_dashboard')
     end
 
     def edit_account_settings
-      click_on t('shared.appbar.edit_account')
+      click_on t('shared.navigation.edit_account')
     end
 
     def sign_out
-      click_on t('shared.appbar.destroy_session')
+      click_on t('shared.navigation.destroy_session')
     end
 
     def open?

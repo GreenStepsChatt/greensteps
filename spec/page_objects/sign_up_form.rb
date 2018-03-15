@@ -7,12 +7,12 @@ module PageObjects
     end
 
     def email=(email)
-      this.fill_in 'user_email', with: email
+      this.fill_in 'sign_up_user_email', with: email
     end
 
     def password=(password)
-      this.fill_in 'user_password', with: password
-      this.fill_in 'user_password_confirmation', with: password
+      this.fill_in 'sign_up_user_password', with: password
+      this.fill_in 'sign_up_user_password_confirmation', with: password
     end
 
     def submit
