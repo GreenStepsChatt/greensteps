@@ -3,8 +3,9 @@ $medium-screen: 600px;
 $large-screen: 900px;
 
 // Typography
-$base-font-family: $font-stack-system;
+$base-font-family: join('Muli', $font-stack-system);
 $heading-font-family: $base-font-family;
+$logo-font-family: join('HVD Poster', $base-font-family);
 
 // Line height
 $base-line-height: 1.5;
