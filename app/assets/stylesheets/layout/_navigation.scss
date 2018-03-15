@@ -1,81 +1,52 @@
-#appbar {
+#app_bar {
   @include elevation(4);
-  @include position(fixed, 0 0 null 0);
 
   background-color: $primary-color;
+  color: $primary-text-light;
   display: flex;
-  padding: $base-spacing;
-  position: fixed;
+  justify-content: space-between;
+  padding: $small-spacing;
+  position: sticky;
   top: 0;
-  left: 0;
-  right: 0;
 
-  a {
-    @include styled-link($primary-text-light);
-  }
+  .logo {
+    align-items: baseline;
+    display: flex;
+    font-family: 'HVD Poster';
+    font-size: modular-scale(3);
+    line-height: 1;
 
-  li {
-    &:not(:last-child) {
-      margin-right: $small-spacing;
+    img {
+      height: 1.3em;
+      margin-right: $tiny-spacing;
     }
   }
 
-  .fa-navicon {
-    @include styled-link($primary-text-light);
+  .menu_toggler {
+    @include styled_link($primary-text-light);
 
-    margin-right: $base-spacing;
+    margin: auto 0;
+    padding: $tiny-spacing;
   }
-}
-
-// Until `position: sticky` works on all major browsers, and it is actually
-// initially placed in the normal document flow, we'll need to use an extra div
-// to push the top of the page content down below the appbar.
-#appbar_spacer {
-  height: $base-line-height + 2 * $base-spacing;
-  width: 100vw;
 }
 
 #nav_drawer {
   @include elevation(16);
 
   background-color: $base-background-color;
-  display: flex;
-  flex-direction: column;
+  display: none;
   height: 100%;
-  max-width: 75%;
-  overflow: {
-    x: hidden;
-    y: auto;
-  }
-  padding: {
-    left: $base-spacing;
-    right: $base-spacing;
-  }
-  width: fit-content;
+  float: right;
+  padding: $small-spacing;
 
-  > * {
-    padding: {
-      bottom: $small-spacing;
-      top: $small-spacing;
-    }
-
-    &:not(:last-child) {
-      border-bottom: $base-border;
-    }
-
-    > * {
-      &:not(:first-child) {
-        padding-top: $small-spacing;
-      }
-    }
+  .button_to input {
+    @include convert_button_to_link;
   }
 }
 
-// Need to use a container until :backdrop pseudo element is supported by all
-// vendors and isn't buggy anymore. The nav-drawer element must be an immediate
-// child of the nav-drawer-container element.
 #nav_drawer_container {
   @include elevation(15);
+
   background-color: rgba(0, 0, 0, 0.2);
   display: none;
   position: fixed;

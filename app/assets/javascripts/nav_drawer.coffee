@@ -44,10 +44,10 @@ class Greensteps.NavDrawer
 
   showDrawer: =>
     @overlay.show 'fade', 'fast', =>
-      @drawer.show('slide')
+      @drawer.show('slide', {direction: 'right'})
 
   hideDrawer: =>
-    @drawer.hide 'slide', =>
+    @drawer.hide 'slide', {direction: 'right'}, =>
       @overlay.hide('fade', 'fast')
 
   isStale: ->

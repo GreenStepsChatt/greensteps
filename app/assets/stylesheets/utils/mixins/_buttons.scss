@@ -1,3 +1,27 @@
+@mixin convert_button_to_link {
+  background-color: transparent;
+  border-radius: 0;
+  border: 0;
+  box-sizing: content-box;
+  color: $primary-color;
+  display: inline;
+  font-stretch: normal;
+  font-weight: normal;
+  line-height: $base-line-height;
+  padding: 0;
+  text-align: left;
+  transition: color $base-duration $base-timing;
+  -webkit-font-smoothing: auto;
+
+  &:hover {
+    color: shade($primary-color, 15%);
+  }
+
+  &:focus {
+    color: shade($primary-color, 25%)
+  }
+}
+
 @mixin button-color($color) {
   background-color: $color;
   color: text-color-for($color);
