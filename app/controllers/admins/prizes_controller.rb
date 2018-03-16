@@ -21,11 +21,9 @@ module Admins
       @prize.assign_attributes(prize_params)
 
       if @prize.save
-        flash[:notice] = 'Prize was updated.'
-        redirect_to admins_dashboards_show_path
+        redirect_to admins_dashboards_show_path, notice: t('.success')
       else
-        flash.now[:alert] = 'Error saving the prize. Please try again.'
-        render :edit
+        render :edit, alert: t('.alert')
       end
     end
 
