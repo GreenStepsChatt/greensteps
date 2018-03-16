@@ -7,8 +7,8 @@ RSpec.describe 'Admin dashboard', type: :feature do
     visit root_path
     welcome_page.open_log_in_form
     log_in_form.fill_and_submit_for admin
-    appbar.open_drawer
-    click_on t('shared.appbar.admin_dashboard')
+    app_bar.open_drawer
+    click_on t('shared.navigation.admin_dashboard')
 
     expect(page).to show :admin_dashboard
   end
@@ -16,8 +16,8 @@ RSpec.describe 'Admin dashboard', type: :feature do
   scenario 'Regular user does not see link to admin dashboard' do
     create_and_login_user
 
-    appbar.open_drawer
+    app_bar.open_drawer
 
-    expect(appbar).to_not have_link t('shared.appbar.admin_dashboard')
+    expect(app_bar).to_not have_link t('shared.app_bar.admin_dashboard')
   end
 end

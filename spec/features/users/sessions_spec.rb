@@ -28,7 +28,7 @@ RSpec.describe 'User Sessions', type: :feature do
     create_and_login_user
 
     visit welcome_index_path
-    appbar.open_drawer
+    app_bar.open_drawer
     nav_drawer.sign_out
 
     expect(page).to flash_message t('devise.sessions.signed_out')

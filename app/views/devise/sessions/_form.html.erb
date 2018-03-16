@@ -4,7 +4,7 @@
       <%= t '.header' %>
     </h2>
   </header>
-  <%= form_for :user, url: user_session_path, html: { id: 'new_user_session' } do |form| %>
+  <%= form_for :user, url: user_session_path, namespace: 'log_in', html: { id: 'new_user_session' } do |form| %>
     <%= form.label :email, t('.email') %>
     <%= form.email_field :email %>
     <%= form.label :password, t('.password') %>
@@ -12,4 +12,3 @@
     <%= form.submit t('.submit') %>
   <% end %>
 </article>
-

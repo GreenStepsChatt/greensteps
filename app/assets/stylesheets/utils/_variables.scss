@@ -3,8 +3,9 @@ $medium-screen: 600px;
 $large-screen: 900px;
 
 // Typography
-$base-font-family: $font-stack-system;
+$base-font-family: join('Muli', $font-stack-system);
 $heading-font-family: $base-font-family;
+$logo-font-family: join('HVD Poster', $base-font-family);
 
 // Line height
 $base-line-height: 1.5;
@@ -20,30 +21,32 @@ $small-spacing: $base-spacing / 2;
 $tiny-spacing: $small-spacing / 2;
 $base-z-index: 0;
 
-// Colors
-$blue: #1565c0;
-$dark-gray: #333;
-$medium-gray: #999;
-$light-gray: #ddd;
+// Brand Colors
+$accent-color: #b1e87c;
+$primary-color: #2b7a0e;
+$primary-color-dark: #004d00;
+$primary-color-light: #5eaa40;
 
 // Font Colors
-$base-font-color: $dark-gray;
-$action-color: $blue;
-$appbar-font-color: palette(White);
+$primary-text-dark: rgba(#000, .87);
+$secondary-text-dark: rgba(#000, .54);
+$hint-text-dark: rgba(#000, .38);
+$primary-text-light: rgba(#fff, 1);
+$secondary-text-light: rgba(#fff, .70);
+$hint-text-light: rgba(#fff, .50);
+$link-color: $primary-color;
+
+// Background Colors
+$base-background-color: #fafafa;
 
 // Border
 $base-border-size: 1px;
-$base-border-color: $light-gray;
+$base-border-color: rgba(#000, .12);
 $base-border: $base-border-size solid $base-border-color;
-$dark-border: $base-border-size solid $medium-gray;
-
-// Background Colors
-$base-background-color: #fff;
-$secondary-background-color: tint($base-border-color, 75%);
-$appbar-background-color: $dark-gray;
+$dark-border: $base-border-size solid $secondary-text-dark;
 
 // Focus
-$focus-outline-color: transparentize($action-color, 0.4);
+$focus-outline-color: opacify($base-border-color, 0.3);
 $focus-outline-width: 3px;
 $focus-outline: $focus-outline-width solid $focus-outline-color;
 $focus-outline-offset: 2px;
