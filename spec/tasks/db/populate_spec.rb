@@ -21,6 +21,10 @@ RSpec.describe 'rake db:populate', type: :task do
     expect(User.with_role(:admin)).to have(3).records
   end
 
+  it 'confirms the first 5 users (at least)' do
+    expect(User.first(5)).to all( be_confirmed )
+  end
+
   it 'adds 5 prizes to the database' do
     expect(Prize).to have(5).records
   end
