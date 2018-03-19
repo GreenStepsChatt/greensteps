@@ -1,4 +1,4 @@
-<section class="stats">
+<article class="stats">
   <header>
     <h2><%= t('.stats_title') %></h2>
     <%= link_to new_deed_path, class: 'add' do %>
@@ -32,4 +32,12 @@
       ) %>
     </div>
   </section>
-</section>
+</article>
+
+<article class="station_map">
+  <header>
+    <h2><%= t('.station_map_title') %></h2>
+  </header>
+
+  <div id="map"></div>
+</article>

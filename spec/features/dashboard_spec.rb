@@ -7,4 +7,10 @@ RSpec.describe 'Dashboard', type: :feature do
     expect(page).to show :welcome_page
     expect(page).to flash_message t('no_visitor_access')
   end
+
+  scenario 'User sees map of stations on dashboard' do
+    create_and_login_user
+
+    expect(page).to show :station_map
+  end
 end
