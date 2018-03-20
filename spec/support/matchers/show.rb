@@ -5,8 +5,7 @@ RSpec::Matchers.define :show do |page_object_name|
 
   failure_message do |_page|
     <<~TEXT
-      The page object "#{page_object_name}" wasn't on the page when the object
-      was accessed.
+      The page object "#{page_object_name}" wasn't on the page when expected.
         - The current page title is "#{title}".
         - Classes applied to the main element are "#{main_classes}".
     TEXT

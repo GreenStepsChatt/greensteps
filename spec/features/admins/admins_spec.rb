@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'List of admins', type: :feature do
   scenario 'Admin logs in, clicks on link to view list of admins' do
     create_and_login_admin
-    visit admins_dashboards_show_path
+    visit admins_dashboard_path
 
     admin_dashboard.manage_admins
 
@@ -13,7 +13,7 @@ RSpec.describe 'List of admins', type: :feature do
   scenario 'Admin grants an existing user admin privileges' do
     create_and_login_admin
     admin_to_be = create :user
-    visit admins_dashboards_show_path
+    visit admins_dashboard_path
 
     admin_dashboard.manage_admins
     admin_manager.new_admin
@@ -27,7 +27,7 @@ RSpec.describe 'List of admins', type: :feature do
   scenario 'Admin revokes a user\'s admin privileges', :js do
     create_and_login_admin
     admin_to_loose_privileges = create :admin
-    visit admins_dashboards_show_path
+    visit admins_dashboard_path
 
     admin_dashboard.manage_admins
     admin_list.remove admin_to_loose_privileges

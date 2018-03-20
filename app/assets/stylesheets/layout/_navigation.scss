@@ -1,31 +1,57 @@
-#appbar {
-  @include appbar;
+#app_bar {
+  @include elevation(4);
 
-  li {
-    @include appbar-item;
+  background-color: $primary-color;
+  color: $primary-text-light;
+  display: flex;
+  justify-content: space-between;
+  padding: $small-spacing;
+  position: sticky;
+  top: 0;
+
+  .logo {
+    align-items: baseline;
+    display: flex;
+    font-family: $logo-font-family;
+    font-size: modular-scale(3);
+    line-height: 1;
+
+    img {
+      height: 1.3em;
+      margin-right: $tiny-spacing;
+    }
   }
 
-  .fa-navicon {
-    @include nav-drawer-toggler;
-  }
-}
+  .menu_toggler {
+    @include styled_link($primary-text-light);
 
-#appbar_spacer {
-  @include appbar-spacer;
+    margin: auto 0;
+    padding: $tiny-spacing;
+  }
 }
 
 #nav_drawer {
-  @include nav-drawer;
+  @include elevation(16);
 
-  > * {
-    @include nav-drawer-section;
+  background-color: $base-background-color;
+  display: none;
+  height: 100%;
+  float: right;
+  padding: $small-spacing;
 
-    > * {
-      @include nav-drawer-item;
-    }
+  .button_to input {
+    @include convert_button_to_link;
   }
 }
 
 #nav_drawer_container {
-  @include nav-drawer-container;
+  @include elevation(15);
+
+  background-color: rgba(0, 0, 0, 0.2);
+  display: none;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }

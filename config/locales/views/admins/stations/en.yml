@@ -1,0 +1,7 @@
+en:
+  admins:
+    stations:
+      new:
+        header: "New Station"
+      create:
+        success: "Station successfully created!"

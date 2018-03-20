@@ -11,6 +11,8 @@ module Greensteps
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
 
+    config.active_job.queue_adapter = :delayed_job
+
     console do
       require 'pry'
       config.console = Pry
@@ -19,6 +21,8 @@ module Greensteps
     config.i18n.load_path +=
       Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
 
+    config.assets.paths << Rails.root.join("app", "assets", "fonts")
+
     config.generators do |g|
       g.stylesheets false
       g.javascripts false
@@ -26,6 +30,8 @@ module Greensteps
       g.view_specs false
       g.jbuilder false
     end
+
+    config.log_level = ENV.fetch('RAILS_LOG_LEVEL', 'debug')
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers

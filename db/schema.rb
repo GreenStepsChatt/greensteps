@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171125051551) do
+ActiveRecord::Schema.define(version: 20180316135831) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "addresses", force: :cascade do |t|
+    t.string "street", null: false
+    t.string "city", null: false
+    t.string "state", limit: 2, null: false
+    t.string "zip", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "addressable_type"
+    t.bigint "addressable_id"
+    t.index ["addressable_type", "addressable_id"], name: "index_addresses_on_addressable_type_and_addressable_id"
+  end
 
   create_table "deeds", id: :serial, force: :cascade do |t|
     t.integer "user_id"
@@ -22,6 +34,21 @@ ActiveRecord::Schema.define(version: 20171125051551) do
     t.integer "trash_bags", default: 1, null: false
     t.integer "miles", default: 1, null: false
     t.index ["user_id"], name: "index_deeds_on_user_id"
+  end
+
+  create_table "delayed_jobs", force: :cascade do |t|
+    t.integer "priority", default: 0, null: false
+    t.integer "attempts", default: 0, null: false
+    t.text "handler", null: false
+    t.text "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.string "locked_by"
+    t.string "queue"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["priority", "run_at"], name: "delayed_jobs_priority"
   end
 
   create_table "prizes", id: :serial, force: :cascade do |t|
@@ -40,6 +67,12 @@ ActiveRecord::Schema.define(version: 20171125051551) do
     t.datetime "updated_at"
     t.index ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
     t.index ["name"], name: "index_roles_on_name"
+  end
+
+  create_table "stations", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "task_records", id: false, force: :cascade do |t|
