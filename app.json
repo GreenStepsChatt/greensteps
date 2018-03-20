@@ -7,6 +7,9 @@
     "APPLICATION_HOST": {
       "required": true
     },
+    "GOOGLE_MAPS_KEY": {
+      "required": true
+    },
     "INTERCEPT_EMAILS": {
       "required": true
     },
