@@ -9,8 +9,6 @@ Rails.application.routes.draw do
   resources :deeds, only: [:new, :create]
 
   namespace :admins do
-
-    get 'dashboards/show'
     resource :dashboard, only: [:show]
     resources 'prizes', only: [:new, :create, :edit, :update]
     resources 'stations', only: [:new, :create]
