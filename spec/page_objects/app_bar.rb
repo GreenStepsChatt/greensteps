@@ -1,5 +1,5 @@
 module PageObjects
-  class Appbar < Base
+  class AppBar < Base
     def open_drawer
       toggler.click
     end
@@ -9,13 +9,13 @@ module PageObjects
     end
 
     def selector
-      'nav'
+      '#app_bar'
     end
 
     private
 
     def toggler
-      @toggler ||= find('.fa-navicon')
+      @toggler ||= find('.menu_toggler')
     end
 
     def element_in_background
