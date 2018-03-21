@@ -61,7 +61,7 @@ RSpec.describe Admins::PrizesController, type: :controller do
       sign_in create(:admin)
       new_prize = create(:prize)
       put :update, params: { id: prize.id, prize: { title: new_prize.title, quantity: new_prize.quantity, cost: new_prize.cost } }
-      expect(response).to redirect_to admins_dashboards_show_path
+      expect(response).to redirect_to admins_dashboard_path
     end
   end
 
