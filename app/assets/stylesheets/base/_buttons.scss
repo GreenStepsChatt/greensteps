@@ -1,5 +1,5 @@
-$_button-background-color: $action-color;
-$_button-background-color-hover: shade($action-color, 20%);
+$_button-background-color: $primary-color;
+$_button-background-color-hover: shade($primary-color, 20%);
 
 #{$all-buttons} {
   @include button;

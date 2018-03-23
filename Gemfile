@@ -10,10 +10,12 @@ gem 'acts_as_paranoid',
     git: 'https://github.com/ActsAsParanoid/acts_as_paranoid.git',
     ref: '085b5cc'
 gem 'after_party'
+gem 'autoprefixer-rails'
 gem 'bitters'
 gem 'bourbon'
 gem 'coffee-rails', '~> 4.2'
 gem 'decent_exposure'
+gem 'delayed_job_active_record'
 gem 'devise'
 gem 'factory_bot_rails'
 gem 'faker'

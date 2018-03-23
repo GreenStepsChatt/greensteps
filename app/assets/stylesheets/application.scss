@@ -3,10 +3,10 @@
 @import "bourbon";
 @import "font-awesome";
 
+@import "utils/fonts";
 @import "utils/variables";
 @import "utils/functions";
-@import "utils/mixins/micro/*";
-@import "utils/mixins/macro/*";
+@import "utils/mixins/*";
 
 @import "base/buttons";
 @import "base/forms";

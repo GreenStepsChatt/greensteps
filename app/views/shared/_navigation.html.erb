@@ -1,0 +1,20 @@
+<nav id="app_bar">
+  <div class="logo">
+    <%= image_tag 'tree.svg' %>
+    <span>Green Steps</span>
+  </div>
+
+  <%= fa_icon('navicon', class: 'menu_toggler') if user_signed_in? %>
+</nav>
+
+<% if user_signed_in? %>
+  <div id="nav_drawer_container">
+    <nav id="nav_drawer">
+      <%= link_to 'Profile', edit_user_registration_path %>
+      <%= button_to 'Log out', destroy_user_session_path, method: :delete %>
+      <% if current_user.has_role?(:admin) %>
+        <%= link_to 'Admin Dashboard', admins_dashboard_path %>
+      <% end %>
+    </nav>
+  </div>
+<% end %>

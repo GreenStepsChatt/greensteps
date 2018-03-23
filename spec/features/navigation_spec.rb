@@ -1,24 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe 'Navigation' do
-  scenario 'Visitor expands the navigation drawer and clicks on the homepage '\
-           'link', :js do
-    visit new_user_session_path # ensure that we aren't on homepage
-
-    appbar.open_drawer
-    click_on t(:brand_name)
-
-    expect(page).to have_template :welcome, :index
-  end
-
-  scenario 'Anyone expands the navigation drawer and then closes it by '\
+  scenario 'User expands the navigation drawer and then closes it by '\
            'clicking outside of it', :js do
-    visit root_path
+    create_and_login_user
 
-    appbar.open_drawer
+    app_bar.open_drawer
     expect(nav_drawer).to be_open
 
-    appbar.close_drawer
+    app_bar.close_drawer
     expect(nav_drawer).to be_closed
   end
 
@@ -28,13 +18,13 @@ RSpec.describe 'Navigation' do
          'tell. Need to fix. I think it is a timing thing?'
     create_and_login_user
 
-    appbar.open_drawer
+    app_bar.open_drawer
     nav_drawer.edit_account_settings
     click_browser_back_button
-    wait_for '.welcome.index'
-    appbar.open_drawer
+    wait_for '.dashboards.show'
+    app_bar.open_drawer
 
-    expect(nav_drawer).to be_open
+    expect(page).to show :nav_drawer
   end
 
   alias_method :wait_for, :find

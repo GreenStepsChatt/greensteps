@@ -18,7 +18,7 @@ RSpec.describe 'User Registrations', type: :feature do
     user = create :user, password: 'old_password'
     stubbed_login_as user
 
-    appbar.open_drawer
+    app_bar.open_drawer
     nav_drawer.edit_account_settings
     account_settings_form.change_password(user.password, 'new_password')
 
@@ -30,7 +30,7 @@ RSpec.describe 'User Registrations', type: :feature do
     user = create :user
     stubbed_login_as user
 
-    appbar.open_drawer
+    app_bar.open_drawer
     nav_drawer.edit_account_settings
     delete_account
 

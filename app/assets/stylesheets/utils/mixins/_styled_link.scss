@@ -1,4 +1,4 @@
-@mixin styled-link($color: $action-color) {
+@mixin styled-link($color: $primary-color) {
   color: $color;
   text-decoration: none;
   transition: color $base-duration $base-timing;

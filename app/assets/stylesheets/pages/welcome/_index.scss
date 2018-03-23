@@ -55,7 +55,7 @@
       }
 
       header {
-        @include styled-link(rgba($base-font-color, 0.5));
+        @include styled-link($secondary-text-dark);
       }
     }
   }

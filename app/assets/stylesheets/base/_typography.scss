@@ -1,5 +1,5 @@
 html {
-  color: $base-font-color;
+  color: $primary-text-dark;
   font-family: $base-font-family;
   font-size: 100%;
   line-height: $base-line-height;
@@ -27,18 +27,17 @@ p {
 }
 
 a {
-  color: $action-color;
+  color: $primary-color;
   text-decoration-skip: ink;
   text-decoration-line: none;
   transition: color $base-duration $base-timing;
 
   &:hover {
-    color: shade($action-color, 25%);
+    color: shade($primary-color, 15%);
   }
 
   &:focus {
-    outline: $focus-outline;
-    outline-offset: $focus-outline-offset;
+    color: shade($primary-color, 25%)
   }
 }
 

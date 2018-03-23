@@ -6,7 +6,7 @@ module Admins
 
     def create
       if prize.save
-        redirect_to admins_dashboards_show_path, notice: t('.success')
+        redirect_to admins_dashboard_path, notice: t('.success')
       else
         render 'new'
       end
