@@ -1,3 +1,7 @@
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=<%=ENV.fetch('GOOGLE_MAPS_KEY', '')%>&callback=Greensteps.initMap">
+</script>
+
 <article class="stats">
   <header>
     <h2><%= t('.stats_title') %></h2>

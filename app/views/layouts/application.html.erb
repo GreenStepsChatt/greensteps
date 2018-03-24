@@ -10,9 +10,6 @@
     <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=<%=ENV.fetch('GOOGLE_MAPS_KEY', '')%>&callback=Greensteps.initMap">
-    </script>
   </head>
   <body>
     <%= render 'shared/navigation' %>
