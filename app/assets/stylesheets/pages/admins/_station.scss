@@ -1,3 +1,7 @@
 .admins-stations.new, .admins-stations.create {
   max-width: 31em;
+
+  #address_or_coordinates_toggler {
+    @include radio-button-group;
+  }
 }
