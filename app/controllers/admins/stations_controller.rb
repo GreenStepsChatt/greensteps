@@ -17,7 +17,6 @@ module Admins
     end
 
     def update
-      
       @station = Station.find(params[:id])
       @station.name = params[:station][:name]
       @address = @station.address
