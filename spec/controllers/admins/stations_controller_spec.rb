@@ -55,12 +55,14 @@ RSpec.describe Admins::StationsController, type: :controller do
       new_address = create(:address)
       new_station.address = new_address
 
-      put :update, params: { station: { name: new_station.name }, 
-                             address: { street: new_station.address.street, 
-                                        city: new_station.address.city, 
-                                        state: new_station.address.state, 
-                                        zip: new_station.address.zip },
-                             id: test_station.id }
+      put :update, params: { 
+        station: { name: new_station.name }, 
+        address: { street: new_station.address.street, 
+                   city: new_station.address.city, 
+                   state: new_station.address.state, 
+                   zip: new_station.address.zip },
+        id: test_station.id 
+      }
 
       expect(test_station.id).to eq original_id
       expect(test_station.name).to eq new_station.name
@@ -77,12 +79,14 @@ RSpec.describe Admins::StationsController, type: :controller do
       new_station = create(:station)
       new_address = create(:address)
       new_station.address = new_address
-      put :update, params: { station: { name: new_station.name }, 
-                             address: { street: new_station.address.street, 
-                                        city: new_station.address.city, 
-                                        state: new_station.address.state, 
-                                        zip: new_station.address.zip }, 
-                             id: station.id }
+      put :update, params: { 
+        station: { name: new_station.name }, 
+        address: { street: new_station.address.street, 
+                   city: new_station.address.city, 
+                   state: new_station.address.state, 
+                   zip: new_station.address.zip }, 
+        id: station.id 
+      }
 
       expect(response).to redirect_to admins_dashboard_path
     end
