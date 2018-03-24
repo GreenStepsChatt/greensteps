@@ -1,0 +1,25 @@
+<h2><%= t('.header') %></h2>
+<%= form_for [:admins, @station] do |f| %>
+  <%= render 'shared/errors', record: @station %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name, required: true %>
+  
+  <%= fields_for @station.address do |address| %>
+
+  <%= f.label :street %>
+  <%= address.text_field :street, required: true %>
+
+  <%= f.label :city %>
+  <%= address.text_field :city, required: true %>
+
+  <%= f.label :state %>
+  <%= address.select :state, StatesHelper::US_STATES, {}, required: true %>
+
+  <%= f.label :zip %>
+  <%= address.text_field :zip, required: true, pattern: '^\d{5}(-\d{4})?$' %>
+  
+  <% end %>
+
+  <%= f.submit %>
+<% end %>

@@ -5,3 +5,8 @@ en:
         header: "New Station"
       create:
         success: "Station successfully created!"
+      edit:
+        header: "Edit Station"
+      update:
+       success: 'Station was updated.'
+       alert: 'Error saving the station. Please try again.'

@@ -19,7 +19,7 @@
 
   <ul class="stations">
     <% stations.each do |station| %>
-      <li><%= station.name %></li>
+      <li><%= station.name %> <%= link_to edit_admins_station_path(station), class: 'edit_station' do %> <%= fa_icon 'edit' %> <% end %> </li>
     <% end %>
   </ul>
 
