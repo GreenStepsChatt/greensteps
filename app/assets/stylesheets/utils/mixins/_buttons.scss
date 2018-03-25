@@ -195,7 +195,7 @@ Expects the following:
 
   button {
     border-radius: 0;
-    color: $secondary-text-light;
+    position: relative;
 
     &:first-child {
       border-top-left-radius: $base-border-radius;
@@ -214,6 +214,17 @@ Expects the following:
     &.selected {
       background-color: $primary-color-dark;
       color: $primary-text-light;
+
+      &:after {
+        content: '';
+
+        border-width: 0 0 1px;
+        border-style: solid;
+        bottom: $tiny-spacing;
+        left: 15%;
+        position: absolute;
+        width: 70%;
+      }
     }
   }
 }

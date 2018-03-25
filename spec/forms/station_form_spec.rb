@@ -4,6 +4,7 @@ RSpec.describe StationForm, type: :form do
   subject { build :station_form }
 
   it { should respond_to :name, :street, :city, :state, :zip }
+  it { should respond_to :latitude, :longitude }
 
   it { should validate_models :station, :address }
 
@@ -15,7 +16,7 @@ RSpec.describe StationForm, type: :form do
       expect(Station).to exist name: 'Dirty Swamp'
     end
 
-    it 'creates an associated address record' do
+    it 'creates an associated address record when given a street address' do
       station_form = build :station_form,
                            street: '101 Main Street',
                            city: 'Chattanooga',
@@ -24,6 +25,15 @@ RSpec.describe StationForm, type: :form do
 
       expect { station_form.save }.to change { Address.count }.by(1)
       expect(Address).to exist street: '101 Main Street'
+    end
+
+    it 'creates an associated address record when given coordinates and no '\
+      'street address' do
+      station_form = build :station_form, :no_street_address,
+                           latitude: 35.042039, longitude: -85.283085
+
+      expect { station_form.save }.to change { Address.count }.by(1)
+      expect(Address).to exist latitude: 35.042039, longitude: -85.283085
     end
   end
 end

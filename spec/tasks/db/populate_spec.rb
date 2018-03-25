@@ -22,7 +22,7 @@ RSpec.describe 'rake db:populate', type: :task do
   end
 
   it 'confirms the first 5 users (at least)' do
-    expect(User.first(5)).to all( be_confirmed )
+    expect(User.first(5)).to all(be_confirmed)
   end
 
   it 'adds 5 prizes to the database' do

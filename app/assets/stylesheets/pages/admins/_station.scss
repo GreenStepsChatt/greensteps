@@ -4,4 +4,8 @@
   #address_or_coordinates_toggler {
     @include radio-button-group;
   }
+
+  #coordinate_fields {
+    display: none;
+  }
 }

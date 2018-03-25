@@ -43,6 +43,8 @@ en:
         city: "City"
         state: "State"
         zip: "Zip"
+        latitude: "Latitude"
+        longitude: "Longitude"
     submit:
       create: "Save"
       update: "Save"

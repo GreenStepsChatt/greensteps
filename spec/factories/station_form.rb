@@ -6,12 +6,25 @@ FactoryBot.define do
     state 'TN'
     zip '10101'
 
+    trait :no_street_address do
+      street nil
+      city nil
+      state nil
+      zip nil
+    end
+
+    trait :no_coordinates do
+      latitude nil
+      longitude nil
+    end
+
     trait :invalid_station do
       name nil
     end
 
     trait :invalid_address do
-      street nil
+      no_street_address
+      no_coordinates
     end
 
     trait :invalid do

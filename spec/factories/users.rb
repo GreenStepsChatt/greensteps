@@ -28,7 +28,7 @@ FactoryBot.define do
     end
 
     trait :confirmed do
-      after(:build) { |user| user.skip_confirmation! }
+      after(:build, &:skip_confirmation!)
     end
 
     trait :unconfirmed do

@@ -1,5 +1,5 @@
 class StationForm < ApplicationForm
-  attr_accessor :name, :street, :city, :state, :zip
+  attr_accessor :name, :street, :city, :state, :zip, :latitude, :longitude
 
   validates_models :station, :address
 
@@ -21,7 +21,9 @@ class StationForm < ApplicationForm
       street: street,
       city: city,
       state: state,
-      zip: zip
+      zip: zip,
+      latitude: latitude,
+      longitude: longitude
     )
   end
 end
