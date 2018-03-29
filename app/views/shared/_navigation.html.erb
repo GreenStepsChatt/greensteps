@@ -1,4 +1,4 @@
-<nav id="app_bar">
+<nav id="app_bar" data-turbolinks-permanent>
   <div class="logo">
     <%= image_tag 'tree.svg' %>
     <span>Green Steps</span>
@@ -8,7 +8,7 @@
 </nav>
 
 <% if user_signed_in? %>
-  <div id="nav_drawer_container">
+  <div id="nav_drawer_container" data-turbolinks-permanent>
     <nav id="nav_drawer">
       <%= link_to 'Profile', edit_user_registration_path %>
       <%= button_to 'Log out', destroy_user_session_path, method: :delete %>

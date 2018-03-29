@@ -12,14 +12,6 @@ module PageObjects
       click_on t('shared.navigation.destroy_session')
     end
 
-    def open?
-      has_css?('#nav_drawer', visible: true)
-    end
-
-    def closed?
-      has_css?('#nav_drawer', visible: :hidden)
-    end
-
     def selector
       '#nav_drawer'
     end

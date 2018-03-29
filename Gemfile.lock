@@ -75,6 +75,9 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (>= 2.0, < 4.0)
+    capybara-screenshot (1.0.18)
+      capybara (>= 1.0, < 3)
+      launchy
     cliver (0.3.2)
     coderay (1.1.2)
     coffee-rails (4.2.2)
@@ -341,6 +344,7 @@ DEPENDENCIES
   bullet
   byebug
   capybara
+  capybara-screenshot
   coffee-rails (~> 4.2)
   database_cleaner
   decent_exposure
