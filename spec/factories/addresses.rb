@@ -7,21 +7,11 @@ FactoryBot.define do
 
     association :addressable, factory: :station
 
-    trait :no_street_address do
+    trait :invalid do
       street nil
       city nil
       state nil
-      zip nil
-    end
-
-    trait :no_coordinates do
-      latitude nil
-      longitude nil
-    end
-
-    trait :invalid do
-      no_street_address
-      no_coordinates
+      zip 0
     end
   end
 end

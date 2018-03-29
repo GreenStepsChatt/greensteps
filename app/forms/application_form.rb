@@ -5,7 +5,7 @@ class ApplicationForm
     validate do
       models = reader_names.map { |name| send(name) }
       models.each do |model|
-        promote_errors(model.errors) if model.invalid?
+        promote_errors(model.errors) if model.present? && model.invalid?
       end
     end
   end
@@ -23,6 +23,18 @@ class ApplicationForm
   def promote_errors(child_errors)
     child_errors.each do |attribute, message|
       errors.add(attribute, message)
+    end
+  end
+
+  class NullChildModel
+    def initialize; end
+
+    def present?
+      false
+    end
+
+    def save!
+      true
     end
   end
 end

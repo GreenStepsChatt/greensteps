@@ -3,7 +3,9 @@ require Rails.root.join('lib', 'swapper')
 RSpec::Matchers.define :validate_models do |*model_names|
   match do |form|
     raise StandardError, <<~TEXT if form.invalid?
-      in "validate_models" matcher, subject must be valid
+      Expected #{form} to validate #{model_names.to_sentence} child records, but
+      the parent itself wasn't valid. Error messages:
+        #{form.errors.messages}
     TEXT
     @form = form
     @model_names = model_names

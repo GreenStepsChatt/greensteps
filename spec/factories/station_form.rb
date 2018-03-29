@@ -13,7 +13,7 @@ FactoryBot.define do
       zip nil
     end
 
-    trait :no_coordinates do
+    trait :no_coordinate_pair do
       latitude nil
       longitude nil
     end
@@ -23,8 +23,10 @@ FactoryBot.define do
     end
 
     trait :invalid_address do
-      no_street_address
-      no_coordinates
+      street nil
+      city nil
+      state nil
+      zip 0
     end
 
     trait :invalid do
