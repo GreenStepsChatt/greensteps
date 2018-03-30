@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Address, of_type: :model do
-  subject { build :address }
+  subject { build_stubbed :address }
 
   # Database
   it do

@@ -9,7 +9,7 @@ RSpec.describe 'Dashboard', type: :feature do
   end
 
   scenario 'User sees map of stations on dashboard' do
-    create_and_login_user
+    create_and_login_user follow_to_default_path: true
 
     expect(page).to show :station_map
   end

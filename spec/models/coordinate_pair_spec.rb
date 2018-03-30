@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe CoordinatePair, type: :model do
+  subject { build_stubbed :coordinate_pair }
+
   it do
     should have_db_column(:latitude).of_type(:float).with_options(null: false)
   end

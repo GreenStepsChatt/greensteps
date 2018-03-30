@@ -4,8 +4,7 @@ RSpec.describe 'Stations management', type: :feature do
   scenario 'Admin adds a new station with an address', :js do
     stubbed_login_as create(:admin)
 
-    app_bar.open_drawer
-    nav_drawer.open_admin_dashboard
+    visit admins_dashboard_path
     admin_dashboard.add_station
     station_form.name = 'Downtown - Central'
     station_form.street = '121 Main Street'
@@ -21,8 +20,7 @@ RSpec.describe 'Stations management', type: :feature do
   scenario 'Admin adds a new address with a lat and long', :js do
     stubbed_login_as create(:admin)
 
-    app_bar.open_drawer
-    nav_drawer.open_admin_dashboard
+    visit admins_dashboard_path
     admin_dashboard.add_station
     station_form.name = 'Bushtown'
     station_form.toggle_addr_latlon
@@ -38,8 +36,7 @@ RSpec.describe 'Stations management', type: :feature do
     'coordinate fields', :js do
     stubbed_login_as create(:admin)
 
-    app_bar.open_drawer
-    nav_drawer.open_admin_dashboard
+    visit admins_dashboard_path
     admin_dashboard.add_station
     expect(page).to_not have_content 'Latitude'
 
