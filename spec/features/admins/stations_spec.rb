@@ -1,7 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe 'Stations management', type: :feature do
-  scenario 'Admin adds a new station with an address', :js do
+  scenario 'Admin adds a new station with an address', :js,
+           :with_active_job_test_adapter do
     stubbed_login_as create(:admin)
 
     visit admins_dashboard_path
@@ -15,6 +16,7 @@ RSpec.describe 'Stations management', type: :feature do
 
     expect(page).to flash_message t('admins.stations.create.success')
     expect(station_list).to include 'Downtown - Central'
+    expect(GeocodeJob).to have_been_enqueued
   end
 
   scenario 'Admin adds a new address with a lat and long', :js do

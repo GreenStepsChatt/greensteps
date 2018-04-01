@@ -13,5 +13,9 @@ FactoryBot.define do
       state nil
       zip 0
     end
+
+    trait :with_coordinate_pair do
+      coordinate_pair
+    end
   end
 end

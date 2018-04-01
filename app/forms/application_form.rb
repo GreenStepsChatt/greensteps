@@ -33,6 +33,14 @@ class ApplicationForm
       false
     end
 
+    def blank?
+      true
+    end
+
+    def changed?
+      false
+    end
+
     def save!
       true
     end

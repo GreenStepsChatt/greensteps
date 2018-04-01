@@ -17,6 +17,7 @@ RSpec.describe Address, of_type: :model do
 
   # Associations
   it { should belong_to(:addressable) }
+  it { should have_one(:coordinate_pair) }
 
   # Validations
   it { should validate_presence_of(:street) }
@@ -37,4 +38,41 @@ RSpec.describe Address, of_type: :model do
   it { should_not allow_value('31088--1010').for(:zip) }
   it { should_not allow_value('abcdef').for(:zip) }
   it { should_not allow_value('100.00').for(:zip) }
+
+  # Helper Methods
+  describe '#to_sentence' do
+    it 'should build a sentence using the attributes' do
+      address = build_stubbed :address,
+                              street: '101 Main Street',
+                              city: 'Warner Robins', state: 'GA', zip: '31088'
+
+      expect(address.to_sentence).to eq \
+        '101 Main Street, Warner Robins, GA 31088'
+    end
+  end
+
+  describe '#coordinate_pair_stale' do
+    it 'is true if any of VALUE_ATTRIBUTES changed in previous save' do
+      address = create :address, :with_coordinate_pair
+      address.street = '999 New Street'
+      address.save
+
+      expect(address.coordinate_pair_stale?).to be_truthy
+    end
+
+    it 'is false if none of VALUE_ATTRIBUTES were changed in previous save' do
+      address = create :address, :with_coordinate_pair
+      address.addressable = create :station
+      address.save
+
+      expect(address.coordinate_pair_stale?).to be_falsey
+    end
+
+    it 'is false if the coordinate pair is blank' do
+      address = create :address
+      address.save
+
+      expect(address.coordinate_pair_stale?).to be_truthy
+    end
+  end
 end
