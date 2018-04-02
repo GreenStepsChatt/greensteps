@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Address, of_type: :model do
+RSpec.describe Address, type: :model do
   subject { build_stubbed :address }
 
   # Database
@@ -68,7 +68,7 @@ RSpec.describe Address, of_type: :model do
       expect(address.coordinate_pair_stale?).to be_falsey
     end
 
-    it 'is false if the coordinate pair is blank' do
+    it 'is true if the coordinate pair is blank' do
       address = create :address
       address.save
 

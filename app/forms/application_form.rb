@@ -33,10 +33,6 @@ class ApplicationForm
       false
     end
 
-    def blank?
-      true
-    end
-
     def changed?
       false
     end

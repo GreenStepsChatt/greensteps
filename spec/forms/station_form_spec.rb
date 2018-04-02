@@ -45,15 +45,17 @@ RSpec.describe StationForm, type: :form do
     end
   end
 
-  it 'should return a truthy value if the records were saved successfully' do
-    station_form = build :station_form
+  describe '#save' do
+    it 'should return a truthy value if the records were saved' do
+      station_form = build :station_form
 
-    expect(station_form.save).to be_truthy
-  end
+      expect(station_form.save).to be_truthy
+    end
 
-  it 'should return a falsy value if the records were not saved successfully' do
-    station_form = build :station_form, :invalid
+    it 'should return a falsy value if the records were not saved' do
+      station_form = build :station_form, :invalid
 
-    expect(station_form.save).to be_falsey
+      expect(station_form.save).to be_falsey
+    end
   end
 end

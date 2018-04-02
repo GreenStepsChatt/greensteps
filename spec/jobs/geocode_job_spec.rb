@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe GeocodeJob, type: :job do
-  context 'when there is already an attached coordinate pair record' do
+  context 'when the address has an outdated coordinate pair record' do
     it 'saves the new coordinates' do
       address = create :address
       coordinate_pair = create :coordinate_pair,
@@ -16,7 +16,7 @@ RSpec.describe GeocodeJob, type: :job do
     end
   end
 
-  context 'when there is no attached coordinate pair record' do
+  context 'when the address does not have coordinate pair record' do
     it 'creates the coordinate pair record' do
       address = create :address
 
