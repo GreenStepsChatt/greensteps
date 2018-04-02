@@ -15,5 +15,10 @@ RSpec.describe CoordinatePair, type: :model do
   it { should belong_to(:locateable) }
 
   it { should validate_presence_of(:latitude) }
+  it { should_not allow_value(-100).for(:latitude) }
+  it { should_not allow_value(100).for(:latitude) }
+
   it { should validate_presence_of(:longitude) }
+  it { should_not allow_value(-200).for(:longitude) }
+  it { should_not allow_value(200).for(:longitude) }
 end
