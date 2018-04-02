@@ -5,3 +5,6 @@ en:
         header: "New Station"
       create:
         success: "Station successfully created!"
+      form:
+        address: "Address"
+        coordinates: "Coordinates"

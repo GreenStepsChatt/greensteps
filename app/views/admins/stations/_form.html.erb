@@ -5,8 +5,12 @@
   <%= f.text_field :name, required: true %>
 
   <div id="address_or_coordinates_toggler">
-    <button type="button" id="use_address" class="selected">Address</button>
-    <button type="button" id="use_coordinates">Coordinates</button>
+    <button type="button" id="use_address" class="selected">
+      <%= t '.address' %>
+    </button>
+    <button type="button" id="use_coordinates">
+      <%= t '.coordinates' %>
+    </button>
   </div>
 
   <fieldset id="street_address_fields">
