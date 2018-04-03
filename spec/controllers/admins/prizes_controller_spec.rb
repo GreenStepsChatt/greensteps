@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Admins::PrizesController, type: :controller do
-
   describe 'POST #create' do
     context 'invalid prize' do
       it 're-renders the form' do
@@ -13,7 +12,7 @@ RSpec.describe Admins::PrizesController, type: :controller do
       end
     end
   end
-  
+
   describe 'PUT #update' do
     context 'invalid prize' do
       it 're-renders the form' do
