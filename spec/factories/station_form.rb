@@ -1,10 +1,17 @@
 FactoryBot.define do
   factory :station_form do
-    name 'Station Name'
-    street '100 Main Street'
+    name { Faker::Address.community }
+    street '1800 Polk St.'
     city 'Chattanooga'
     state 'TN'
-    zip '10101'
+    zip '37408'
+
+    trait :with_coords_only do
+      no_street_address
+
+      latitude { Faker::Number.between(34.952750, 35.223899).round(6) }
+      longitude { Faker::Number.between(-85.550085, -85.031483).round(6) }
+    end
 
     trait :no_street_address do
       street nil

@@ -36,4 +36,16 @@ RSpec.describe 'rake db:populate', type: :task do
   it 'creates a random number of deeds for some user' do
     expect(Deed.count).to be > 0
   end
+
+  it 'creates one station with a street address' do
+    expect(Station.joins(:address).count).to eq 1
+  end
+
+  it 'geocodes addresses' do
+    expect(Address.joins(:coordinate_pair).count).to be > 0
+  end
+
+  it 'creates five stations with coordinates' do
+    expect(Station.joins(:coordinate_pair).count).to eq 5
+  end
 end
