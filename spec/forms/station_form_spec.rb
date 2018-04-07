@@ -57,5 +57,15 @@ RSpec.describe StationForm, type: :form do
 
       expect(station_form.save).to be_falsey
     end
+
+    context 'when the station record is invalid' do
+      it 'does not start a GeocodeJob', :with_active_job_test_adapter do
+        station_form = build :station_form, name: nil
+
+        station_form.save
+
+        expect(GeocodeJob).to_not have_been_enqueued
+      end
+    end
   end
 end

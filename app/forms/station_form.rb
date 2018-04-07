@@ -12,16 +12,12 @@ class StationForm < ApplicationForm
   end
 
   def save!
-    save_records!.tap { |saved| AddressGeocoder.new(address).geocode if saved }
-  end
-
-  private
-
-  def save_records!
     ActiveRecord::Base.transaction do
       [station.save!, address.save!, coordinate_pair.save!].all?
     end
   end
+
+  private
 
   def station
     @station ||= Station.new(name: name)
@@ -33,7 +29,7 @@ class StationForm < ApplicationForm
   def address
     @address ||=
       if address_attributes.present?
-        station.build_address address_attributes
+        GeocodedAddress.new(station.build_address(address_attributes))
       else
         NullAddress.new
       end
