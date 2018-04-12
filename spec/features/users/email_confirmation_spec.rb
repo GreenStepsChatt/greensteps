@@ -11,7 +11,8 @@ RSpec.describe 'User email confirmation', type: :feature do
     expect(page).to flash_message t('devise.registrations.signed_up')
   end
 
-  scenario 'User is sent confirmation email when they register', :immediately_execute_jobs do
+  scenario 'User is sent confirmation email when they register',
+           :immediately_execute_jobs do
     new_user_info = attributes_for :user
 
     visit root_path

@@ -54,7 +54,7 @@ RSpec.describe Address, type: :model do
   describe '#saved_value_changes' do
     it 'should return false if value attributes were not changed' do
       address = create :address
-      address.update(updated_at: Time.now)
+      address.update(updated_at: Time.zone.now)
 
       expect(address.saved_value_changes?).to be_falsey
     end
@@ -76,13 +76,13 @@ RSpec.describe Address, type: :model do
 
   describe '.not_geocoded' do
     it 'includes records that do not have an associated coordinate pair' do
-      address = create :address, coordinate_pair: nil
+      create :address, coordinate_pair: nil
 
       expect(Address.not_geocoded.size).to eq 1
     end
 
     it 'does not include records with a coordinate pair' do
-      address = create :address, :with_coordinate_pair
+      create :address, :with_coordinate_pair
 
       expect(Address.not_geocoded.size).to eq 0
     end

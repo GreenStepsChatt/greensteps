@@ -23,8 +23,8 @@ class Address < ApplicationRecord
 
   scope :for_station, -> { where(addressable_type: 'Station') }
 
-  scope :not_geocoded, -> do
-    left_joins(:coordinate_pair).where(coordinate_pairs: {id: nil})
+  def self.not_geocoded
+    left_joins(:coordinate_pair).where(coordinate_pairs: { id: nil })
   end
 
   def to_sentence

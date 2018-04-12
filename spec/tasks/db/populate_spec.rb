@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe 'rake db:populate', type: :task do
   before(:all) do
-    Swapper.while(Delayed::Worker).
-      has(:delay_jobs).set_to(false) { Rake::Task['db:populate'].execute }
+    Swapper.while(Delayed::Worker)
+           .has(:delay_jobs).set_to(false) { Rake::Task['db:populate'].execute }
   end
 
   after(:all) do

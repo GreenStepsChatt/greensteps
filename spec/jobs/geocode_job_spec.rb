@@ -11,15 +11,15 @@ RSpec.describe GeocodeJob, type: :job do
 
   context 'when the API request fails' do
     around(:each) do |example|
-      Geocoder.configure(:lookup => :google)
-      stubbed_request = stub_request(:any, /googleapis/).to_return(
+      Geocoder.configure(lookup: :google)
+      stub_request(:any, /googleapis/).to_return(
         status: 403,
         body: '{ "results" : [], "status" : "OVER_QUERY_LIMIT" }'
       )
 
       example.run
 
-      Geocoder.configure(:lookup => :test)
+      Geocoder.configure(lookup: :test)
     end
 
     it 'is rescheduled for later' do
