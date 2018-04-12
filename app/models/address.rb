@@ -21,6 +21,12 @@ class Address < ApplicationRecord
               message: 'must be of the format xxxxx or xxxxx-xxxx'
             }
 
+  scope :for_station, -> { where(addressable_type: 'Station') }
+
+  scope :not_geocoded, -> do
+    left_joins(:coordinate_pair).where(coordinate_pairs: {id: nil})
+  end
+
   def to_sentence
     "#{street}, #{city}, #{state} #{zip}"
   end

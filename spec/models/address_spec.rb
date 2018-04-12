@@ -73,4 +73,18 @@ RSpec.describe Address, type: :model do
       expect(address.saved_value_changes?).to be_truthy
     end
   end
+
+  describe '.not_geocoded' do
+    it 'includes records that do not have an associated coordinate pair' do
+      address = create :address, coordinate_pair: nil
+
+      expect(Address.not_geocoded.size).to eq 1
+    end
+
+    it 'does not include records with a coordinate pair' do
+      address = create :address, :with_coordinate_pair
+
+      expect(Address.not_geocoded.size).to eq 0
+    end
+  end
 end
