@@ -25,8 +25,7 @@ class Address < ApplicationRecord
     "#{street}, #{city}, #{state} #{zip}"
   end
 
-  def coordinate_pair_stale?
-    coordinate_pair.blank? ||
-      (previous_changes.keys & VALUE_ATTRIBUTES).any? # & intersects the arrays
+  def saved_value_changes?
+    (saved_changes.keys & VALUE_ATTRIBUTES).any? # & intersects the arrays
   end
 end

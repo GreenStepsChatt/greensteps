@@ -6,6 +6,5 @@ module GeocodingHelpers
 end
 
 RSpec.configure do |config|
-  config.include GeocodingHelpers, type: :feature
-  config.include GeocodingHelpers, type: :job
+  config.include GeocodingHelpers
 end

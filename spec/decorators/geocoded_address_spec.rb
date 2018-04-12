@@ -1,44 +1,61 @@
 require 'rails_helper'
 
 RSpec.describe GeocodedAddress do
-  context 'the associated coordinates are stale' do
-    it 'saving the record starts a GeocodeJob', :with_active_job_test_adapter do
-      address = build :address
+  describe '#save' do
+    context 'for a new address' do
+      it 'enqueues a GeocodeJob', :with_active_job_test_adapter do
+        address = build :address
 
-      GeocodedAddress.new(address).save
+        GeocodedAddress.new(address).save
 
-      expect(GeocodeJob).to have_been_enqueued
+        expect(GeocodeJob).to have_been_enqueued
+      end
+    end
+
+    context 'when the *value* of an existing address is changed' do
+      it 'deletes the old coordinate pair record' do
+        address = create :address, :with_coordinate_pair
+
+        GeocodedAddress.new(address).update(street: '111 New St.')
+
+        expect(address.coordinate_pair).to be_destroyed
+      end
+
+      it 'enqueues a GeocodeJob', :with_active_job_test_adapter do
+        address = create :address, :with_coordinate_pair
+
+        GeocodedAddress.new(address).update(street: '111 New St.')
+
+        expect(GeocodeJob).to have_been_enqueued
+      end
+    end
+
+    context "when an address is updated but it's value doesn't change" do
+      it 'does not delete the coordinate pair record' do
+        address = create :address, :with_coordinate_pair
+
+        GeocodedAddress.new(address).update(updated_at: Time.now)
+
+        expect(address.coordinate_pair).to_not be_destroyed
+      end
+
+      it 'does not enqueue a GeocodeJob', :with_active_job_test_adapter do
+        address = create :address, :with_coordinate_pair
+
+        GeocodedAddress.new(address).update(updated_at: Time.now)
+
+        expect(GeocodeJob).to_not have_been_enqueued
+      end
     end
   end
 
-  context 'the associated coordinates are not stale' do
-    it 'does not start a GeocodeJob', :with_active_job_test_adapter do
-      address = create :address, :with_coordinate_pair
+  describe '#geocode' do
+    it 'gets coordinates from the API service and stores them in a new record' do
+      address = create :address, coordinate_pair: nil
 
-      GeocodedAddress.new(address).save
+      GeocodedAddress.new(address).geocode
 
-      expect(GeocodeJob).to_not have_been_enqueued
+      expect(address.reload.coordinate_pair).to have_attributes stubbed_coords
     end
-  end
-
-  context 'the address is not valid' do
-    it 'does not start a GeocodeJob', :with_active_job_test_adapter do
-      invalid_address = build :address, :invalid
-
-      GeocodedAddress.new(invalid_address).save
-
-      expect(GeocodeJob).to_not have_been_enqueued
-    end
-  end
-
-  it 'does not add an after_commit callback to undecorated addresses',
-     :with_active_job_test_adapter do
-    geo_address = build :address
-    GeocodedAddress.new(geo_address)
-    address = build :address
-
-    address.save
-
-    expect(GeocodeJob).to_not have_been_enqueued
   end
 end

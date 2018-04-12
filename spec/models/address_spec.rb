@@ -51,28 +51,26 @@ RSpec.describe Address, type: :model do
     end
   end
 
-  describe '#coordinate_pair_stale' do
-    it 'is true if any of VALUE_ATTRIBUTES changed in previous save' do
-      address = create :address, :with_coordinate_pair
-      address.street = '999 New Street'
-      address.save
-
-      expect(address.coordinate_pair_stale?).to be_truthy
-    end
-
-    it 'is false if none of VALUE_ATTRIBUTES were changed in previous save' do
-      address = create :address, :with_coordinate_pair
-      address.addressable = create :station
-      address.save
-
-      expect(address.coordinate_pair_stale?).to be_falsey
-    end
-
-    it 'is true if the coordinate pair is blank' do
+  describe '#saved_value_changes' do
+    it 'should return false if value attributes were not changed' do
       address = create :address
-      address.save
+      address.update(updated_at: Time.now)
 
-      expect(address.coordinate_pair_stale?).to be_truthy
+      expect(address.saved_value_changes?).to be_falsey
+    end
+
+    it 'should return false if there were no changes' do
+      create :address
+      address = Address.first
+
+      expect(address.saved_value_changes?).to be_falsey
+    end
+
+    it 'should return true if there were changes to value attributes' do
+      address = create :address
+      address.update(street: '111 New St.')
+
+      expect(address.saved_value_changes?).to be_truthy
     end
   end
 end
