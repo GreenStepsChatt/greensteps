@@ -20,6 +20,7 @@ gem 'devise'
 gem 'factory_bot_rails'
 gem 'faker'
 gem 'font-awesome-rails'
+gem 'geocoder'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
@@ -55,6 +56,7 @@ group :development do
 end
 
 group :test do
+  gem 'capybara-screenshot'
   gem 'database_cleaner'
   gem 'launchy'
   gem 'poltergeist'
