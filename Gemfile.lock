@@ -75,6 +75,9 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (>= 2.0, < 4.0)
+    capybara-screenshot (1.0.18)
+      capybara (>= 1.0, < 3)
+      launchy
     cliver (0.3.2)
     coderay (1.1.2)
     coffee-rails (4.2.2)
@@ -121,6 +124,7 @@ GEM
     font-awesome-rails (4.7.0.3)
       railties (>= 3.2, < 5.2)
     formatador (0.2.5)
+    geocoder (1.4.7)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     guard (2.14.2)
@@ -158,7 +162,7 @@ GEM
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
       ruby_dep (~> 1.2)
-    loofah (2.1.1)
+    loofah (2.2.2)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     lumberjack (1.0.12)
@@ -341,6 +345,7 @@ DEPENDENCIES
   bullet
   byebug
   capybara
+  capybara-screenshot
   coffee-rails (~> 4.2)
   database_cleaner
   decent_exposure
@@ -350,6 +355,7 @@ DEPENDENCIES
   factory_bot_rails
   faker
   font-awesome-rails
+  geocoder
   guard-rspec
   jbuilder (~> 2.5)
   jquery-rails

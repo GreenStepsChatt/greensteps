@@ -1,7 +1,10 @@
+require_relative '../support/synchronization_helper.rb'
+
 module PageObjects
   class Base
     include Capybara::DSL
     include AbstractController::Translation
+    include SynchronizationHelper
 
     def initialize(skip_error = false)
       raise NotFound.new page, self.class.name unless on_page? || skip_error
@@ -11,11 +14,9 @@ module PageObjects
       has_css?(selector, options)
     end
 
-    def hidden?
-      !visible?
+    def not_on_page?
+      has_no_css?(selector)
     end
-
-    delegate :visible?, to: :this
 
     def this
       find(selector)

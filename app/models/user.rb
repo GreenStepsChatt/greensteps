@@ -2,7 +2,7 @@ class User < ApplicationRecord
   acts_as_paranoid
   rolify
 
-  has_many :deeds # rubocop:disable Rails/HasManyOrHasOneDependent
+  has_many :deeds, dependent: :destroy
 
   def total_trash_bags
     deeds.sum(:trash_bags)

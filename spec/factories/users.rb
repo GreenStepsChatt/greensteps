@@ -28,7 +28,7 @@ FactoryBot.define do
     end
 
     trait :confirmed do
-      confirmed_at { created_at }
+      after(:build, &:skip_confirmation!)
     end
 
     trait :unconfirmed do

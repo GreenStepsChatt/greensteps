@@ -1,12 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe Deed, type: :model do
+  subject { build_stubbed :deed }
+
   it { should belong_to :user }
   it { should validate_presence_of :trash_bags }
   it { should validate_presence_of :miles }
 
   it 'is invalid unless there is at least one trash bag or mile walked' do
-    deed = build :deed, trash_bags: 0, miles: 0
+    deed = build_stubbed :deed, trash_bags: 0, miles: 0
 
     expect(deed).to be_invalid
   end

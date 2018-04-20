@@ -1,18 +1,18 @@
 module SessionHelpers
   attr_reader :current_user
 
-  def create_and_login_user
-    stubbed_login_as FactoryBot.create :user
+  def create_and_login_user(*args)
+    stubbed_login_as FactoryBot.create(:user), *args
   end
 
-  def create_and_login_admin
-    stubbed_login_as FactoryBot.create :admin
+  def create_and_login_admin(*args)
+    stubbed_login_as FactoryBot.create(:admin), *args
   end
 
-  def stubbed_login_as(user)
+  def stubbed_login_as(user, follow_to_default_path: false)
     warden_helpers.login_as(user)
     @current_user = user
-    visit after_sign_in_path_for(user)
+    visit after_sign_in_path_for(user) if follow_to_default_path
   end
 
   def after_sign_in_path_for(resource)

@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'User logs deed', type: :feature do
   scenario 'from dashboard' do
-    create_and_login_user
+    create_and_login_user follow_to_default_path: true
 
     dashboard.log_deed
     deed_form.trash_bags = 1
@@ -16,7 +16,7 @@ RSpec.describe 'User logs deed', type: :feature do
   end
 
   scenario 'with 0 miles and trash bags' do
-    create_and_login_user
+    create_and_login_user follow_to_default_path: true
 
     dashboard.log_deed
     deed_form.trash_bags = 0

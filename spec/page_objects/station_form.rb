@@ -20,6 +20,18 @@ module PageObjects
       this.fill_in t('helpers.label.station_form.zip'), with: zip
     end
 
+    def toggle_addr_latlon
+      this.find('#address_or_coordinates_toggler').click
+    end
+
+    def latitude=(lat)
+      this.fill_in t('helpers.label.station_form.latitude'), with: lat
+    end
+
+    def longitude=(lon)
+      this.fill_in t('helpers.label.station_form.longitude'), with: lon
+    end
+
     def submit
       this.click_on t('helpers.submit.create')
     end

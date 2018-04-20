@@ -1,7 +1,7 @@
 # Additional translations at https://github.com/plataformatec/devise/wiki/I18n
 
 zh-CN:
-  devise:
+  users:
     confirmations:
       confirmed: "你的电子邮件地址以被成功确认。"
       send_instructions: "你在几分钟后会收到一封电子邮件告诉你如何确认你的电子邮件地址。"
