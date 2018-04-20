@@ -6,7 +6,6 @@ class Greensteps.NavDrawer
     # @drawerTogglerSelector like they currently are with the drawer container
     @drawerToggler = $(@drawerTogglerSelector)
     @overlay = @drawer.parent()
-    this.setVisibility() # set visibility on initial page load
 
     # This can be much simpler once we can use the :backdrop pseudo element. We
     # All we'll have to do here is toggle the drawer, I think that the backdrop
@@ -28,13 +27,16 @@ class Greensteps.NavDrawer
     $(window).resize =>
       this.setVisibility()
 
+    # wait to set visibility until after event handlers are attached
+    this.setVisibility()
+
   setVisibility: =>
     if this.shouldCollapse()
       @drawerToggler.show()
-      this.hideDrawer()
+      this.hideDrawer() if @drawer.is(':visible')
     else
       @drawerToggler.hide()
-      this.showDrawer()
+      this.showDrawer() unless @drawer.is(':visible')
 
   toggleDrawer: =>
     if @drawer.is(':visible')
@@ -44,11 +46,11 @@ class Greensteps.NavDrawer
 
   showDrawer: =>
     @overlay.show 'fade', 'fast', =>
-      @drawer.show('slide', {direction: 'right'})
+      @drawer.show 'slide', {direction: 'right'}
 
   hideDrawer: =>
     @drawer.hide 'slide', {direction: 'right'}, =>
-      @overlay.hide('fade', 'fast')
+      @overlay.hide 'fade', 'fast'
 
   isStale: ->
     !document.body.contains(@drawer[0])

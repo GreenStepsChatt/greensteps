@@ -9,7 +9,7 @@
 </article>
 <% unless user_signed_in? %>
   <article id="site_entry">
-    <%= render 'devise/registrations/form' %>
-    <%= render 'devise/sessions/form' %>
+    <%= render 'users/registrations/form' %>
+    <%= render 'users/sessions/form' %>
   </article>
 <% end %>

@@ -1,8 +1,8 @@
 module PageObjects
   class SignUpForm < Base
     def fill_and_submit_with(user_info)
-      self.email = user_info.email
-      self.password = user_info.password
+      self.email = user_info[:email]
+      self.password = user_info[:password]
       submit
     end
 

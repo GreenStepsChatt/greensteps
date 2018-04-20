@@ -11,7 +11,11 @@ FactoryBot.define do
       street nil
       city nil
       state nil
-      zip 10
+      zip 0
+    end
+
+    trait :with_coordinate_pair do
+      coordinate_pair
     end
   end
 end

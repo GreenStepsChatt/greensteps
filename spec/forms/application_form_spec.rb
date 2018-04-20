@@ -17,6 +17,16 @@ RSpec.describe ApplicationForm, type: :form do
       end
     end
 
+    class NilChildForm < ApplicationForm
+      validates_models :nil_model
+
+      private
+
+      def nil_model
+        nil
+      end
+    end
+
     it 'should make the form object invalid if the child models are invalid' do
       test_form = TestForm.new
 
@@ -29,6 +39,14 @@ RSpec.describe ApplicationForm, type: :form do
       test_form.validate
 
       expect(test_form.errors[:child_attribute_name]).to include 'is invalid'
+    end
+
+    it 'should not validate the child if it is not present' do
+      form = NilChildForm.new
+
+      form.validate
+
+      expect(form).to be_valid
     end
   end
 end

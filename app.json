@@ -7,6 +7,9 @@
     "APPLICATION_HOST": {
       "required": true
     },
+    "GOOGLE_MAPS_KEY": {
+      "required": true
+    },
     "INTERCEPT_EMAILS": {
       "required": true
     },
@@ -51,6 +54,14 @@
     }
   },
   "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "free"
+    },
+    "worker": {
+      "quantity": 1,
+      "size": "free"
+    }
   },
   "addons": [
     "heroku-postgresql"

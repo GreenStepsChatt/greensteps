@@ -35,7 +35,6 @@ heroku:postdeploy
 heroku:release
 initializers
 lint:codeclimate
-lint:factory_girl
 lint:rubocop:autocorrect
 log:clear
 middleware

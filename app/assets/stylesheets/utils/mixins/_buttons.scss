@@ -186,3 +186,45 @@ Expects the following:
     }
   }
 }
+
+// expects the element's direct children to be button elements that should
+// behave as radio choices
+@mixin radio-button-group {
+  display: flex;
+  justify-content: center;
+
+  button {
+    border-radius: 0;
+    position: relative;
+
+    &:first-child {
+      border-top-left-radius: $base-border-radius;
+      border-bottom-left-radius: $base-border-radius;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:last-child {
+      border-top-right-radius: $base-border-radius;
+      border-bottom-right-radius: $base-border-radius;
+    }
+
+    &.selected {
+      background-color: $primary-color-dark;
+      color: $primary-text-light;
+
+      &:after {
+        content: '';
+
+        border-width: 0 0 1px;
+        border-style: solid;
+        bottom: $tiny-spacing;
+        left: 15%;
+        position: absolute;
+        width: 70%;
+      }
+    }
+  }
+}

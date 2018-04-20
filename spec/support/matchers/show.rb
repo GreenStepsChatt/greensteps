@@ -1,6 +1,6 @@
 RSpec::Matchers.define :show do |page_object_name|
   match do |_page|
-    page_object.on_page? && page_object.visible?
+    page_object.on_page?
   end
 
   failure_message do |_page|
@@ -12,7 +12,7 @@ RSpec::Matchers.define :show do |page_object_name|
   end
 
   match_when_negated do |_page|
-    !page_object.on_page? || page_object.hidden?
+    page_object.not_on_page?
   end
 
   define_method :page_object do
