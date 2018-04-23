@@ -7,6 +7,10 @@ FactoryBot.define do
     "admin#{n}@example.com"
   end
 
+  sequence :developer_email do |n|
+    "developer#{n}@example.com"
+  end
+
   factory :user do
     email { generate :email }
     password 'password'
@@ -44,6 +48,11 @@ FactoryBot.define do
     factory :admin do
       email { generate :admin_email }
       after(:build) { |user| user.add_role :admin }
+    end
+
+    factory :developer do
+      email { generate :developer_email }
+      after(:build) { |user| user.add_role :developer }
     end
   end
 end

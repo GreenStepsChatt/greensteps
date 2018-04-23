@@ -9,6 +9,10 @@ module SessionHelpers
     stubbed_login_as FactoryBot.create(:admin), *args
   end
 
+  def create_and_login_developer(*args)
+    stubbed_login_as FactoryBot.create(:developer), *args
+  end
+
   def stubbed_login_as(user, follow_to_default_path: false)
     warden_helpers.login_as(user)
     @current_user = user

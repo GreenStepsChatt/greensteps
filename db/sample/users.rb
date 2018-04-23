@@ -6,6 +6,10 @@ FactoryBot.define do
   factory :sample_admin, parent: :admin do
     confirmed
   end
+
+  factory :sample_developer, parent: :developer do
+    confirmed
+  end
 end
 
 # users who have signed up, and confirmed their email, but haven't logged
@@ -24,3 +28,6 @@ FactoryBot.create_list :sample_user, 5, :with_deeds
 
 # users with admin privelidges
 FactoryBot.create_list :sample_admin, 3
+
+# users with developer privelidges
+FactoryBot.create_list :sample_developer, 2
