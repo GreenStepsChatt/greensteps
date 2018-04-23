@@ -13,4 +13,18 @@ class Station < ApplicationRecord
           as: :locateable,
           dependent: :destroy,
           inverse_of: :locateable # TODO: not needed in rails 5.2
+
+  def latitude
+    coordinate_pair.present? ? coordinate_pair.latitude : address.latitude
+  end
+
+  def longitude
+    coordinate_pair.present? ? coordinate_pair.longitude : address.longitude
+  end
+
+  # TODO: this should probably delegate like the above two methods and then we
+  # should remove the duplication somehow
+  def reverse_coordinates
+    [longitude, latitude]
+  end
 end
