@@ -4,7 +4,10 @@ namespace :db do
   desc 'Populates the database with sample data (defined in db/sample)'
   task populate: :environment do
     Swapper.while(ActionMailer::Base).has(:perform_deliveries).set_to(false) do
-      Dir[Rails.root.join('db', 'sample', '**', '*.rb')].each { |f| require f }
+      Swapper.while(Delayed::Worker).has(:delay_jobs).set_to(false) do
+        sample_data_files = Rails.root.join('db', 'sample', '**', '*.rb')
+        Dir[sample_data_files].each { |f| require f }
+      end
     end
   end
 

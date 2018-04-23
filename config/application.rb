@@ -21,7 +21,7 @@ module Greensteps
     config.i18n.load_path +=
       Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
 
-    config.assets.paths << Rails.root.join("app", "assets", "fonts")
+    config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
 
     config.generators do |g|
       g.stylesheets false
