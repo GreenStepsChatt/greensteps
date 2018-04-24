@@ -44,4 +44,11 @@ src="https://maps.googleapis.com/maps/api/js?key=<%=ENV.fetch('GOOGLE_MAPS_KEY',
   </header>
 
   <div id="map"></div>
+  <aside id="map_info">
+    <h3 id="marker_title"></h3>
+    <p id="marker_address"></p>
+    <button type="button">
+      <%= fa_icon 'close' %>
+    </button>
+  </aside>
 </article>

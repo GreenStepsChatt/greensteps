@@ -12,7 +12,8 @@ RSpec.describe StationFeature do
         'type' => 'Feature',
         'id' => station.id,
         'properties' => {
-          'title' => station.name
+          'title' => station.name,
+          'address' => station.street_address
         },
         'geometry' => {
           'type' => 'Point',

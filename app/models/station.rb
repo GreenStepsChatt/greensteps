@@ -27,4 +27,12 @@ class Station < ApplicationRecord
   def reverse_coordinates
     [longitude, latitude]
   end
+
+  def street_address
+    if address.present?
+      address.to_sentence
+    else
+      "#{latitude}, #{longitude}"
+    end
+  end
 end

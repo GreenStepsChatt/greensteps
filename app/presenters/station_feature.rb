@@ -1,5 +1,5 @@
 class StationFeature
-  delegate :id, :name, :longitude, :latitude, to: :@station
+  delegate :id, :name, :longitude, :latitude, :street_address, to: :@station
   delegate :to_json, to: :to_h
 
   def initialize(station)
@@ -21,7 +21,7 @@ class StationFeature
   end
 
   def properties
-    { title: name }
+    { title: name, address: street_address }
   end
 
   def geo_factory
