@@ -8,6 +8,7 @@
   }
 
   .station_map {
+    position: relative;
     flex: 1 1 30em;
   }
 
@@ -29,6 +30,25 @@
 
   #map {
     height: 20em;
+    max-width: 45em;
     width: 100%;
+  }
+
+  #map_info {
+    background-color: rgba(#fff, 0.9);
+    bottom: 0;
+    display: none;
+    left: 0;
+    padding: $small-spacing;
+    position: absolute;
+
+    button {
+      @include icon_only_button;
+
+      border-radius: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
   }
 }

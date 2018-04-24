@@ -22,6 +22,13 @@
   }
 }
 
+@mixin icon_only_button($color: $primary-text-dark) {
+  @include compact-button;
+
+  background-color: transparent;
+  color: $primary-text-dark
+}
+
 @mixin button-color($color) {
   background-color: $color;
   color: text-color-for($color);

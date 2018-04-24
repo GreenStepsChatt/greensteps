@@ -15,6 +15,14 @@ Rails.application.routes.draw do
     resources 'admins', only: [:index, :new, :create, :destroy]
   end
 
+  namespace :api do
+    namespace :geojson do
+      namespace :v1 do
+        resources 'stations', only: [:index]
+      end
+    end
+  end
+
   get 'dashboard', to: 'dashboards#show', as: :user_root
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
