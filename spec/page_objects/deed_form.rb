@@ -4,10 +4,6 @@ module PageObjects
       this.fill_in(Deed.human_attribute_name(:trash_bags), with: number)
     end
 
-    def miles_walked=(number)
-      this.fill_in(Deed.human_attribute_name(:miles), with: number)
-    end
-
     def submit
       this.click_on t('helpers.submit.create')
     end
