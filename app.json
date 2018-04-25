@@ -5,7 +5,7 @@
   },
   "env": {
     "APPLICATION_HOST": {
-      "required": true
+      "required": false
     },
     "GOOGLE_MAPS_KEY": {
       "required": true
