@@ -75,7 +75,7 @@ Rails.application.configure do
   config.action_mailer.default_url_options = {
     host: ENV.fetch(
       "APPLICATION_HOST",
-      "#{ENV.fetch("HEROKU_APP_NAME")}.herokuapp.com"
+      "#{ENV.fetch("HEROKU_APP_NAME", '')}.herokuapp.com"
     )
   }
 
