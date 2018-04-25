@@ -5,6 +5,6 @@ class Deed < ApplicationRecord
   validates :trash_bags, presence: true
 
   def something_was_done
-    errors.add(:base, :nothing_was_done) if (trash_bags) < 1
+    errors.add :base, :nothing_was_done if (trash_bags) < 1
   end
 end
