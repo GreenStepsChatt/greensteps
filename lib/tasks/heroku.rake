@@ -2,6 +2,7 @@ namespace :heroku do # rubocop:disable Metrics/BlockLength
   desc 'Tasks to be run just once, after the first deployment'
   task postdeploy: 'db:seed' do
     Rake::Task['db:populate'].invoke if ENV['USE_SAMPLE_DATA']
+    set_application_host
   end
 
   desc 'Tasks to be run after each deployment'
@@ -28,6 +29,13 @@ namespace :heroku do # rubocop:disable Metrics/BlockLength
       Rake::Task['db:schema:load'].invoke
     else
       Rake::Task['db:migrate'].invoke
+    end
+  end
+
+  def set_application_host
+    app_name = ENV.fetch('HEROKU_APP_NAME')
+    unless %w(greensteps-staging greensteps).include?(app_name)
+      `heroku config:set APPLICATION_HOST=#{app_name}.herokuapp.com --app #{app_name}`
     end
   end
 end
