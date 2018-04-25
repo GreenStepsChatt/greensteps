@@ -2,7 +2,6 @@ namespace :heroku do # rubocop:disable Metrics/BlockLength
   desc 'Tasks to be run just once, after the first deployment'
   task postdeploy: 'db:seed' do
     Rake::Task['db:populate'].invoke if ENV['USE_SAMPLE_DATA']
-    `heroku labs:enable runtime-dyno-metadata`
   end
 
   desc 'Tasks to be run after each deployment'

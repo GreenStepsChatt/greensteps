@@ -4,9 +4,6 @@
     "postdeploy": "bin/rake heroku:postdeploy"
   },
   "env": {
-    "APPLICATION_HOST": {
-      "required": false
-    },
     "GOOGLE_MAPS_KEY": {
       "required": true
     },
