@@ -18,16 +18,4 @@ RSpec.describe User, type: :model do
       expect(user.total_trash_bags).to eq 6
     end
   end
-
-  describe '.total_miles' do
-    it 'should give the total number of miles the user has walked' do
-      user = create :user
-
-      [1, 2, 3].each do |num_bags|
-        create(:deed, trash_bags: num_bags, user: user)
-      end
-
-      expect(user.total_trash_bags).to eq 6
-    end
-  end
 end
