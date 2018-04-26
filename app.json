@@ -4,10 +4,10 @@
     "postdeploy": "bin/rake heroku:postdeploy"
   },
   "env": {
-    "APPLICATION_HOST": {
+    "GOOGLE_MAPS_KEY": {
       "required": true
     },
-    "GOOGLE_MAPS_KEY": {
+    "HEROKU_APP_NAME": {
       "required": true
     },
     "INTERCEPT_EMAILS": {
