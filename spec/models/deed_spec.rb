@@ -4,7 +4,7 @@ RSpec.describe Deed, type: :model do
   subject { build_stubbed :deed }
 
   it { should belong_to :user }
-  it { should validate_presence_of :trash_bags }
+  it { should validate_numericality_of(:trash_bags).is_greater_than(0) }
 
   it 'is invalid unless there is at least one trash bag' do
     deed = build_stubbed :deed, trash_bags: 0
