@@ -4,16 +4,12 @@ class PointCalculator
   end
 
   def total_points
-    trash_points + mile_points
+    trash_points
   end
 
   private
 
   def trash_points
-    @user.total_trash_bags * 4
-  end
-
-  def mile_points
-    @user.total_miles
+    @user.total_trash_bags
   end
 end
