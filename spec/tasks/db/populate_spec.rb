@@ -14,8 +14,9 @@ RSpec.describe 'rake db:populate', type: :task do
     expect(task.prerequisites).to include 'environment'
   end
 
-  it 'adds 50 users to the database' do
-    expect(User.without_role(:admin)).to have(50).records
+  it 'adds 50 regular users to the database' do
+    expect(User.without_role(:admin).without_role(:developer)).to \
+      have(50).records
   end
 
   it 'adds 3 admins to the database' do
@@ -48,5 +49,9 @@ RSpec.describe 'rake db:populate', type: :task do
 
   it 'creates five stations with coordinates' do
     expect(Station.joins(:coordinate_pair).count).to eq 5
+  end
+
+  it 'creates two developers' do
+    expect(User.with_role(:developer)).to have(2).records
   end
 end
