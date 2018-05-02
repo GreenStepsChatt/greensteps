@@ -13,6 +13,9 @@ Capybara::Screenshot.prune_strategy = :keep_last_run
 
 RSpec.configure do |config|
   config.before(:each, :js) do
-    page.driver.browser.url_blacklist = ['https://maps.googleapis.com']
+    page.driver.browser.url_blacklist = [
+      'https://maps.googleapis.com',
+      'https://fonts.googleapis.com'
+    ]
   end
 end
