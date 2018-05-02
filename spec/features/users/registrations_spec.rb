@@ -32,9 +32,8 @@ RSpec.describe 'User Registrations', type: :feature do
     visit edit_user_registration_path
     delete_account
 
-    expect(User).to_not exist email: user.email
-    expect(User.only_deleted).to include_record_with email: user.email
     expect(page).to flash_message t('users.registrations.destroyed')
+    expect(User.soft_deleted).to include_record_with email: user.email
   end
 
   scenario 'Soft-deleted user tries to re-register with same email' do

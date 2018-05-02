@@ -6,9 +6,6 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'acts_as_paranoid',
-    git: 'https://github.com/ActsAsParanoid/acts_as_paranoid.git',
-    ref: '085b5cc'
 gem 'after_party'
 gem 'autoprefixer-rails'
 gem 'bitters'

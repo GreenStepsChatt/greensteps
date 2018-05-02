@@ -6,8 +6,8 @@ RSpec.describe Devise::SessionsController, :devise, type: :controller do
        'signing in' do
       user = create :user
 
-      expect(User).to_not receive :only_deleted
-      expect(User).to_not receive :with_deleted
+      expect(User).to_not receive :soft_deleted
+      expect(User).to_not receive :soft_deleted
 
       post :create, params: {
         user: { email: user.email, password: user.password }
