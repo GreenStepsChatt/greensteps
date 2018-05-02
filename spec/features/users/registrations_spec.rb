@@ -7,7 +7,7 @@ RSpec.describe 'User Registrations', type: :feature do
     visit root_path
     sign_up_form.fill_and_submit_with new_user_info
 
-    expect(page).to flash_message t('devise.registrations.signed_up')
+    expect(page).to flash_message t('users.registrations.signed_up')
     expect(ActionMailer::DeliveryJob).to have_been_enqueued
     expect(User).to include_record_with email: new_user_info[:email]
     expect(page).to_not show :sign_up_form
@@ -22,7 +22,7 @@ RSpec.describe 'User Registrations', type: :feature do
     account_settings_form.change_password(user.password, 'new_password')
 
     expect(user).to have_password 'new_password'
-    expect(page).to flash_message t('devise.registrations.updated')
+    expect(page).to flash_message t('users.registrations.updated')
   end
 
   scenario 'User deletes their account', :js do
@@ -32,9 +32,9 @@ RSpec.describe 'User Registrations', type: :feature do
     visit edit_user_registration_path
     delete_account
 
-    expect(page).to flash_message t('devise.registrations.destroyed')
     expect(User).to_not exist email: user.email
     expect(User.only_deleted).to include_record_with email: user.email
+    expect(page).to flash_message t('users.registrations.destroyed')
   end
 
   scenario 'Soft-deleted user tries to re-register with same email' do
