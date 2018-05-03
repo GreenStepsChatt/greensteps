@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
   resource :dashboard, only: [:show]
 
+  authenticated :user, lambda { |user| user.has_role?(:admin) } do
+    root to: 'admins/dashboards#show'
+  end
+
+  authenticated :user do
+    root to: 'dashboards#show'
+  end
+
   root to: 'welcome#index'
   get 'welcome/index'
 
@@ -27,4 +35,3 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
-
