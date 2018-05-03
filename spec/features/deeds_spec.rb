@@ -22,4 +22,15 @@ RSpec.describe 'User logs deed', type: :feature do
     expect(deed_form).to show_errors \
       including: t('activerecord.errors.models.deed.nothing_was_done')
   end
+
+  scenario 'more than 30 points' do
+    create_and_login_user follow_to_default_path: true
+
+    dashboard.log_deed
+    deed_form.trash_bags = 50
+    deed_form.submit
+
+    expect(deed_form).to show_errors \
+      including: t('activerecord.errors.models.deed.maximum_points')
+  end
 end

@@ -8,6 +8,18 @@ class User < ApplicationRecord
     deeds.sum(:trash_bags)
   end
 
+  def total_trash_bags_this_month
+    deeds
+      .where(created_at: Time
+                             .zone
+                             .today
+                             .beginning_of_month..Time
+                                                      .zone
+                                                      .today
+                                                      .end_of_month)
+      .sum(:trash_bags)
+  end
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
