@@ -8,7 +8,7 @@ RSpec.describe 'User Sessions', type: :feature do
     welcome_page.open_log_in_form
     log_in_form.fill_and_submit_for user
 
-    expect(page).to flash_message t('devise.sessions.signed_in')
+    expect(page).to flash_message t('users.sessions.signed_in')
     expect(page).to show :dashboard
   end
 
@@ -19,7 +19,7 @@ RSpec.describe 'User Sessions', type: :feature do
     welcome_page.open_log_in_form
     log_in_form.fill_and_submit_for user
 
-    expect(page).to flash_message t('devise.sessions.account_deleted')
+    expect(page).to flash_message t('devise.failure.user.account_deleted')
     expect(page).to_not show :dashboard
   end
 
@@ -31,7 +31,7 @@ RSpec.describe 'User Sessions', type: :feature do
     app_bar.open_drawer
     nav_drawer.sign_out
 
-    expect(page).to flash_message t('devise.sessions.signed_out')
+    expect(page).to flash_message t('users.sessions.signed_out')
     expect(page).to show :welcome_page
   end
 end

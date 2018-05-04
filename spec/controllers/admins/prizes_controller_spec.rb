@@ -19,7 +19,10 @@ RSpec.describe Admins::PrizesController, type: :controller do
         sign_in create(:admin)
         prize = create(:prize)
 
-        put :update, params: { id: prize.id, prize: attributes_for(:prize, :invalid) }
+        put :update, params: {
+          id: prize.id,
+          prize: attributes_for(:prize, :invalid)
+        }
 
         expect(response).to render_template(:edit)
       end
