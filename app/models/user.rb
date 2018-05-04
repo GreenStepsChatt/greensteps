@@ -10,14 +10,10 @@ class User < ApplicationRecord
 
   def total_trash_bags_this_month
     deeds
-      .where(created_at: Time
-                             .zone
-                             .today
-                             .beginning_of_month..Time
-                                                      .zone
-                                                      .today
-                                                      .end_of_month)
-      .sum(:trash_bags)
+      .where(
+        created_at: Time.zone.today.beginning_of_month..Time.zone.today
+                                                            .end_of_day
+      ).sum(:trash_bags)
   end
 
   # Include default devise modules. Others available are:
@@ -28,5 +24,9 @@ class User < ApplicationRecord
 
   def send_devise_notification(mailer_method_name, *args)
     devise_mailer.send(mailer_method_name, self, *args).deliver_later
+  end
+
+  def total_points_this_month
+    PointCalculator.new(self).total_points_this_month
   end
 end

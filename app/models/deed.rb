@@ -1,23 +1,28 @@
 class Deed < ApplicationRecord
   belongs_to :user
-  validates :trash_bags, numericality: { greater_than: 0 }
+  validates :trash_bags,
+            numericality: { greater_than: 0, less_than_or_equal_to: 30 }
   validate :maximum_points_this_month
 
+  attr_accessor :p_left_total
+
   def maximum_points_this_month
-    errors.add(:base, :maximum_points) if total_points_this_month > 30
+    p_left_this_month = 30 - user.total_points_this_month
+    if p_left_this_month.positive?
+      p_left_total = p_left_this_month - total_points_this_deed
+      if p_left_total.negative?
+        self.trash_bags = p_left_this_month
+        self.p_left_total = p_left_total.abs
+      end
+    else
+      errors.add(:base, :maximum_points)
+    end
   end
 
-  private
-
-  def total_points_this_month
+  def total_points_this_deed
     this_deed_class = Struct.new(:total_trash_bags)
     this_deed = this_deed_class
                 .new(trash_bags.nil? ? 0 : trash_bags)
-    PointCalculator
-      .new(user)
-      .total_points_this_month +
-      PointCalculator
-      .new(this_deed)
-      .total_points
+    PointCalculator.new(this_deed).total_points
   end
 end
