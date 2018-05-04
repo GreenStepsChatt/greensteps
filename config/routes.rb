@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resource :dashboard, only: [:show]
-  resource :prize, only: [:show]
+
+  resources :prizes, only: [:index]
 
   root to: 'welcome#index'
   get 'welcome/index'
@@ -11,7 +12,6 @@ Rails.application.routes.draw do
 
   namespace :admins do
     resource :dashboard, only: [:show]
-    resource :prize, only: [:show]
     resources 'prizes', only: [:new, :create, :edit, :update]
     resources 'stations', only: [:new, :create]
     resources 'admins', only: [:index, :new, :create, :destroy]
