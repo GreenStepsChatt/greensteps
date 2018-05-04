@@ -1,12 +1,3 @@
-GIT
-  remote: https://github.com/ActsAsParanoid/acts_as_paranoid.git
-  revision: 085b5cc6da14b254e8871a87337f417330c364ce
-  ref: 085b5cc
-  specs:
-    acts_as_paranoid (1.0.0.beta)
-      activerecord (>= 4.2, < 6.0)
-      activesupport (>= 4.2, < 6.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -340,7 +331,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  acts_as_paranoid!
   after_party
   autoprefixer-rails
   bitters
