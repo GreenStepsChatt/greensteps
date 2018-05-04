@@ -1,8 +1,8 @@
 <nav id="app_bar" data-turbolinks-permanent>
-  <div class="logo">
+  <%= link_to root_path, class: 'logo' do %>
     <%= image_tag 'tree.svg' %>
     <span>Green Steps</span>
-  </div>
+  <% end %>
 
   <%= fa_icon('navicon', class: 'menu_toggler') if user_signed_in? %>
 </nav>
