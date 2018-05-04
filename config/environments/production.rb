@@ -73,6 +73,7 @@ Rails.application.configure do
     user_name: ENV.fetch("SMTP_USERNAME")
   }
   config.action_mailer.default_url_options = {
+    protocol: 'https',
     host: ENV["APPLICATION_HOST"] ||
       "#{ENV.fetch("HEROKU_APP_NAME")}.herokuapp.com"
   }
