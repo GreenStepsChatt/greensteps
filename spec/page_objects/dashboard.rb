@@ -4,14 +4,6 @@ module PageObjects
       this.find('.stats .add').click
     end
 
-    def trash_bag_count
-      this.find('.trash_bags .count').text.to_i
-    end
-
-    def miles_walked
-      this.find('.miles .count').text.to_i
-    end
-
     def total_points
       this.find('.total_points .count').text.to_i
     end

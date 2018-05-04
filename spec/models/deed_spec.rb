@@ -4,11 +4,10 @@ RSpec.describe Deed, type: :model do
   subject { build_stubbed :deed }
 
   it { should belong_to :user }
-  it { should validate_presence_of :trash_bags }
-  it { should validate_presence_of :miles }
+  it { should validate_numericality_of(:trash_bags).is_greater_than(0) }
 
-  it 'is invalid unless there is at least one trash bag or mile walked' do
-    deed = build_stubbed :deed, trash_bags: 0, miles: 0
+  it 'is invalid unless there is at least one trash bag' do
+    deed = build_stubbed :deed, trash_bags: 0
 
     expect(deed).to be_invalid
   end
@@ -17,11 +16,5 @@ RSpec.describe Deed, type: :model do
     deed = Deed.new
 
     expect(deed.trash_bags).to eq 1
-  end
-
-  it 'should have a default of 1 mile walked' do
-    deed = Deed.new
-
-    expect(deed.miles).to eq 1
   end
 end

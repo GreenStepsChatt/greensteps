@@ -10,24 +10,6 @@ src="https://maps.googleapis.com/maps/api/js?key=<%=ENV.fetch('GOOGLE_MAPS_KEY',
     <% end %>
   </header>
 
-  <section class="trash_bags">
-    <div class="count">
-      <%= pluralize(
-        current_user.total_trash_bags,
-        User.human_attribute_name(:trash_bags)
-      ) %>
-    </div>
-  </section>
-
-  <section class="miles">
-    <div class="count">
-      <%= pluralize(
-        current_user.total_miles,
-        User.human_attribute_name(:miles)
-      ) %>
-    </div>
-  </section>
-
   <section class="total_points">
     <div class="count">
       <%= pluralize(
