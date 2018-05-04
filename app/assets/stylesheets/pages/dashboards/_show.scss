@@ -51,4 +51,14 @@
       top: 0;
     }
   }
+
+  .prize_preview {
+    flex-grow: 1;
+    max-width: 14em;
+    
+    .more {
+      @include button;
+      @include compact-button;
+    }
+  }
 }
