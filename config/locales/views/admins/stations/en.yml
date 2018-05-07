@@ -10,6 +10,9 @@ en:
         coordinates: "Coordinates"
       edit:
         header: "Edit Station"
+        address: "Address"
+        coordinates: "Coordinates"
+        alert: 'Error saving the station. Please try again.'
       update:
-       success: 'Station was updated.'
-       alert: 'Error saving the station. Please try again.'
+        success: 'Station was updated.'
+        alert: 'Error saving the station. Please try again.'
