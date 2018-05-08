@@ -7,4 +7,3 @@ en:
       models:
         deed:
           nothing_was_done: 'You must log at least one trash bag.'
-          maximum_points: 'You have reached maximum points per month'

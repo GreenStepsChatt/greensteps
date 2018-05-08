@@ -2,5 +2,5 @@ en:
   deeds:
     create:
       success: "Trash bag successfully logged!"
-      fail_multiple: "%{p_left_total} trash bags were not logged in accordance with the maximum point policy"
-      fail_one: "%{p_left_total} trash bag was not logged in accordance with the maximum point policy"
+      fail: "%{points_logged} of %{points_submitted} points successfully logged \
+      (a maximum of 30 points are allowed per month)"

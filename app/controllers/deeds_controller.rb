@@ -13,15 +13,13 @@ class DeedsController < ApplicationController
   end
 
   def flash_notice
-    if deed.p_left_total
-      flash[:notice] = if deed.p_left_total == 1
-                         t('.fail_one', p_left_total: deed.p_left_total)
-                       else
-                         t('.fail_multiple', p_left_total: deed.p_left_total)
-                       end
-    else
-      flash[:notice] = t('.success')
-    end
+    flash[:notice] = if deed.p_left_total
+                       t('.fail',
+                         points_logged: deed.trash_bags,
+                         points_submitted: deed.points_submitted)
+                     else
+                       t('.success')
+                     end
   end
 
   private

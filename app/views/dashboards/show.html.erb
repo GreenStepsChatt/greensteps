@@ -6,9 +6,11 @@ src="https://maps.googleapis.com/maps/api/js?key=<%=ENV.fetch('GOOGLE_MAPS_KEY',
   <header>
     <h2><%= t('.stats_title') %></h2>
     <% if PointCalculator.new(current_user).total_points_this_month < 30 %>
-    <%= link_to new_deed_path, class: 'add' do %>
-      <%= fa_icon 'plus' %>
-    <% end %>
+      <%= link_to new_deed_path, class: 'add' do %>
+        <%= fa_icon 'plus' %>
+      <% end %>
+    <% else %>
+      <%= fa_icon 'plus', title: t('.maximum_points') %>
     <% end %>
   </header>
 

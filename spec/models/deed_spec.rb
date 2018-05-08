@@ -12,14 +12,6 @@ RSpec.describe Deed, type: :model do
     expect(deed).to be_invalid
   end
 
-  it 'is invalid if total points are more than 30' do
-    deed = build_stubbed :deed,
-                         trash_bags: 50,
-                         created_at: Time.zone.today
-
-    expect(deed).to be_invalid
-  end
-
   it 'should have a default of 1 trash bag' do
     deed = Deed.new
 
