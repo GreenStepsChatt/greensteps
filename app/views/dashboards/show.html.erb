@@ -34,3 +34,13 @@ src="https://maps.googleapis.com/maps/api/js?key=<%=ENV.fetch('GOOGLE_MAPS_KEY',
     </button>
   </aside>
 </article>
+
+<article class="prize_preview">
+  <header>
+    <h2><%= t('.prizes_title') %></h2>
+    <%= link_to prizes_path, class: 'more' do %>
+      <%= fa_icon 'angle-double-right' %>
+    <% end %>
+  </header>
+</article>
+  

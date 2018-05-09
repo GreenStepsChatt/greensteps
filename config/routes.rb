@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   resource :dashboard, only: [:show]
 
+  resources :prizes, only: [:index]
+
   root to: 'welcome#index'
   get 'welcome/index'
 
