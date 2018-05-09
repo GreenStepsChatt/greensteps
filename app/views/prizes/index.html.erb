@@ -1,9 +1,6 @@
 <h2>Prizes</h2>
 <div class="prize_list">
-  <% @prizes.each do |prize| %>
-    <button class="prize">
-      <p><%= prize.get_title %></p>
-      <p><%= "$#{prize.get_cost}" %></p>
-    </button>
+  <% @prizes.each do |p| %>
+    <%= render partial:"shared/prize_button", locals: {prize: p} %>
   <% end %>
 </div>
