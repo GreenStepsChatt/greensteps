@@ -65,8 +65,11 @@ RSpec.describe Station, type: :model do
   describe '#street_address' do
     context 'when there is an associated address record' do
       it 'delegates to address.to_sentence' do
-        create :station_form, street: '101 Main St', city: 'Boulder',
-                              state: 'CO', zip: '80304'
+        create :station_form,
+               street: '101 Main St',
+               city: 'Boulder',
+               state: 'CO',
+               zip: '80304'
         station = Station.first
 
         expect(station.street_address).to eq '101 Main St, Boulder, CO 80304'
@@ -75,8 +78,10 @@ RSpec.describe Station, type: :model do
 
     context 'when there is not an associated address' do
       it 'prints the latitude and longitude' do
-        create :station_form, :no_street_address, latitude: 10.0,
-                                                  longitude: 20.0
+        create :station_form,
+               :no_street_address,
+               latitude: 10.0,
+               longitude: 20.0
         station = Station.first
 
         expect(station.street_address).to eq '10.0, 20.0'
