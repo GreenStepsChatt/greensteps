@@ -1,3 +1,5 @@
 class PrizesController < ApplicationController
-  def index; end
+  def index
+    @prizes = Prize.all
+  end
 end
