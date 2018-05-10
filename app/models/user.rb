@@ -3,9 +3,14 @@ class User < ApplicationRecord
   rolify
 
   has_many :deeds, dependent: :destroy
+  has_many :redemptions
 
   def total_trash_bags
     deeds.sum(:trash_bags)
+  end
+
+  def total_redeemed_points
+    redemptions.sum(:cost)
   end
 
   # Include default devise modules. Others available are:
