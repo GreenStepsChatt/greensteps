@@ -24,7 +24,8 @@ RSpec.describe StationForm, type: :form do
 
     it 'should create an associated coordinate pair record when saved' do
       expect { station_form.save }.to change { CoordinatePair.count }.by(1)
-      expect(CoordinatePair).to exist latitude: 35.042039, longitude: -85.283085
+      expect(CoordinatePair).to include_record_with \
+        latitude: 35.042039, longitude: -85.283085
     end
   end
 
@@ -41,7 +42,7 @@ RSpec.describe StationForm, type: :form do
 
     it 'should create an associated address record when saved' do
       expect { station_form.save }.to change { Address.count }.by(1)
-      expect(Address).to exist street: '101 Main Street'
+      expect(Address).to include_record_with street: '101 Main Street'
     end
   end
 

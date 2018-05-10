@@ -15,6 +15,6 @@ class DeedsController < ApplicationController
   private
 
   def deed_params
-    params.require(:deed).permit(:trash_bags, :miles)
+    params.require(:deed).permit(:trash_bags)
   end
 end

@@ -24,7 +24,7 @@ FactoryBot.define do
     end
 
     trait :soft_deleted do
-      after(:create, &:destroy)
+      deleted_at { Time.zone.now }
     end
 
     trait :confirmed do

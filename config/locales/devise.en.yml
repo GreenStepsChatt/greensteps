@@ -1,7 +1,7 @@
 # Additional translations at https://github.com/plataformatec/devise/wiki/I18n
 
 en:
-  devise:
+  users:
     confirmations:
       confirmed: "Your email address has been successfully confirmed."
       send_instructions: "You will receive an email with instructions for how to confirm your email address in a few minutes."
@@ -56,7 +56,6 @@ en:
         submit: "Log in"
         email: "Email"
         password: "Password"
-      account_deleted: "You cannot login because your account has been deleted."
       signed_in: "Signed in successfully."
       signed_out: "Signed out successfully."
       already_signed_out: "Signed out successfully."
@@ -64,6 +63,10 @@ en:
       send_instructions: "You will receive an email with instructions for how to unlock your account in a few minutes."
       send_paranoid_instructions: "If your account exists, you will receive an email with instructions for how to unlock it in a few minutes."
       unlocked: "Your account has been unlocked successfully. Please sign in to continue."
+  devise:
+    failure:
+      user:
+        account_deleted: "You cannot login because your account has been deleted."
   errors:
     messages:
       already_confirmed: "was already confirmed, please try signing in"

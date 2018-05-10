@@ -5,3 +5,8 @@ en:
         header: "New Prize"
       create:
         success: "Prize successfully created!"
+      edit:
+        header: "Edit Prize"
+      update:
+        success: 'Prize was updated.'
+        alert: 'Error saving the prize. Please try again.'
