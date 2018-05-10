@@ -51,4 +51,10 @@
       top: 0;
     }
   }
+
+  .stats {
+    button {
+      @include compact-button
+    }
+  }
 }

@@ -1,7 +1,7 @@
 module PageObjects
   class Dashboard < Base
     def log_deed
-      this.find('.stats .add').click
+      this.find('.stats button').click
     end
 
     def total_points
