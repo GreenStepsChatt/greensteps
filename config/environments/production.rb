@@ -100,6 +100,9 @@ Rails.application.configure do
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
 
+  #determines whether form_with generates ids on inputs
+  config.action_view.form_with_generates_ids = true
+
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 end

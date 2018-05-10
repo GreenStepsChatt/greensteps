@@ -1,5 +1,5 @@
 <h2><%= t('.header') %></h2>
-<%= form_for [:admins, admin] do |f| %>
+<%= form_with model: [:admins, admin], id: 'new_admin' do |f| %>
   <%= render 'shared/errors', record: admin %>
 
   <%= f.label :email %>
