@@ -2,3 +2,4 @@ en:
   redemptions:
     create:
       success: "Prize successfully redeemed!"
+      failure: "Sorry, you don't have enough points for this prize!"

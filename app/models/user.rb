@@ -3,7 +3,7 @@ class User < ApplicationRecord
   rolify
 
   has_many :deeds, dependent: :destroy
-  has_many :redemptions
+  has_many :redemptions, dependent: :destroy
 
   def total_trash_bags
     deeds.sum(:trash_bags)

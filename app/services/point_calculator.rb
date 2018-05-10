@@ -4,12 +4,6 @@ class PointCalculator
   end
 
   def total_points
-    trash_points
-  end
-
-  private
-
-  def trash_points
-    @user.total_trash_bags
+    @user.total_trash_bags - @user.total_redeemed_points
   end
 end

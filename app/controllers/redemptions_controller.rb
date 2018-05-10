@@ -4,8 +4,14 @@ class RedemptionsController < ApplicationController
   def new; end
 
   def create
-    redemption.save
-    flash[:notice] = t('.success')
-    redirect_to dashboard_path
+    redemption.title = params[:title]
+    redemption.cost = params[:cost]
+    if redemption.save
+      flash[:notice] = t('.success')
+      redirect_to dashboard_path
+    else
+      flash[:notice] = t('.failure')
+      redirect_to new_prize_redemption_path
+    end
   end
 end
