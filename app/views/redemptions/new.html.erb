@@ -1,0 +1,7 @@
+<p>You have chosen to redeem "<%= Prize.find(params[:prize_id]).title %>" for <%= Prize.find(params[:prize_id]).cost %> points. Are you sure?</p>
+<%= form_tag("/prizes/#{params[:prize_id]}/redemptions") do %>
+  <% hidden_field_tag(:user_id, current_user.id) %>
+  <% hidden_field_tag(:title, Prize.find(params[:prize_id]).title) %>
+  <% hidden_field_tag(:cost, Prize.find(params[:prize_id]).cost) %>
+  <% submit_tag("Yes, redeem #{Prize.find(params[:prize_id]).cost} points") %>
+<% end %>

@@ -1,4 +1,6 @@
-<button class="prize">
-  <p><%= prize.title %></p>
-  <p><%= "$#{prize.cost}" %></p>
-</button>
+<%= link_to prize_path(prize.id) do %>
+  <button class="prize">
+    <p><%= prize.title %></p>
+    <p><%= "#{prize.cost}pts" %></p>
+  </button>
+<% end %>
