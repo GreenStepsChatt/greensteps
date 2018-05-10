@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   resource :dashboard, only: [:show]
 
   resources :prizes, only: [:index]
+  resources :prizes, only: [:show] do 
+    resources :redemptions, only: [:new, :create]
+  end
 
   root to: 'welcome#index'
   get 'welcome/index'
