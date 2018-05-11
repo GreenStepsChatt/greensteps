@@ -5,8 +5,14 @@ src="https://maps.googleapis.com/maps/api/js?key=<%=ENV.fetch('GOOGLE_MAPS_KEY',
 <article class="stats">
   <header>
     <h2><%= t('.stats_title') %></h2>
-    <%= link_to new_deed_path, class: 'add' do %>
-      <%= fa_icon 'plus' %>
+    <% if PointCalculator.new(current_user).total_points_this_month < 30 %>
+      <%= button_to new_deed_path, method: :get do %>
+        <%= fa_icon 'plus' %>
+      <% end %>
+    <% else %>
+      <%= button_to new_deed_path, method: :get, disabled: true do %>
+      <%= fa_icon 'plus', title: t('.maximum_points') %>
+      <% end %>
     <% end %>
   </header>
 

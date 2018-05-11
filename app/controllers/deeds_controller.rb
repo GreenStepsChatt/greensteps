@@ -5,11 +5,21 @@ class DeedsController < ApplicationController
 
   def create
     if deed.save
-      flash[:notice] = t('.success')
+      flash_notice
       redirect_to dashboard_path
     else
       render 'new'
     end
+  end
+
+  def flash_notice
+    flash[:notice] = if deed.p_left_total
+                       t('.fail',
+                         points_logged: deed.trash_bags,
+                         points_submitted: deed.points_submitted)
+                     else
+                       t('.success')
+                     end
   end
 
   private

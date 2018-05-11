@@ -2,3 +2,5 @@ en:
   deeds:
     create:
       success: "Trash bag successfully logged!"
+      fail: "%{points_logged} of %{points_submitted} points successfully logged \
+      (a maximum of 30 points are allowed per month)"
