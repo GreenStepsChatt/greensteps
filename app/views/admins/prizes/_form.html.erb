@@ -1,4 +1,4 @@
-<%= form_for [:admins, prize] do |f| %>
+<%= form_with model: [:admins, prize] do |f| %>
   <%= render 'shared/errors', record: prize %>
 
   <%= f.label :title %>
