@@ -1,7 +1,8 @@
 {
   "name": "greensteps",
   "scripts": {
-    "postdeploy": "bin/rake heroku:postdeploy"
+    "postdeploy": "bin/rake heroku:postdeploy",
+    "pr-predestroy": "bin/rake heroku:predestroy"
   },
   "env": {
     "GOOGLE_MAPS_KEY": {
