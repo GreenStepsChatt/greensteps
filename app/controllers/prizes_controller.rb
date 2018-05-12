@@ -1,5 +1,4 @@
 class PrizesController < ApplicationController
-  def index
-    @prizes = Prize.all
-  end
+  expose :prizes, -> { Prize.all }
+  expose :prize
 end

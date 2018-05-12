@@ -1,4 +1,3 @@
-<% prize = Prize.find(params[:id]) %>
 <p><%= prize.title %></p>
 <p>Costs: <%= prize.cost %> points</p>
 <%= link_to new_prize_redemption_path(prize) do %>

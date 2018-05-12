@@ -1,12 +1,13 @@
 class RedemptionsController < ApplicationController
-  expose :redemption, scope: -> { current_user.redemptions }
-
-  def new; end
+  expose :prize, id: :prize_id 
 
   def create
-    redemption.title = params[:title]
-    redemption.cost = params[:cost]
-    if redemption.save
+    redemption = Redemption.new(
+      title: prize.title, cost: prize.cost, user: current_user
+    )
+
+    user_points = PointCalculator.new(current_user).total_points
+    if user_points >= redemption.cost and redemption.save
       flash[:notice] = t('.success')
       redirect_to dashboard_path
     else
