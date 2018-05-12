@@ -12,7 +12,9 @@ FactoryBot.define do
     after(:build) do |deed, evaluator|
       if evaluator.with_before_photo
         deed.before_photo.attach(
-          io: File.open(Rails.root.join('spec', 'fixtures', 'files', 'trashed_park.jpeg')),
+          io: File.open(
+            Rails.root.join('spec', 'fixtures', 'files', 'trashed_park.jpeg')
+          ),
           filename: 'trashed_park.jpeg',
           content_type: 'image/jpeg'
         )
@@ -20,7 +22,9 @@ FactoryBot.define do
 
       if evaluator.with_after_photo
         deed.after_photo.attach(
-          io: File.open(Rails.root.join('spec', 'fixtures', 'files', 'clean_park.jpeg')),
+          io: File.open(
+            Rails.root.join('spec', 'fixtures', 'files', 'clean_park.jpeg')
+          ),
           filename: 'trashed_park.jpeg',
           content_type: 'image/jpeg'
         )
