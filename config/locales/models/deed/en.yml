@@ -7,3 +7,8 @@ en:
       models:
         deed:
           nothing_was_done: 'You must log at least one trash bag.'
+          attributes:
+            before_photo:
+              required: 'is required.'
+            after_photo:
+              required: 'is required.'

@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'rake heroku:predestroy', type: :task do
   it 'removes the uploaded before and after photo files' do
-    deed = create :deed, :with_photos
+    deed = create :deed
 
     task.execute
 
