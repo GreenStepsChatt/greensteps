@@ -1,5 +1,7 @@
 # Greensteps Web App
 
+**Thanks for your interest in this project! For the the next month or two we will not be accepting pull requests. Thank you (in advance) for understanding. If you have questions you can email Amanda. - 5/13/18**
+
 ## Welcome
 Hi there! We are just getting started with this project. The goal is to have a
 minimum viable product (MVP) by April 2017.
