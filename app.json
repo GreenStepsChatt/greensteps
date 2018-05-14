@@ -1,9 +1,16 @@
 {
   "name": "greensteps",
   "scripts": {
-    "postdeploy": "bin/rake heroku:postdeploy"
+    "postdeploy": "bin/rake heroku:postdeploy",
+    "pr-predestroy": "bin/rake heroku:predestroy"
   },
   "env": {
+    "AWS_ACCESS_KEY_ID": {
+      "required": true
+    },
+    "AWS_SECRET_KEY": {
+      "required": true
+    },
     "GOOGLE_MAPS_KEY": {
       "required": true
     },

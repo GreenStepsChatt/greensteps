@@ -8,6 +8,7 @@ end
 
 gem 'after_party'
 gem 'autoprefixer-rails'
+gem 'aws-sdk-s3', require: false
 gem 'bitters'
 gem 'bootsnap', require: false
 gem 'bourbon'

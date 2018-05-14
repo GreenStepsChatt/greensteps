@@ -2,6 +2,34 @@ FactoryBot.define do
   # the basic factory only has what's needed for the record to be valid
   factory :deed do
     user
+    trash_bags 1
+
+    transient do
+      with_before_photo { true }
+      with_after_photo { true }
+    end
+
+    after(:build) do |deed, evaluator|
+      if evaluator.with_before_photo
+        deed.before_photo.attach(
+          io: File.open(
+            Rails.root.join('spec', 'fixtures', 'files', 'trashed_park.jpeg')
+          ),
+          filename: 'trashed_park.jpeg',
+          content_type: 'image/jpeg'
+        )
+      end
+
+      if evaluator.with_after_photo
+        deed.after_photo.attach(
+          io: File.open(
+            Rails.root.join('spec', 'fixtures', 'files', 'clean_park.jpeg')
+          ),
+          filename: 'trashed_park.jpeg',
+          content_type: 'image/jpeg'
+        )
+      end
+    end
 
     trait :invalid do
       trash_bags 0

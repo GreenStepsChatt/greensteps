@@ -1,6 +1,12 @@
 <%= form_with model: deed, id: 'new_deed' do |f| %>
   <%= render 'shared/errors', record: deed %>
 
+  <%= f.label :before_photo %>
+  <%= f.file_field :before_photo, direct_upload: true, required: true %>
+
+  <%= f.label :after_photo %>
+  <%= f.file_field :after_photo, direct_upload: true, required: true %>
+
   <%= f.label :trash_bags %>
   <%= f.number_field :trash_bags, min: 0, step: 1 %>
 
