@@ -10,6 +10,10 @@ module PageObjects
       wait_for_animations
     end
 
+    def click_on_logo
+      find('.logo').click
+    end
+
     def selector
       '#app_bar'
     end

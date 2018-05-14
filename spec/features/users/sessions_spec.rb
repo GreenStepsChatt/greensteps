@@ -12,6 +12,16 @@ RSpec.describe 'User Sessions', type: :feature do
     expect(page).to show :dashboard
   end
 
+  scenario 'Admin signs in' do
+    admin = create :admin
+
+    visit root_path
+    welcome_page.open_log_in_form
+    log_in_form.fill_and_submit_for admin
+
+    expect(page).to show :admin_dashboard
+  end
+
   scenario 'User cannot login after deleting their account' do
     user = create :user, :soft_deleted
 

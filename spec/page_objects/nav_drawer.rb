@@ -1,9 +1,5 @@
 module PageObjects
   class NavDrawer < Base
-    def open_admin_dashboard
-      click_on t('shared.navigation.admin_dashboard')
-    end
-
     def edit_account_settings
       click_on t('shared.navigation.edit_account')
     end
