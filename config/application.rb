@@ -13,6 +13,9 @@ module Greensteps
 
     config.active_job.queue_adapter = :delayed_job
 
+    #determines whether form_with generates ids on inputs
+    config.action_view.form_with_generates_ids = true
+
     console do
       require 'pry'
       config.console = Pry

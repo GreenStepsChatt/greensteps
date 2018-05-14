@@ -4,7 +4,7 @@
       <%= t '.header' %>
     </h2>
   </header>
-  <%= form_for :user, url: user_registration_path, namespace: 'sign_up', html: { id: 'new_user_registration' } do |form| %>
+  <%= form_with scope: :user, url: user_registration_path, namespace: 'sign_up', id: 'new_user_registration' do |form| %>
     <%= form.label :email, t('.email') %>
     <%= form.email_field :email, autofocus: true %>
     <%= form.label :password, t('.password') %>
