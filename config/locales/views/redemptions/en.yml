@@ -2,3 +2,4 @@ en:
   redemptions:
     create:
       success: 'Prize successfully redeemed!'
+      failure: 'We were not able to redeem your prizea at this time.'

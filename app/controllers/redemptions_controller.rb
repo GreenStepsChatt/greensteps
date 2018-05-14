@@ -3,11 +3,11 @@ class RedemptionsController < ApplicationController
 
   def create
     if redemption.save
-      flash[:notice] = p(t('.success'))
-      redirect_to dashboard_path
+      flash.now[:notice] = t('.success')
     else
-      render 'dashboards/show'
+      flash.now[:alert] = t('.failure')
     end
+    render 'shared/update_flash'
   end
 
   private

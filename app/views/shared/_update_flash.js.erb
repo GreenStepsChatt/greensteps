@@ -1,7 +1,0 @@
-oldFlash = $('#flash_messages')
-newFlash = $("<%= j render 'shared/flash' %>")
-newFlash.hide()
-oldFlash.slideUp()
-oldFlash.replaceWith(newFlash)
-newFlash.slideDown()
-new Greensteps.Dismissable('.flash-message button')

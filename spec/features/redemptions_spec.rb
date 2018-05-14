@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Redemptions', type: :feature do
-  scenario 'User redeems a prize' do
+  scenario 'User redeems a prize', :js do
     user = create :user
     prize = create :prize, cost: 5
     create_list :deed, 3, trash_bags: 2, user: user
