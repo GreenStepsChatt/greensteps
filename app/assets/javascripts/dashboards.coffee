@@ -1,5 +1,6 @@
 $(document).on 'turbolinks:load', ->
   $('.prizes form').on 'click', 'label', ->
     label = $(event.target)
-    label.prev().prop('checked', true)
+    radio_button = label.prev()
+    radio_button.prop('checked', true)
     label.closest('.prizes form').submit()
