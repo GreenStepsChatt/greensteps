@@ -1,0 +1,4 @@
+en:
+  redemptions:
+    create:
+      success: 'Prize successfully redeemed!'

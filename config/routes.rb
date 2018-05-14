@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   root to: 'welcome#index'
   get 'welcome/index'
 
+  resources :redemptions, only: :create
+
   devise_for :users, controllers: { registrations: 'users/registrations' }
 
   resources :deeds, only: [:new, :create]

@@ -7,4 +7,14 @@ RSpec.describe Prize, type: :model do
   it { should validate_presence_of :title }
   it { should validate_presence_of :cost }
   it { should validate_presence_of :quantity }
+
+  describe '.by_cost' do
+    it 'orders the prizes by cost' do
+      expensive_prize = create :prize, cost: 10
+      cheap_prize = create :prize, cost: 1
+
+      expect(Prize.by_cost.pluck(:id)).to eq \
+        [cheap_prize.id, expensive_prize.id]
+    end
+  end
 end

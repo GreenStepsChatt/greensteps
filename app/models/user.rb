@@ -2,6 +2,7 @@ class User < ApplicationRecord
   rolify
 
   has_many :deeds, dependent: :destroy
+  has_many :redemptions
 
   scope :soft_deleted, -> { where.not(deleted_at: nil) }
 

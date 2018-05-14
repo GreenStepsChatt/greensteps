@@ -34,3 +34,13 @@ src="https://maps.googleapis.com/maps/api/js?key=<%=ENV.fetch('GOOGLE_MAPS_KEY',
     </button>
   </aside>
 </article>
+
+<article class="prizes">
+  <%= form_for redemption do |form| %>
+    <% Prize.by_cost.each do |prize| %>
+      <%= form.radio_button :prize_id, prize.id %>
+      <%= form.label :prize_id, prize.title, value: prize.id %>
+    <% end %>
+    <%= form.submit 'Submit' %>
+  <% end %>
+</article>
