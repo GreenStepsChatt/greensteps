@@ -30,7 +30,8 @@ ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
   config.before(:suite) do
-    `rake log:clear LOG=test` if ENV.fetch('AUTO_CLEAR_LOGS', false)
+    next unless ENV.fetch('AUTO_CLEAR_LOGS', 'false') == 'true'
+    `rake log:clear LOG=test`
   end
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
