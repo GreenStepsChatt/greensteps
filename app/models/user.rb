@@ -3,11 +3,22 @@ class User < ApplicationRecord
 
   has_many :deeds, dependent: :destroy
   has_many :redemptions, dependent: :nullify
+  has_many :prizes, through: :redemptions
 
   scope :soft_deleted, -> { where.not(deleted_at: nil) }
 
   def total_trash_bags
     deeds.sum(:trash_bags)
+  end
+
+  alias total_points total_trash_bags
+
+  def points_spent
+    prizes.sum(:cost)
+  end
+
+  def unredeemed_points
+    total_points - points_spent
   end
 
   # Include default devise modules. Others available are:

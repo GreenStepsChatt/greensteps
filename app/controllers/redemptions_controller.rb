@@ -5,7 +5,7 @@ class RedemptionsController < ApplicationController
     if redemption.save
       flash.now[:notice] = t('.success')
     else
-      flash.now[:alert] = t('.failure')
+      flash.now[:alert] = redemption.errors.full_messages.to_sentence
     end
     render 'shared/update_flash'
   end
