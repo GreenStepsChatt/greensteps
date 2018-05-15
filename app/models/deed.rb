@@ -1,10 +1,23 @@
 class Deed < ApplicationRecord
   belongs_to :user
-  validate :something_was_done,
-           if: ->(deed) { deed.miles.present? && deed.trash_bags.present? }
-  validates :miles, :trash_bags, presence: true
+  has_one_attached :before_photo
+  has_one_attached :after_photo
 
-  def something_was_done
-    errors.add(:base, :nothing_was_done) if (trash_bags + miles) < 1
+  validates :trash_bags, numericality: { greater_than: 0 }, presence: true
+  validate :photos_are_attached
+
+  def photos_are_attached
+    errors.add(:before_photo, :required) unless before_photo.attached?
+    errors.add(:after_photo, :required) unless after_photo.attached?
+  end
+
+  # Bullet is reporting an N+1 query on the save method... probably because we
+  # have two attached files (typically you'd use has_many_attached for more than
+  # one attachment). Don't want to add this case to the Bullet whitelist because
+  # if other places do cause an N+1 query on one of the attachment associations
+  # then we want to know about it.
+  if defined?(Bullet)
+    before_save { Bullet.n_plus_one_query_enable = false }
+    after_save { Bullet.n_plus_one_query_enable = true }
   end
 end

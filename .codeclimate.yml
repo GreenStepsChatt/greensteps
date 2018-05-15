@@ -44,3 +44,4 @@ exclude_paths:
 - spec/
 - vendor/
 - coverage/
+- public/

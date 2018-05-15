@@ -1,13 +1,20 @@
 {
   "name": "greensteps",
   "scripts": {
-    "postdeploy": "bin/rake heroku:postdeploy"
+    "postdeploy": "bin/rake heroku:postdeploy",
+    "pr-predestroy": "bin/rake heroku:predestroy"
   },
   "env": {
-    "APPLICATION_HOST": {
+    "AWS_ACCESS_KEY_ID": {
+      "required": true
+    },
+    "AWS_SECRET_KEY": {
       "required": true
     },
     "GOOGLE_MAPS_KEY": {
+      "required": true
+    },
+    "HEROKU_APP_NAME": {
       "required": true
     },
     "INTERCEPT_EMAILS": {
@@ -56,11 +63,11 @@
   "formation": {
     "web": {
       "quantity": 1,
-      "size": "free"
+      "size": "hobby"
     },
     "worker": {
       "quantity": 1,
-      "size": "free"
+      "size": "hobby"
     }
   },
   "addons": [

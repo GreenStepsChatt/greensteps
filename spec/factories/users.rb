@@ -13,9 +13,7 @@ FactoryBot.define do
 
     trait :with_deeds do
       after(:create) do |user|
-        Faker::Number.between(1, 10).times do
-          user.deeds.create(attributes_for(:sample_deed))
-        end
+        create_list :deed, Faker::Number.between(1, 10), user: user
       end
     end
 
@@ -24,7 +22,7 @@ FactoryBot.define do
     end
 
     trait :soft_deleted do
-      after(:create, &:destroy)
+      deleted_at { Time.zone.now }
     end
 
     trait :confirmed do

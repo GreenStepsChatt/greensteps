@@ -5,22 +5,20 @@ RSpec.describe 'User logs deed', type: :feature do
     create_and_login_user follow_to_default_path: true
 
     dashboard.log_deed
-    deed_form.trash_bags = 1
-    deed_form.miles_walked = 2
+    deed_form.upload_before_photo file_fixture('trashed_park.jpeg')
+    deed_form.upload_after_photo file_fixture('clean_park.jpeg')
+    deed_form.trash_bags = 3
     deed_form.submit
 
     expect(page).to flash_message t('deeds.create.success')
-    expect(dashboard.trash_bag_count).to eq 1
-    expect(dashboard.miles_walked).to eq 2
-    expect(dashboard.total_points).to eq 6
+    expect(dashboard.total_points).to eq 3
   end
 
-  scenario 'with 0 miles and trash bags' do
+  scenario 'with 0 trash bags' do
     create_and_login_user follow_to_default_path: true
 
     dashboard.log_deed
     deed_form.trash_bags = 0
-    deed_form.miles_walked = 0
     deed_form.submit
 
     expect(deed_form).to show_errors \
