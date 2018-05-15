@@ -1,5 +1,7 @@
 # Contributing
 
+**Thanks for your interest in this project! For the the next month or two we will not be accepting pull requests. Thank you (in advance) for understanding. If you have questions you can email Amanda. - 5/13/18**
+
 ## How to Find Something to Work On
 First, checkout the issues that [are labelled as "ready" and listed under the
 current milestone (#1)](

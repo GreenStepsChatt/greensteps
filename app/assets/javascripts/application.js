@@ -14,5 +14,6 @@
 //= require jquery_ujs
 //= require jquery-ui/effect.all
 //= require turbolinks
+//= require activestorage
 //= require init
 //= require_tree .

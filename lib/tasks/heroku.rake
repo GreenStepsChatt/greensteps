@@ -23,6 +23,14 @@ namespace :heroku do # rubocop:disable Metrics/BlockLength
     'assets:precompile'
   ]
 
+  desc 'Tasks to be run before reivew app is destroyed.'
+  task predestroy: :environment do
+    Deed.find_each do |deed|
+      deed.before_photo.purge
+      deed.after_photo.purge
+    end
+  end
+
   def migrate_or_load_schema
     if ActiveRecord::Migrator.current_version.zero?
       Rake::Task['db:schema:load'].invoke

@@ -1,5 +1,5 @@
 # Development Setup
-Before getting started, you'll need to have Ruby 2.4.1 and Postgres 9.6
+Before getting started, you'll need to have Ruby 2.4.2 and Postgres 9.6
 installed on your machine. If you need help with this, check out the setup guide
 from [Go Rails](https://gorails.com/setup). Rather than following the last set
 of steps to create a new app, you'll

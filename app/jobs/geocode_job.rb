@@ -12,6 +12,8 @@ class GeocodeJob < ApplicationJob
   end
 
   def perform(address)
-    GeocodedAddress.new(address).geocode
+    geocoded_address =
+      address.respond_to?(:geocode) ? address : GeocodedAddress.new(address)
+    geocoded_address.geocode
   end
 end

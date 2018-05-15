@@ -3,4 +3,4 @@ en:
     navigation:
       edit_account: "Profile"
       destroy_session: "Log out"
-      admin_dashboard: "Admin Dashboard"
+      user_dashboard: "User Dashboard"

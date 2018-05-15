@@ -7,7 +7,7 @@ RSpec.describe 'shared/_navigation' do
       render template: 'shared/_navigation'
     end
 
-    it { should_not have_link t('shared.navigation.admin_dashboard') }
+    it { should_not have_link t('shared.navigation.user_dashboard') }
   end
 
   context 'for a logged in admin' do
@@ -16,6 +16,6 @@ RSpec.describe 'shared/_navigation' do
       render template: 'shared/_navigation'
     end
 
-    it { should have_link t('shared.navigation.admin_dashboard') }
+    it { should have_link t('shared.navigation.user_dashboard') }
   end
 end
