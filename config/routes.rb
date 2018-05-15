@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   namespace :admins do
     resource :dashboard, only: [:show]
     resources 'prizes', only: [:new, :create, :edit, :update]
-    resources 'stations', only: [:new, :create]
+    resources 'stations', only: [:new, :create, :edit, :update]
     resources 'admins', only: [:index, :new, :create, :destroy]
   end
 

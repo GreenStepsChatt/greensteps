@@ -1,0 +1,44 @@
+<h2><%= t('.header') %></h2>
+
+<%= form_for [:admins, station] do |f| %>
+  <%= render 'shared/errors', record: station %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name, required: true %>
+
+  <div id="address_or_coordinates_toggler">
+    <button type="button" id="use_address" class="selected">
+      <%= t '.address' %>
+    </button>
+    <button type="button" id="use_coordinates">
+      <%= t '.coordinates' %>
+    </button>
+  </div>
+  <%= fields_for station.address do |address| %>
+  <fieldset id="street_address_fields">
+    <%= f.label :street %>
+    <%= address.text_field :street %>
+
+    <%= f.label :city %>
+    <%= address.text_field :city %>
+
+    <%= f.label :state %>
+    <%= address.select :state, StatesHelper::US_STATES, include_blank: true %>
+
+    <%= f.label :zip %>
+    <%= address.text_field :zip, pattern: '^\d{5}(-\d{4})?$' %>
+  </fieldset>
+  <% end %>
+  
+  <%= fields_for station.coordinate_pair do |coordinates| %>
+  <fieldset id="coordinate_fields">
+    <%= f.label :latitude %>
+    <%= coordinates.number_field :latitude, step: 'any', min: -90, max: 90, default: nil %>
+
+    <%= f.label :longitude %>
+    <%= coordinates.number_field :longitude, step: 'any', min: -180, max: 180, default: nil  %>
+  </fieldset>
+  <% end %>
+
+  <%= f.submit :onclick => t('.confirmation') %>
+<% end %>

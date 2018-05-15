@@ -8,3 +8,12 @@ en:
       form:
         address: "Address"
         coordinates: "Coordinates"
+      edit:
+        header: "Edit Station"
+        address: "Address"
+        coordinates: "Coordinates"
+        alert: 'Error saving the station. Please try again.'
+        confirmation: "return confirm('Adding a new address will delete a coordinate pair and adding a new coordinate pair will delete an address. Are you sure you want to continue?')"
+      update:
+        success: 'Station was updated.'
+        alert: 'Error saving the station. Please try again.'
