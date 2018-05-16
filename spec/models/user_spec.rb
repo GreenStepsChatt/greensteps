@@ -61,4 +61,30 @@ RSpec.describe User, type: :model do
       expect(User.soft_deleted).to_not include user
     end
   end
+
+  describe 'factory' do
+    context 'when given a total_points value of 1' do
+      it 'creates deeds with points that add up to 1' do
+        user = create :user, total_points: 1
+
+        expect(user.total_points).to eq 1
+      end
+    end
+
+    context 'when given a total_points value of 2' do
+      it 'creates deeds with points that add up to 2' do
+        user = create :user, total_points: 2
+
+        expect(user.total_points).to eq 2
+      end
+    end
+
+    context 'when given a total_points value of 10' do
+      it 'creates deeds with points that add up to 10' do
+        user = create :user, total_points: 10
+
+        expect(user.total_points).to eq 10
+      end
+    end
+  end
 end
