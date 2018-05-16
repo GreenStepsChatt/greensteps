@@ -1,3 +1,5 @@
+require Rails.root.join('lib', 'add_points_to_user.rb')
+
 FactoryBot.define do
   sequence :email do |n|
     "user#{n}@example.com"
@@ -16,23 +18,7 @@ FactoryBot.define do
     end
 
     after(:create) do |user, evaluator|
-      total_points = evaluator.total_points
-      next if total_points.blank?
-      deeds_count = Faker::Number.between(1, total_points)
-
-      (deeds_count - 1).downto(1).reduce(total_points) do |remaining_points, deeds_left|
-        points_available_for_this = remaining_points - deeds_left
-        break if points_available_for_this == 0
-        points_for_this_deed = Faker::Number.between(1, points_available_for_this)
-        create :sample_deed, user: user, trash_bags: points_for_this_deed
-
-        remaining_points - points_for_this_deed
-      end
-      if (deeds_count - user.deeds.count) > 1
-        create_list :sample_deed, (deeds_count - user.deeds.count - 1), user: user, trash_bags: 1
-      else
-        create :sample_deed, user: user, trash_bags: (total_points - user.total_points)
-      end
+      AddPointsToUser.new(user, evaluator.total_points)
     end
 
     trait :with_deeds do
