@@ -7,7 +7,7 @@ RSpec.describe 'Redemptions', type: :feature do
     create_list :deed, 3, trash_bags: 2, user: user
     stubbed_login_as user, follow_to_default_path: true
 
-    find("label[for='redemption_prize_id_#{prize.id}']").click
+    find("label[for='redemption_prize_id_#{prize.id}'] button").click
 
     expect(page).to flash_message t('redemptions.create.success')
   end

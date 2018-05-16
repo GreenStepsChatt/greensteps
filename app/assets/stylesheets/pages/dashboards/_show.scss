@@ -8,12 +8,43 @@
   }
 
   .prizes {
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+
+    button {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      justify-content: space-between;
+      padding: $base-spacing;
+      width: 100%;
+    }
+
+    form {
+      display: flex;
+      overflow: auto;
+      white-space: nowrap;
+      width: 100%;
+
+      * {
+        white-space: normal;
+      }
+    }
+
     input {
       display: none;
     }
 
     label {
-      @include button;
+      flex: 0 0 20%;
+      margin: 0 $small-spacing;
+      height: 10em;
+
+      @media screen and (max-width: $medium-screen) {
+        flex: 0 0 70%;
+      }
     }
   }
 
