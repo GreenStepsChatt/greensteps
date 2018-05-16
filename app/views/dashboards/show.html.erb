@@ -36,6 +36,8 @@ src="https://maps.googleapis.com/maps/api/js?key=<%=ENV.fetch('GOOGLE_MAPS_KEY',
 </article>
 
 <article class="prizes">
+  <h2><%= t('.redeem_a_prize') %></h2>
+  <h3><%= t('.available_points', count: current_user.unredeemed_points) %></h3>
   <%= form_for redemption, remote: true do |form| %>
     <% Prize.by_cost.each do |prize| %>
       <%= form.radio_button :prize_id, prize.id %>
