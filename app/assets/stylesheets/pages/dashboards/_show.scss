@@ -33,14 +33,16 @@
       }
     }
 
-    h2 {
-      text-align: center;
-    }
+    header {
+      h2 {
+        text-align: center;
+      }
 
-    > h3 {
-      font-weight: normal;
-      font-style: italic;
-      text-align: center;
+      h3 {
+        font-weight: normal;
+        font-style: italic;
+        text-align: center;
+      }
     }
 
     input {
