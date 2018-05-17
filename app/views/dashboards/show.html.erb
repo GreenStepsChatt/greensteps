@@ -13,7 +13,7 @@ src="https://maps.googleapis.com/maps/api/js?key=<%=ENV.fetch('GOOGLE_MAPS_KEY',
   <section class="total_points">
     <div class="count">
       <%= pluralize(
-        PointCalculator.new(current_user).total_points,
+        current_user.total_points,
         t('.points')
       ) %>
     </div>
