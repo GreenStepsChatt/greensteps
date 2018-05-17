@@ -24,7 +24,7 @@ RSpec.describe 'rake db:populate', type: :task do
     end
 
     it 'the first 5 have enough points to redeem prizes' do
-      expect(User.first(5).map(&:total_points)).to all(be > 10)
+      expect(User.first(5).map(&:total_points)).to all(be >= 10)
     end
 
     it 'the first 3 users have redeemed one prize each' do
