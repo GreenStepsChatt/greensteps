@@ -36,8 +36,8 @@ RSpec.describe 'rake db:populate', type: :task do
     expect(task.prerequisites).to include 'environment'
   end
 
-  it 'adds 5 prizes to the database' do
-    expect(Prize).to have(5).records
+  it 'adds at least 5 prizes to the database' do
+    expect(Prize).to have_at_least(5).records
   end
 
   it 'creates a variety prize titles' do
