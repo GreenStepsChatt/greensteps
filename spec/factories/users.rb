@@ -1,5 +1,5 @@
-require Rails.root.join('lib', 'add_points_to_user.rb')
-require Rails.root.join('lib', 'redeem_random_prize.rb')
+require Rails.root.join('lib', 'factory_helpers', 'add_points_to_user.rb')
+require Rails.root.join('lib', 'factory_helpers', 'redeem_random_prize.rb')
 
 FactoryBot.define do
   sequence :email do |n|

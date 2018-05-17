@@ -1,5 +1,5 @@
 require 'rails_helper'
-require Rails.root.join('lib', 'add_points_to_user.rb')
+require Rails.root.join('lib', 'factory_helpers', 'add_points_to_user.rb')
 
 RSpec.describe AddPointsToUser do
   let(:user) { create :user }
