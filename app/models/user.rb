@@ -21,9 +21,11 @@ class User < ApplicationRecord
     total_points - points_spent
   end
 
-  def can_redeem?(prize)
+  def enough_points_for?(prize)
     prize.cost <= unredeemed_points
   end
+
+  alias can_redeem? enough_points_for?
 
   def cannot_redeem?(prize)
     !can_redeem?(prize)
