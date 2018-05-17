@@ -4,10 +4,11 @@ class RedemptionsController < ApplicationController
   def create
     if redemption.save
       flash.now[:notice] = t('.success')
+      render 'create'
     else
       flash.now[:alert] = redemption.errors.full_messages.to_sentence
+      render 'shared/update_flash'
     end
-    render 'shared/update_flash'
   end
 
   private

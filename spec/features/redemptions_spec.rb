@@ -10,5 +10,7 @@ RSpec.describe 'Redemptions', type: :feature do
     find("label[for='redemption_prize_id_#{prize.id}'] button").click
 
     expect(page).to flash_message t('redemptions.create.success')
+    expect(page).to have_content \
+      t('dashboards.redeem_a_prize.available_points', count: current_user.unredeemed_points)
   end
 end
