@@ -3,8 +3,3 @@ en:
     show:
       stats_title: "Your Stats"
       points: "points"
-      station_map_title: "Station Map"
-      redeem_a_prize: "Redeem a Prize"
-      available_points:
-        one: "You have 1 point available"
-        other: "You have %{count} points available"

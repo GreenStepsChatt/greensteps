@@ -1,0 +1,19 @@
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=<%=ENV.fetch('GOOGLE_MAPS_KEY', '')%>&callback=Greensteps.initMap">
+</script>
+
+<article class="station_map">
+  <header>
+    <h2><%= t('.title') %></h2>
+  </header>
+
+  <div id="map"></div>
+
+  <aside id="map_info">
+    <h3 id="marker_title"></h3>
+    <p id="marker_address"></p>
+    <button type="button">
+      <%= fa_icon 'close' %>
+    </button>
+  </aside>
+</article>

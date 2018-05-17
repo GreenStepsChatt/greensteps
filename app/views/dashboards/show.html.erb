@@ -1,7 +1,3 @@
-<script async defer
-src="https://maps.googleapis.com/maps/api/js?key=<%=ENV.fetch('GOOGLE_MAPS_KEY', '')%>&callback=Greensteps.initMap">
-</script>
-
 <article class="stats">
   <header>
     <h2><%= t('.stats_title') %></h2>
@@ -12,41 +8,11 @@ src="https://maps.googleapis.com/maps/api/js?key=<%=ENV.fetch('GOOGLE_MAPS_KEY',
 
   <section class="total_points">
     <div class="count">
-      <%= pluralize(
-        current_user.total_points,
-        t('.points')
-      ) %>
+      <%= pluralize(current_user.total_points, t('.points')) %>
     </div>
   </section>
 </article>
 
-<article class="station_map">
-  <header>
-    <h2><%= t('.station_map_title') %></h2>
-  </header>
+<%= render 'station_map' %>
 
-  <div id="map"></div>
-  <aside id="map_info">
-    <h3 id="marker_title"></h3>
-    <p id="marker_address"></p>
-    <button type="button">
-      <%= fa_icon 'close' %>
-    </button>
-  </aside>
-</article>
-
-<article class="prizes">
-  <h2><%= t('.redeem_a_prize') %></h2>
-  <h3><%= t('.available_points', count: current_user.unredeemed_points) %></h3>
-  <%= form_for redemption, remote: true do |form| %>
-    <% Prize.by_cost.each do |prize| %>
-      <%= form.radio_button :prize_id, prize.id %>
-      <%= form.label :prize_id, value: prize.id do %>
-        <%= button_tag type: 'button', disabled: (prize.cost > current_user.unredeemed_points) do %>
-          <h3><%= prize.title %></h3>
-          <p><%= pluralize prize.cost, 'point' %></p>
-        <% end %>
-      <% end %>
-    <% end %>
-  <% end %>
-</article>
+<%= render 'redeem_a_prize' %>

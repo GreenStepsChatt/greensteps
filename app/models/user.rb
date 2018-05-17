@@ -21,6 +21,14 @@ class User < ApplicationRecord
     total_points - points_spent
   end
 
+  def can_redeem?(prize)
+    prize.cost <= unredeemed_points
+  end
+
+  def cannot_redeem?(prize)
+    !can_redeem?(prize)
+  end
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

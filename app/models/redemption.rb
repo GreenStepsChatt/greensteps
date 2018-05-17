@@ -5,7 +5,7 @@ class Redemption < ApplicationRecord
   validate :user_has_enough_points, on: :create
 
   def user_has_enough_points
-    return if user.unredeemed_points >= prize.cost
+    return if user.can_redeem?(prize)
     errors.add(:base, :not_enough_points)
   end
 end

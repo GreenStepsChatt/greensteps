@@ -40,6 +40,22 @@ RSpec.describe User, type: :model do
     end
   end
 
+  describe '#can_redeem?' do
+    it 'should be false if the prize costs too much' do
+      prize = create :prize, cost: 1
+      user = create :user
+
+      expect(user.can_redeem?(prize)).to be_falsey
+    end
+
+    it 'should be truthy if the has enough unredeemed points' do
+      prize = create :prize, cost: 1
+      user = create :user, total_points: 1
+
+      expect(user.can_redeem?(prize)).to be_truthy
+    end
+  end
+
   describe '#soft_delete' do
     it 'should set a value in the `deleted_at` column' do
       user = create :user
