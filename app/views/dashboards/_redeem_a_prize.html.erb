@@ -1,6 +1,8 @@
 <article class="prizes">
-  <h2><%= t('.title') %></h2>
-  <h3><%= t('.available_points', count: current_user.unredeemed_points) %></h3>
+  <header>
+    <h2><%= t('.title') %></h2>
+    <h3><%= t('.available_points', count: current_user.unredeemed_points) %></h3>
+  </header>
   <%= form_for redemption, remote: true do |form| %>
     <% prizes.each do |prize| %>
       <%= form.radio_button :prize_id, prize.id %>

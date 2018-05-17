@@ -7,10 +7,9 @@ RSpec.describe 'Redemptions', type: :feature do
     create_list :deed, 3, trash_bags: 2, user: user
     stubbed_login_as user, follow_to_default_path: true
 
-    find("label[for='redemption_prize_id_#{prize.id}'] button").click
+    prizes_article.redeem(prize)
 
     expect(page).to flash_message t('redemptions.create.success')
-    expect(page).to have_content \
-      t('dashboards.redeem_a_prize.available_points', count: current_user.unredeemed_points)
+    expect(prizes_article.unredeemed_points).to eq user.unredeemed_points
   end
 end
