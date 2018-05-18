@@ -57,6 +57,7 @@ end
 group :test do
   gem 'capybara-screenshot'
   gem 'database_cleaner'
+  gem 'db-query-matchers'
   gem 'launchy'
   gem 'poltergeist'
   gem 'rails-controller-testing'

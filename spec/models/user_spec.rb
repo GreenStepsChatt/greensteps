@@ -28,6 +28,15 @@ RSpec.describe User, type: :model do
 
       expect(user.points_spent).to eq 1
     end
+
+    xit 'should not query the db if there have been no relevant changes' do
+      user = create :user
+      create :deed, trash_bags: 2, user: user
+      create :redemption, prize: create(:prize, cost: 1), user: user
+
+      user.points_spent
+      expect { user.points_spent }.to_not make_database_queries
+    end
   end
 
   describe '#unredeemed_points' do
