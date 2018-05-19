@@ -8,7 +8,7 @@ RSpec.describe User, type: :model do
 
   it_should_behave_like 'a devise model'
 
-  describe '.total_trash_bags' do
+  describe '.total_points' do
     it 'should give the total number of trash bags the user has collected' do
       user = create :user
 
@@ -16,17 +16,17 @@ RSpec.describe User, type: :model do
         create(:deed, trash_bags: num_bags, user: user)
       end
 
-      expect(user.total_trash_bags).to eq 6
+      expect(user.total_points).to eq 6
     end
   end
 
-  describe '#points_spent' do
+  describe '#redeemed_points' do
     it 'should give the sum of the cost of each prize the user has redeemed' do
       user = create :user
       create :deed, trash_bags: 2, user: user
       create :redemption, prize: create(:prize, cost: 1), user: user
 
-      expect(user.points_spent).to eq 1
+      expect(user.redeemed_points).to eq 1
     end
 
     xit 'should not query the db if there have been no relevant changes' do
@@ -84,32 +84,6 @@ RSpec.describe User, type: :model do
       user = create :user
 
       expect(User.soft_deleted).to_not include user
-    end
-  end
-
-  describe 'factory' do
-    context 'when given a total_points value of 1' do
-      it 'creates deeds with points that add up to 1' do
-        user = create :user, total_points: 1
-
-        expect(user.total_points).to eq 1
-      end
-    end
-
-    context 'when given a total_points value of 2' do
-      it 'creates deeds with points that add up to 2' do
-        user = create :user, total_points: 2
-
-        expect(user.total_points).to eq 2
-      end
-    end
-
-    context 'when given a total_points value of 10' do
-      it 'creates deeds with points that add up to 10' do
-        user = create :user, total_points: 10
-
-        expect(user.total_points).to eq 10
-      end
     end
   end
 end

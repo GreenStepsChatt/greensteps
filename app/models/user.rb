@@ -7,18 +7,16 @@ class User < ApplicationRecord
 
   scope :soft_deleted, -> { where.not(deleted_at: nil) }
 
-  def total_trash_bags
+  def total_points
     deeds.sum(:trash_bags)
   end
 
-  alias total_points total_trash_bags
-
-  def points_spent
+  def redeemed_points
     prizes.sum(:cost)
   end
 
   def unredeemed_points
-    total_points - points_spent
+    total_points - redeemed_points
   end
 
   def enough_points_for?(prize)

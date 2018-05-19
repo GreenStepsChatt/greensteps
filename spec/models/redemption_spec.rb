@@ -1,4 +1,5 @@
 require 'rails_helper'
+require Rails.root.join('lib', 'factory_helpers', 'add_points_to_user.rb')
 
 RSpec.describe Redemption, type: :model do
   it { should belong_to :user }
@@ -14,7 +15,7 @@ RSpec.describe Redemption, type: :model do
   it 'should be valid when it is re-instantiated (even if the user is out of '\
      'points)' do
     user = create :user
-    create :deed, trash_bags: 1, user: user
+    AddPointsToUser.new(user, 1)
     prize = create :prize, cost: 1
     create :redemption, prize: prize, user: user
 

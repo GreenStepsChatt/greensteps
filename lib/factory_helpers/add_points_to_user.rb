@@ -1,8 +1,6 @@
 class AddPointsToUser
   include FactoryBot::Syntax::Methods
 
-  attr_reader :user, :total_points
-
   def initialize(user, total_points)
     return unless total_points.present? && total_points.positive?
 
@@ -12,6 +10,10 @@ class AddPointsToUser
     add_points_randomly while enough_points_left_for_randomness?
     add_remaining_points
   end
+
+  private
+
+  attr_reader :user, :total_points
 
   def add_points_randomly
     create :deed, user: user, trash_bags: random_points_from_available

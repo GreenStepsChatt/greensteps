@@ -13,8 +13,7 @@ RSpec.describe Prize, type: :model do
       expensive_prize = create :prize, cost: 10
       cheap_prize = create :prize, cost: 1
 
-      expect(Prize.by_cost.pluck(:id)).to eq \
-        [cheap_prize.id, expensive_prize.id]
+      expect(Prize.by_cost).to eq [cheap_prize, expensive_prize]
     end
   end
 end

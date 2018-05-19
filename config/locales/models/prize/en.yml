@@ -1,0 +1,7 @@
+en:
+  activerecord:
+    attributes:
+      prize:
+        cost:
+          one: '1 point'
+          other: '%{count} points'

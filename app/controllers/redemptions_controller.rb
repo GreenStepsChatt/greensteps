@@ -2,6 +2,7 @@ class RedemptionsController < ApplicationController
   expose :redemption, scope: -> { current_user.redemptions }
 
   def create
+    respond_to :js
     if redemption.save
       flash.now[:notice] = t('.success')
       render 'create'

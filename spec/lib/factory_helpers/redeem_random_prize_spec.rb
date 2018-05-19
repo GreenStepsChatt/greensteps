@@ -18,6 +18,6 @@ RSpec.describe RedeemRandomPrize do
 
     RedeemRandomPrize.new(user)
 
-    expect(user.redemptions).to have(1).redemptions
+    expect(user.redemptions).to have(1).redemption
   end
 end

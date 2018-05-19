@@ -13,5 +13,13 @@ RSpec.describe RedemptionsController, type: :controller do
           t('activerecord.errors.models.redemption.not_enough_points')
       end
     end
+
+    it 'does not respond to html' do
+      prize = create :prize
+      sign_in create(:user)
+
+      expect { post :create, params: { redemption: { prize_id: prize.id } } }
+        .to raise_error ActionController::UnknownFormat
+    end
   end
 end

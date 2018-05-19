@@ -1,12 +1,14 @@
 class RedeemRandomPrize
   include FactoryBot::Syntax::Methods
 
-  attr_reader :user
-
   def initialize(user)
     @user = user
     create :redemption, user: user, prize: find_or_create_redeemable_prize
   end
+
+  private
+
+  attr_reader :user
 
   def find_or_create_redeemable_prize
     if redeemable_prizes.empty?
