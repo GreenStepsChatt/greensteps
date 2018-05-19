@@ -1,7 +1,3 @@
-<script async defer
-src="https://maps.googleapis.com/maps/api/js?key=<%=ENV.fetch('GOOGLE_MAPS_KEY', '')%>&callback=Greensteps.initMap">
-</script>
-
 <article class="stats">
   <header>
     <h2><%= t('.stats_title') %></h2>
@@ -12,25 +8,11 @@ src="https://maps.googleapis.com/maps/api/js?key=<%=ENV.fetch('GOOGLE_MAPS_KEY',
 
   <section class="total_points">
     <div class="count">
-      <%= pluralize(
-        PointCalculator.new(current_user).total_points,
-        t('.points')
-      ) %>
+      <%= pluralize(current_user.total_points, t('.points')) %>
     </div>
   </section>
 </article>
 
-<article class="station_map">
-  <header>
-    <h2><%= t('.station_map_title') %></h2>
-  </header>
+<%= render 'station_map' %>
 
-  <div id="map"></div>
-  <aside id="map_info">
-    <h3 id="marker_title"></h3>
-    <p id="marker_address"></p>
-    <button type="button">
-      <%= fa_icon 'close' %>
-    </button>
-  </aside>
-</article>
+<%= render 'redeem_a_prize' %>

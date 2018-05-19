@@ -1,3 +1,6 @@
+require Rails.root.join('lib', 'factory_helpers', 'add_points_to_user.rb')
+require Rails.root.join('lib', 'factory_helpers', 'redeem_random_prize.rb')
+
 FactoryBot.define do
   sequence :email do |n|
     "user#{n}@example.com"
@@ -10,6 +13,26 @@ FactoryBot.define do
   factory :user do
     email { generate :email }
     password 'password'
+
+    transient do
+      total_points nil
+    end
+
+    after(:create) do |user, evaluator|
+      AddPointsToUser.new(user, evaluator.total_points)
+    end
+
+    trait :with_enough_points_for_a_prize do
+      total_points { Faker::Number.between(10, 35) }
+    end
+
+    trait :with_redeemed_prize do
+      with_enough_points_for_a_prize
+
+      after(:create) do |user|
+        RedeemRandomPrize.new(user)
+      end
+    end
 
     trait :with_deeds do
       after(:create) do |user|

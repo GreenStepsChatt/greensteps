@@ -1,0 +1,3 @@
+newPrizeArticle = $("<%= j render 'dashboards/redeem_a_prize', prizes: Prize.by_cost, redemption: current_user.redemptions.build %>")
+$('.prizes').replaceWith(newPrizeArticle)
+<%= render 'shared/update_flash' %>

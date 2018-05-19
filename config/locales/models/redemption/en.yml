@@ -1,0 +1,6 @@
+en:
+  activerecord:
+    errors:
+      models:
+        redemption:
+          not_enough_points: 'You do not have enough points to redeem that prize.'

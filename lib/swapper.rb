@@ -7,7 +7,7 @@
 #
 #   ```ruby
 #     task :create_users do
-#       Swapper.while(ActionMailer::Base).has(:perform_deliveries).
+#       Swapper.while('ActionMailer::Base').has(:perform_deliveries).
 #         set_to(false) do
 #           # create some users
 #         end
@@ -21,10 +21,10 @@
 # If you think of a better name than "while" let me know!
 module Swapper
   class Base
-    attr_reader :object, :attribute_name
+    attr_reader :object_or_class_name, :attribute_name
 
-    def initialize(object)
-      @object = object
+    def initialize(object_or_class_name)
+      @object_or_class_name = object_or_class_name
     end
 
     # attribute_name should be the attr_reader (and attr_writer w/out equals
@@ -35,13 +35,17 @@ module Swapper
     end
 
     def set_to(value) # rubocop:disable Naming/AccessorMethodName
-      original_value = object.send(attribute_name)
-      object.send("#{attribute_name}=", value)
-      yield.tap { object.send("#{attribute_name}=", original_value) }
+      original_value = object_or_class.send(attribute_name)
+      object_or_class.send("#{attribute_name}=", value)
+      yield.tap { object_or_class.send("#{attribute_name}=", original_value) }
+    end
+
+    def object_or_class
+      object_or_class_name.try(:constantize) || object_or_class_name
     end
   end
 
-  def self.while(object)
-    Base.new(object)
+  def self.while(object_or_class_name)
+    Base.new(object_or_class_name)
   end
 end

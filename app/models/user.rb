@@ -2,11 +2,31 @@ class User < ApplicationRecord
   rolify
 
   has_many :deeds, dependent: :destroy
+  has_many :redemptions, dependent: :nullify
+  has_many :prizes, through: :redemptions
 
   scope :soft_deleted, -> { where.not(deleted_at: nil) }
 
-  def total_trash_bags
+  def total_points
     deeds.sum(:trash_bags)
+  end
+
+  def redeemed_points
+    prizes.sum(:cost)
+  end
+
+  def unredeemed_points
+    total_points - redeemed_points
+  end
+
+  def enough_points_for?(prize)
+    prize.cost <= unredeemed_points
+  end
+
+  alias can_redeem? enough_points_for?
+
+  def cannot_redeem?(prize)
+    !can_redeem?(prize)
   end
 
   # Include default devise modules. Others available are:
