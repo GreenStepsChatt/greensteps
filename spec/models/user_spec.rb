@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   it { should have_many(:deeds).dependent(:destroy) }
   it { should have_and_belong_to_many :roles }
-  it { should have_many :redemptions }
+  it { should have_many(:redemptions).dependent(:nullify) }
   it { should have_many(:prizes).through(:redemptions) }
 
   it_should_behave_like 'a devise model'
