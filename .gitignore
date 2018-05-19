@@ -29,4 +29,7 @@ mkmf.log
 # Ignore locally compiled assets
 public/assets
 
+# Ignore ActiveStorage files from development environment
+storage
+
 node_modules
