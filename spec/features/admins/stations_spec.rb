@@ -45,4 +45,23 @@ RSpec.describe 'Stations management', type: :feature do
     station_form.toggle_addr_latlon
     expect(page).to have_content 'Latitude'
   end
+
+  scenario 'Admin starts adding an address then switches to coordinates', :js do
+    create_and_login_admin
+    visit new_admins_station_path
+
+    station_form.name = 'Bushtown'
+    station_form.street = '1254 E 3rd St'
+    station_form.city = 'Chattanooga'
+    station_form.select_state 'Tennessee'
+    station_form.zip = '37404'
+    station_form.toggle_addr_latlon
+    station_form.latitude = 35.042039
+    station_form.longitude = -85.283085
+    station_form.submit
+
+    station = Station.first
+    expect(station.address).to_not be_present
+    expect(station.coordinate_pair).to be_present
+  end
 end
