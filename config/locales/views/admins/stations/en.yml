@@ -8,3 +8,4 @@ en:
       form:
         address: "Address"
         coordinates: "Coordinates"
+        or: "OR"

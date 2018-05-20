@@ -2,13 +2,17 @@ class StationForm < ApplicationForm
   attr_accessor :name, :street, :city, :state, :zip, :latitude, :longitude
 
   validates_models :station, :address, :coordinate_pair
+  validate :at_least_one_of_address_and_coords_present
+  validate :only_one_of_address_and_coords_present
 
-  validate do
-    unless address.present? || coordinate_pair.present?
-      errors[:base] << <<~TEXT
-        A station needs either a street address or a latitude and longitude
-      TEXT
-    end
+  def at_least_one_of_address_and_coords_present
+    return if address.present? || coordinate_pair.present?
+    errors.add(:base, :at_least_one_addr_coords)
+  end
+
+  def only_one_of_address_and_coords_present
+    return unless address.present? && coordinate_pair.present?
+    errors.add(:base, :only_one_addr_coords)
   end
 
   def save!

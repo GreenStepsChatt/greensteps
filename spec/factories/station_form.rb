@@ -8,7 +8,10 @@ FactoryBot.define do
 
     trait :with_coords_only do
       no_street_address
+      with_coords
+    end
 
+    trait :with_coords do
       latitude { Faker::Number.between(34.952750, 35.223899).round(6) }
       longitude { Faker::Number.between(-85.550085, -85.031483).round(6) }
     end

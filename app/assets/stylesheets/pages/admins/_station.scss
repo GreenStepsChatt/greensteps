@@ -1,8 +1,20 @@
 .admins-stations.new, .admins-stations.create {
   max-width: 31em;
 
+  .or {
+    background-color: $base-background-color;
+    border-radius: 50%;
+    font-size: modular-scale(-1);
+    padding: $tiny-spacing;
+    position: absolute;
+    right: 50%;
+    top: 13.75%;
+    z-index: 1;
+  }
+
   #address_or_coordinates_toggler {
     @include radio-button-group;
+    position: relative;
   }
 
   #coordinate_fields {
