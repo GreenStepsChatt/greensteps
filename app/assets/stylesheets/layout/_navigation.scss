@@ -26,7 +26,6 @@
   .menu_toggler {
     @include styled_link($primary-text-light);
 
-    display: none; // don't display until event handlers are attached
     margin: auto 0;
     padding: $tiny-spacing;
   }

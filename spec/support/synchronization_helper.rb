@@ -1,10 +1,10 @@
 module SynchronizationHelper
-  def wait_for_ajax
-    wait_until { finished_all_ajax_requests? }
+  def complete_animations
+    page.execute_script('$(":animated").finish()')
   end
 
-  def wait_for_animations
-    wait_until { finished_all_animations? }
+  def wait_for_ajax
+    wait_until { finished_all_ajax_requests? }
   end
 
   def wait_for_css(*args)
@@ -13,10 +13,6 @@ module SynchronizationHelper
 
   def finished_all_ajax_requests?
     page.evaluate_script('jQuery.active').zero?
-  end
-
-  def finished_all_animations?
-    page.evaluate_script('$(":animated").length').zero?
   end
 
   def wait_until

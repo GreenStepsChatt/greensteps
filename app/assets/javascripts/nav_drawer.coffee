@@ -30,6 +30,9 @@ class Greensteps.NavDrawer
     # wait to set visibility until after event handlers are attached
     this.setVisibility()
 
+    $(document).on 'turbolinks:before-cache', =>
+      this.teardown()
+
   setVisibility: =>
     if this.shouldCollapse()
       @drawerToggler.show()
@@ -51,6 +54,10 @@ class Greensteps.NavDrawer
   hideDrawer: =>
     @drawer.hide 'slide', {direction: 'right'}, =>
       @overlay.hide 'fade', 'fast'
+
+  teardown: =>
+    @drawer.finish()
+    @overlay.finish()
 
   isStale: ->
     !document.body.contains(@drawer[0])
