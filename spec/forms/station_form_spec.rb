@@ -46,6 +46,14 @@ RSpec.describe StationForm, type: :form do
     end
   end
 
+  context 'when given both an address and coordinates' do
+    it 'is not valid' do
+      station_form = build :station_form, :with_coords
+
+      expect(station_form).to be_invalid
+    end
+  end
+
   describe '#save' do
     it 'should return a truthy value if the records were saved' do
       station_form = build :station_form
