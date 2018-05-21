@@ -3,4 +3,5 @@ class Prize < ApplicationRecord
   validates :title, :cost, :quantity, presence: true
 
   scope :by_cost, -> { order :cost }
+  scope :total_cost, -> { sum(:cost) }
 end

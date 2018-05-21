@@ -65,6 +65,33 @@ RSpec.describe User, type: :model do
     end
   end
 
+  describe '#cannot_redeem?' do
+    it 'should be true if the user has already redeemed 30 points this month' do
+      user = create :user
+      AddPointsToUser.new(user, 35)
+      create :redemption, prize: create(:prize, cost: 30), user: user
+
+      expect(user.cannot_redeem?(build_stubbed(:prize, cost: 5))).to be_truthy
+    end
+  end
+
+  describe '#under_monthly_quota?' do
+    it 'is false if the user has redeemed 30 or more points this month' do
+      user = create :user
+      AddPointsToUser.new(user, 35)
+      create :redemption, prize: create(:prize, cost: 30), user: user
+
+      expect(user.can_redeem?(build_stubbed(:prize, cost: 5))).to be_falsey
+    end
+
+    it 'is true if the user has redeemed less than 30 points this month' do
+      user = create :user
+      AddPointsToUser.new(user, 35)
+
+      expect(user.can_redeem?(build_stubbed(:prize, cost: 5))).to be_truthy
+    end
+  end
+
   describe '#soft_delete' do
     it 'should set a value in the `deleted_at` column' do
       user = create :user

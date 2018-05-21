@@ -6,6 +6,8 @@ class Deed < ApplicationRecord
   validates :trash_bags, numericality: { greater_than: 0 }, presence: true
   validate :photos_are_attached
 
+  scope :total_trash_bags, -> { sum(:trash_bags) }
+
   def photos_are_attached
     errors.add(:before_photo, :required) unless before_photo.attached?
     errors.add(:after_photo, :required) unless after_photo.attached?
