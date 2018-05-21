@@ -49,22 +49,6 @@ RSpec.describe User, type: :model do
     end
   end
 
-  describe '#enough_points_for?' do
-    it 'should be false if the prize costs too much' do
-      prize = create :prize, cost: 1
-      user = create :user
-
-      expect(user.enough_points_for?(prize)).to be_falsey
-    end
-
-    it 'should be truthy if the has enough unredeemed points' do
-      prize = create :prize, cost: 1
-      user = create :user, total_points: 1
-
-      expect(user.enough_points_for?(prize)).to be_truthy
-    end
-  end
-
   describe '#cannot_redeem?' do
     it 'should be true if the user has already redeemed 30 points this month' do
       user = create :user
@@ -81,33 +65,6 @@ RSpec.describe User, type: :model do
       create :redemption, prize: create(:prize, cost: 28), user: user
 
       expect(user.cannot_redeem?(build_stubbed(:prize, cost: 5))).to be_truthy
-    end
-  end
-
-  describe '#under_monthly_quota?' do
-    it 'is false if the user has redeemed 30 or more points this month' do
-      user = create :user
-      AddPointsToUser.new(user, 35)
-      create :redemption, prize: create(:prize, cost: 30), user: user
-
-      expect(user.can_redeem?(build_stubbed(:prize, cost: 5))).to be_falsey
-    end
-
-    it 'is true if the user has redeemed less than 30 points this month' do
-      user = create :user
-      AddPointsToUser.new(user, 35)
-
-      expect(user.can_redeem?(build_stubbed(:prize, cost: 5))).to be_truthy
-    end
-  end
-
-  describe '#enough_quota_for?' do
-    it 'is true if the user would have exactly 30 points' do
-      user = create :user
-      AddPointsToUser.new(user, 30)
-      prize = create :prize, cost: 30
-
-      expect(user.enough_quota_for?(prize)).to be_truthy
     end
   end
 

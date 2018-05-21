@@ -19,26 +19,12 @@ class User < ApplicationRecord
     total_points - redeemed_points
   end
 
-  def enough_points_for?(prize)
-    prize.cost <= unredeemed_points
-  end
-
   def can_redeem?(prize)
-    enough_points_for?(prize) &&
-      under_monthly_quota? &&
-      enough_quota_for?(prize)
+    redemptions.build(prize: prize).valid?
   end
 
   def cannot_redeem?(prize)
     !can_redeem?(prize)
-  end
-
-  def under_monthly_quota?
-    points_redeemed_this_month < 30
-  end
-
-  def enough_quota_for?(prize)
-    (points_redeemed_this_month + prize.cost) <= 30
   end
 
   def points_redeemed_this_month
