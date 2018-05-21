@@ -4,3 +4,4 @@ en:
       models:
         redemption:
           not_enough_points: 'You do not have enough points to redeem that prize.'
+          over_quota: 'You have already redeemed 30 points this month.'
