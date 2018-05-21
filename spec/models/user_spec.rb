@@ -73,6 +73,15 @@ RSpec.describe User, type: :model do
 
       expect(user.cannot_redeem?(build_stubbed(:prize, cost: 5))).to be_truthy
     end
+
+    it 'should be true if redeeming the prize would put the user over 30'\
+      ' points for the month' do
+      user = create :user
+      AddPointsToUser.new(user, 35)
+      create :redemption, prize: create(:prize, cost: 28), user: user
+
+      expect(user.cannot_redeem?(build_stubbed(:prize, cost: 5))).to be_truthy
+    end
   end
 
   describe '#under_monthly_quota?' do
@@ -89,6 +98,16 @@ RSpec.describe User, type: :model do
       AddPointsToUser.new(user, 35)
 
       expect(user.can_redeem?(build_stubbed(:prize, cost: 5))).to be_truthy
+    end
+  end
+
+  describe '#enough_quota_for?' do
+    it 'is true if the user would have exactly 30 points' do
+      user = create :user
+      AddPointsToUser.new(user, 30)
+      prize = create :prize, cost: 30
+
+      expect(user.enough_quota_for?(prize)).to be_truthy
     end
   end
 

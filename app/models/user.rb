@@ -24,7 +24,9 @@ class User < ApplicationRecord
   end
 
   def can_redeem?(prize)
-    enough_points_for?(prize) && under_monthly_quota?
+    enough_points_for?(prize) &&
+      under_monthly_quota? &&
+      enough_quota_for?(prize)
   end
 
   def cannot_redeem?(prize)
@@ -32,7 +34,15 @@ class User < ApplicationRecord
   end
 
   def under_monthly_quota?
-    prizes.merge(redemptions.this_month).total_cost < 30
+    points_redeemed_this_month < 30
+  end
+
+  def enough_quota_for?(prize)
+    (points_redeemed_this_month + prize.cost) <= 30
+  end
+
+  def points_redeemed_this_month
+    prizes.merge(redemptions.this_month).total_cost
   end
 
   # Include default devise modules. Others available are:
