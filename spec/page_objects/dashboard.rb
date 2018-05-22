@@ -8,6 +8,10 @@ module PageObjects
       this.find('#lifetime_points + .value').text.to_i
     end
 
+    def points_redeemed_this_month
+      this.find('#points_redeemed_this_month + .value').text.to_i
+    end
+
     def selector
       '.dashboards'
     end
