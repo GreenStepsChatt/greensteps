@@ -34,4 +34,12 @@ RSpec.describe Deed, type: :model do
       expect(deed).to be_invalid
     end
   end
+
+  describe '.total_trash_bags' do
+    it 'should add up all of the trash bags in the scope' do
+      [5, 1, 3].each { |n| create :deed, trash_bags: n }
+
+      expect(Deed.total_trash_bags).to eq 9
+    end
+  end
 end

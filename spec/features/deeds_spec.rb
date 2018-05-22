@@ -11,7 +11,7 @@ RSpec.describe 'User logs deed', type: :feature do
     deed_form.submit
 
     expect(page).to flash_message t('deeds.create.success')
-    expect(dashboard.total_points).to eq 3
+    expect(dashboard.lifetime_points).to eq 3
   end
 
   scenario 'with 0 trash bags' do

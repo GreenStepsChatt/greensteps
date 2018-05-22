@@ -1,7 +1,7 @@
 .dashboards.show {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
 
   > * {
     margin: $small-spacing;
@@ -63,15 +63,28 @@
   .station_map {
     position: relative;
     flex: 1 1 30em;
+    max-width: 45em;
   }
 
   .stats {
     flex-grow: 1;
-    max-width: 14em;
+    max-width: 20em;
 
     .add {
       @include button;
       @include compact-button;
+    }
+
+    .point_ledger {
+      justify-content: center;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      grid-gap: $tiny-spacing;
+      padding: $small-spacing;
+
+      .description {
+        justify-self: end;
+      }
     }
 
     header {

@@ -8,25 +8,23 @@ class User < ApplicationRecord
   scope :soft_deleted, -> { where.not(deleted_at: nil) }
 
   def total_points
-    deeds.sum(:trash_bags)
+    deeds.total_trash_bags
   end
 
   def redeemed_points
-    prizes.sum(:cost)
+    prizes.total_cost
   end
 
   def unredeemed_points
     total_points - redeemed_points
   end
 
-  def enough_points_for?(prize)
-    prize.cost <= unredeemed_points
+  def points_redeemed_this_month
+    prizes.merge(redemptions.this_month).total_cost
   end
 
-  alias can_redeem? enough_points_for?
-
-  def cannot_redeem?(prize)
-    !can_redeem?(prize)
+  def available_points
+    [unredeemed_points, (30 - points_redeemed_this_month)].min
   end
 
   # Include default devise modules. Others available are:

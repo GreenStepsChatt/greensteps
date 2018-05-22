@@ -17,8 +17,39 @@ RSpec.describe Redemption, type: :model do
     user = create :user
     AddPointsToUser.new(user, 1)
     prize = create :prize, cost: 1
+    redemption = create :redemption, prize: prize, user: user
+
+    expect(redemption).to be_valid
+  end
+
+  it 'should be invalid if the user would be over 30 points' do
+    user = create :user
+    AddPointsToUser.new(user, 35)
+    prize = create :prize, cost: 28
     create :redemption, prize: prize, user: user
 
-    expect(Redemption.first).to be_valid
+    redemption = build(:redemption, prize: prize, user: user)
+    expect(redemption.errors[:base]).to include \
+      t('activerecord.errors.models.redemption.would_be_over_quota')
+  end
+
+  describe '.this_month' do
+    it 'returns redemptions that were created this month' do
+      user = create :user
+      AddPointsToUser.new(user, 1)
+      prize = create :prize, cost: 1
+      redemption = create :redemption, prize: prize, user: user
+
+      expect(Redemption.this_month).to include redemption
+    end
+
+    it 'does not return redemptions created before this month' do
+      user = create :user
+      AddPointsToUser.new(user, 1)
+      prize = create :prize, cost: 1
+      create :redemption, prize: prize, user: user, created_at: 2.months.ago
+
+      expect(Redemption.this_month).to be_empty
+    end
   end
 end

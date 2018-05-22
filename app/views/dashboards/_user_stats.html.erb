@@ -1,0 +1,29 @@
+<article class="stats">
+  <header>
+    <h2><%= t('.title') %></h2>
+    <%= link_to new_deed_path, class: 'add' do %>
+      <%= fa_icon 'plus' %>
+    <% end %>
+  </header>
+
+  <div class='point_ledger'>
+    <span class='description' id='lifetime_points'>
+      <%= t('.lifetime_points') %>
+    </span>
+    <span class='value'>
+      <%= current_user.total_points %>
+    </span>
+    <span class='description'>
+      <%= t('.unredeemed_points') %>
+    </span>
+    <span class='value'>
+      <%= current_user.unredeemed_points %>
+    </span>
+    <span class='description' id='points_redeemed_this_month'>
+      <%= t('.points_redeemed_this_month') %>
+    </span>
+    <span class='value'>
+      <%= current_user.points_redeemed_this_month %>/30
+    </span>
+  </div class='point_ledger'>
+</article>

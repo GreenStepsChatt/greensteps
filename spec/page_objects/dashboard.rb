@@ -4,8 +4,12 @@ module PageObjects
       this.find('.stats .add').click
     end
 
-    def total_points
-      this.find('.total_points .count').text.to_i
+    def lifetime_points
+      this.find('#lifetime_points + .value').text.to_i
+    end
+
+    def points_redeemed_this_month
+      this.find('#points_redeemed_this_month + .value').text.to_i
     end
 
     def selector

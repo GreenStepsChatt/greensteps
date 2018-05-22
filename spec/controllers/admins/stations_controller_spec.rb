@@ -7,7 +7,7 @@ RSpec.describe Admins::StationsController, type: :controller do
         sign_in create(:admin)
 
         post :create, params: {
-          station_form: attributes_for(:station_form, :invalid)
+          station: attributes_for(:station_form, :invalid)
         }
 
         expect(response).to render_template(:new)

@@ -8,7 +8,7 @@ RSpec.describe User, type: :model do
 
   it_should_behave_like 'a devise model'
 
-  describe '.total_points' do
+  describe '#total_points' do
     it 'should give the total number of trash bags the user has collected' do
       user = create :user
 
@@ -49,19 +49,21 @@ RSpec.describe User, type: :model do
     end
   end
 
-  describe '#enough_points_for?' do
-    it 'should be false if the prize costs too much' do
-      prize = create :prize, cost: 1
-      user = create :user
+  describe '#available_points' do
+    context 'when a user has not redeemed anything this month and has less '\
+            'than 30 unredeemed points' do
+      it 'should equal the total unredeemed points' do
+        user = create :user, total_points: 5
 
-      expect(user.enough_points_for?(prize)).to be_falsey
+        expect(user.available_points).to eq 5
+      end
     end
 
-    it 'should be truthy if the has enough unredeemed points' do
-      prize = create :prize, cost: 1
-      user = create :user, total_points: 1
+    it 'should account for the maximum of 30 points per month' do
+      user = create :user, total_points: 35
+      create :redemption, prize: create(:prize, cost: 10), user: user
 
-      expect(user.enough_points_for?(prize)).to be_truthy
+      expect(user.available_points).to eq 20
     end
   end
 

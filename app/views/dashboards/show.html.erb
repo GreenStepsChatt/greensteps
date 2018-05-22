@@ -1,17 +1,4 @@
-<article class="stats">
-  <header>
-    <h2><%= t('.stats_title') %></h2>
-    <%= link_to new_deed_path, class: 'add' do %>
-      <%= fa_icon 'plus' %>
-    <% end %>
-  </header>
-
-  <section class="total_points">
-    <div class="count">
-      <%= pluralize(current_user.total_points, t('.points')) %>
-    </div>
-  </section>
-</article>
+<%= render 'user_stats' %>
 
 <%= render 'station_map' %>
 

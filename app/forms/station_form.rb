@@ -21,6 +21,10 @@ class StationForm < ApplicationForm
     end
   end
 
+  def self.model_name
+    ActiveModel::Name.new(self, nil, 'station')
+  end
+
   private
 
   def station

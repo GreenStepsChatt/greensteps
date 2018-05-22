@@ -16,4 +16,12 @@ RSpec.describe Prize, type: :model do
       expect(Prize.by_cost).to eq [cheap_prize, expensive_prize]
     end
   end
+
+  describe '.total_cost' do
+    it 'should add up the total cost of all of the prizes in the scope' do
+      [5, 1, 11].each { |n| create :prize, cost: n }
+
+      expect(Prize.total_cost).to eq 17
+    end
+  end
 end
