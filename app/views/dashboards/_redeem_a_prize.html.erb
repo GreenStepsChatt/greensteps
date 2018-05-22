@@ -1,7 +1,7 @@
 <article class="prizes">
   <header>
     <h2><%= t('.title') %></h2>
-    <h3><%= t('.available_points', count: current_user.unredeemed_points) %></h3>
+    <h3><%= t('.available_points', count: current_user.available_points) %></h3>
   </header>
   <%= form_for redemption_form, remote: true do |form| %>
     <% redemption_form.prize_choices.each do |prize| %>

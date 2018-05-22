@@ -23,6 +23,10 @@ class User < ApplicationRecord
     prizes.merge(redemptions.this_month).total_cost
   end
 
+  def available_points
+    [unredeemed_points, (30 - points_redeemed_this_month)].min
+  end
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
