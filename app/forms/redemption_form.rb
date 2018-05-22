@@ -8,8 +8,11 @@ class RedemptionForm < ApplicationForm
   end
 
   def prize_choices
-    @prize_choices ||=
-      Prize.by_cost.map { |prize| PrizeChoice.new(prize, user) }
+    @prize_choices ||= prizes.map { |prize| PrizeChoice.new(prize, user) }
+  end
+
+  def prizes
+    @prizes ||= Prize.by_cost
   end
 
   # forms should submit to redemptions_path, not redemption_forms_path
