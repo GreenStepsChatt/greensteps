@@ -1,0 +1,7 @@
+en:
+  dashboards:
+    user_stats:
+      title: "Your Stats"
+      lifetime_points: "Lifetime points:"
+      unredeemed_points: "Unredeemed points:"
+      points_redeemed_this_month: "Points redeemed this month:"
