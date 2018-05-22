@@ -3,11 +3,11 @@
     <h2><%= t('.title') %></h2>
     <h3><%= t('.available_points', count: current_user.unredeemed_points) %></h3>
   </header>
-  <%= form_for redemption, remote: true do |form| %>
-    <% prizes.each do |prize| %>
+  <%= form_for redemption_form, remote: true do |form| %>
+    <% redemption_form.prize_choices.each do |prize| %>
       <%= form.radio_button :prize_id, prize.id %>
       <%= form.label :prize_id, value: prize.id do %>
-        <%= button_tag type: 'button', disabled: current_user.cannot_redeem?(prize) do %>
+        <%= button_tag type: 'button', disabled: prize.disabled? do %>
           <h3><%= prize.title %></h3>
           <p><%= Prize.human_attribute_name('cost', count: prize.cost) %></p>
         <% end %>

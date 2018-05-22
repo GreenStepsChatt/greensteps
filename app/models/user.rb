@@ -19,14 +19,6 @@ class User < ApplicationRecord
     total_points - redeemed_points
   end
 
-  def can_redeem?(prize)
-    redemptions.build(prize: prize).valid?
-  end
-
-  def cannot_redeem?(prize)
-    !can_redeem?(prize)
-  end
-
   def points_redeemed_this_month
     prizes.merge(redemptions.this_month).total_cost
   end
