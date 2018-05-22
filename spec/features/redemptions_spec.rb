@@ -18,9 +18,8 @@ RSpec.describe 'Redemptions', type: :feature do
     user = create :user
     prize = create :prize, cost: 30
     AddPointsToUser.new(user, 65)
+    create :redemption, prize: prize, user: user
     stubbed_login_as user, follow_to_default_path: true
-
-    prizes_article.redeem(prize)
 
     expect(prizes_article).to have_disabled_prize_button(prize)
   end
