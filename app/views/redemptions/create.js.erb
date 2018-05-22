@@ -1,4 +1,4 @@
-newPrizeArticle = $("<%= j render 'dashboards/redeem_a_prize', prizes: Prize.by_cost, redemption: current_user.redemptions.build %>")
+newPrizeArticle = $("<%= j render 'dashboards/redeem_a_prize' %>")
 newStatsArticle = $("<%= j render 'dashboards/user_stats' %>")
 $('.prizes').replaceWith(newPrizeArticle)
 $('.stats').replaceWith(newStatsArticle)
