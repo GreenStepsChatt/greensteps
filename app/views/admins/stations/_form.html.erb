@@ -1,4 +1,4 @@
-<%= form_with model: [:admins, station_form], url: admins_stations_path, id: 'new_station_form' do |f| %>
+<%= form_with model: [:admins, station_form] do |f| %>
   <%= render 'shared/errors', record: station_form %>
 
   <%= f.label :name %>

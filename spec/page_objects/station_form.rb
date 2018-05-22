@@ -37,7 +37,7 @@ module PageObjects
     end
 
     def selector
-      '#new_station_form, #edit_station_form'
+      'form[action="/admins/stations"]'
     end
   end
 end

@@ -1,0 +1,9 @@
+en:
+  activemodel:
+    errors:
+      models:
+        station:
+          attributes:
+            base:
+              only_one_addr_coords: "A station can't have both an address and coordinates. If you provide an addresss, we'll look up the coordinates."
+              at_least_one_addr_coords: "A station needs either a street address or a latitude and longitude."
