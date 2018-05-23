@@ -1,0 +1,10 @@
+en:
+  admins:
+    users:
+      index:
+        email: "Email"
+        total_points: "Total Points"
+        redeemed_points: "Total Redeemed Points"
+        points_redeemed_this_month: "Points Redeemed This Month"
+        strikes: "Strikes"
+        strike: "Strike"

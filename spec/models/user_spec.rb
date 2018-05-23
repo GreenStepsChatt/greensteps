@@ -5,6 +5,8 @@ RSpec.describe User, type: :model do
   it { should have_and_belong_to_many :roles }
   it { should have_many(:redemptions).dependent(:nullify) }
   it { should have_many(:prizes).through(:redemptions) }
+  it { should have_many(:strikes) }
+  it { should have_db_column(:strikes_count) }
 
   it_should_behave_like 'a devise model'
 

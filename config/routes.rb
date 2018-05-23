@@ -22,7 +22,11 @@ Rails.application.routes.draw do
     resource :dashboard, only: [:show]
     resources 'prizes', only: [:new, :create, :edit, :update]
     resources 'stations', only: [:new, :create]
+    resources 'users', only: [:index]
     resources 'admins', only: [:index, :new, :create, :destroy]
+    resources :users do
+      resources :strikes, only: :create
+    end
   end
 
   namespace :api do

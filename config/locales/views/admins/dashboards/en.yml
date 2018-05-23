@@ -10,3 +10,4 @@ en:
         miscellaneous:
           header: "Other Tools"
           admins: "Manage admin privileges"
+          user_list: "User list"

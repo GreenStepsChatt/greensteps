@@ -1,0 +1,5 @@
+en:
+  admins:
+    strikes:
+      create:
+        success: "You have given one strike to user with email %{user_email}."

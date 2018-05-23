@@ -4,6 +4,7 @@ class User < ApplicationRecord
   has_many :deeds, dependent: :destroy
   has_many :redemptions, dependent: :nullify
   has_many :prizes, through: :redemptions
+  has_many :strikes
 
   scope :soft_deleted, -> { where.not(deleted_at: nil) }
 

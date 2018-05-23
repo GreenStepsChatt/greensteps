@@ -1,0 +1,44 @@
+<h1>Users</h1>
+<table class="users">
+  <tr>
+    <th class="email">
+      <%= t('.email') %>
+    </th>
+    <th class="total_points">
+      <%= t('.total_points') %>
+    </th>
+    <th class="redeemed_points">
+      <%= t('.redeemed_points') %>
+    </th>
+    <th class="points_redeemed_this_month">
+      <%= t('.points_redeemed_this_month') %>
+    </th>
+    <th class="strikes">
+      <%= t('.strikes') %>
+    </th>
+    <th class="strike_button">
+    </th>
+  </tr>
+  <% users.each do |user| %>
+    <tr class="user" id="user_<%= user.id %>">
+      <td class="email">
+        <%= user.email %>
+      </td>
+      <td class="total_points">
+        <%= user.total_points %>
+      </td>
+      <td class="redeemed_points">
+        <%= user.redeemed_points %>
+      </td>
+      <td class="points_redeemed_this_month">
+        <%= user.points_redeemed_this_month %>
+      </td>
+      <td class="strikes">
+        <%= user.strikes.size %>
+      </td>
+      <td class="strike_button">
+        <%= button_to t('.strike'), admins_user_strikes_path(user) %>
+      </td>
+    </tr>
+  <% end %>
+</table>

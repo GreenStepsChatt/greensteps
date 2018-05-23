@@ -5,7 +5,7 @@
 
   <ul class="prizes">
     <% prizes.each do |prize| %>
-      <li><%= prize.title %> <%= link_to edit_admins_prize_path(prize), class: 'edit_prize' do %> <%= fa_icon 'edit' %> <% end %> </li> 
+      <li><%= prize.title %> <%= link_to edit_admins_prize_path(prize), class: 'edit_prize' do %> <%= fa_icon 'edit' %> <% end %> </li>
     <% end %>
   </ul>
 
@@ -31,5 +31,8 @@
 <section class="miscellaneous">
   <h3><%= t('.miscellaneous.header') %></h3>
 
-  <%= link_to t('.miscellaneous.admins'), admins_admins_path %>
+  <div class="links">
+    <%= link_to t('.miscellaneous.admins'), admins_admins_path %>
+    <%= link_to t('.miscellaneous.user_list'), admins_users_path %>
+  </div>
 </section>
