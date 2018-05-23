@@ -1,6 +1,6 @@
 module Admins
   class UsersController < BaseController
-    expose :users, -> { User.all }
+    expose :users, -> { User.page(params[:page]) }
 
     def index; end
   end

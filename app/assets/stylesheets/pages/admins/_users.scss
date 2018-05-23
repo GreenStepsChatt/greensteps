@@ -2,4 +2,21 @@
   .users {
     text-align: right;
   }
+
+  .pagination {
+    margin: $base-spacing;
+    text-align: center;
+
+    .first, .prev {
+      margin-right: $small-spacing;
+    }
+
+    .next, .last {
+      margin-left: $small-spacing;
+    }
+
+    .page {
+      margin-right: $tiny-spacing
+    }
+  }
 }
