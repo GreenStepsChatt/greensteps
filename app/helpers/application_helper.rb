@@ -9,6 +9,7 @@ module ApplicationHelper
     "#{controller_path.split('/').join('-')} #{action_name}"
   end
 
+  # TODO: this should really be a view object
   def link_to_sort_by(column)
     direction =
       if params['column'] == 'total_points'
