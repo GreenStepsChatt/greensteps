@@ -31,4 +31,16 @@ RSpec.describe 'Admin\'s list of users', type: :feature do
 
     expect(user_list.first_user_li.id).to eq user.id
   end
+
+  scenario 'Clicking on the total points header sorts by total points' do
+    create_list :user, 3
+    user = create :user, total_points: 3
+    create_and_login_admin
+
+    visit admins_users_path
+    click_on 'Email'
+    click_on 'Total Points'
+
+    expect(user_list.first_user_li.id).to eq user.id
+  end
 end
