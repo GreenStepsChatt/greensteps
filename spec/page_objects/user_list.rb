@@ -5,7 +5,11 @@ module PageObjects
     end
 
     def list_item_for(user)
-      UserListItem.new("#{selector} #user_#{user.id}")
+      UserListItem.new(this.find("#user_#{user.id}"))
+    end
+
+    def first_user_li
+      UserListItem.new(this.first('.user'))
     end
 
     def selector
@@ -13,11 +17,15 @@ module PageObjects
     end
   end
 
-  class UserListItem < Base
-    attr_reader :selector
+  class UserListItem
+    attr_reader :this
 
-    def initialize(selector)
-      @selector = selector
+    def initialize(this)
+      @this = this
+    end
+
+    def id
+      this[:id].scan(/\d+/).first.to_i
     end
 
     def has_one_strike?
