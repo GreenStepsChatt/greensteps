@@ -7,15 +7,27 @@ module Admins
     private
 
     def sorted_users
-      if params['order_by'].blank? || params['order_by'] == 'total_points'
-        User.by_total_points
+      if sort_column == 'total_points'
+        User.by_total_points(sort_direction)
       else
-        User.order(order_condition)
+        User.order("#{sort_column} #{sort_direction}")
       end
     end
 
-    def order_condition
-      ApplicationRecord.sanitize_sql_for_order(params['order_by'])
+    def sort_column
+      if ['email', 'total_points'].include?(params['column'])
+        params['column']
+      else
+        'total_points'
+      end
+    end
+
+    def sort_direction
+      if ['ASC', 'DESC'].include?(params['direction'])
+        params['direction']
+      else
+        sort_column == 'total_points' ? 'DESC' : 'ASC'
+      end
     end
   end
 end

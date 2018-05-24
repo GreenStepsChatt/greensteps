@@ -43,4 +43,15 @@ RSpec.describe 'Admin\'s list of users', type: :feature do
 
     expect(user_list.first_user_li.id).to eq user.id
   end
+
+  scenario 'The sort direction flips when an admin clicks on the header for which the list is currently sorted' do
+    user = create :user, total_points: 1
+    create_list :user, 3, total_points: 5
+    stubbed_login_as create(:admin, total_points: 3)
+
+    visit admins_users_path
+    click_on 'Total Points'
+
+    expect(user_list.first_user_li.id).to eq user.id
+  end
 end

@@ -8,8 +8,8 @@ class User < ApplicationRecord
 
   scope :soft_deleted, -> { where.not(deleted_at: nil) }
 
-  def self.by_total_points
-    with_total_trash_bags.order('total_trash_bags DESC')
+  def self.by_total_points(direction = DESC)
+    with_total_trash_bags.order("total_trash_bags #{direction}")
   end
 
   def self.with_total_trash_bags

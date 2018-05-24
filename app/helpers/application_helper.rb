@@ -8,4 +8,14 @@ module ApplicationHelper
   def css_classes_for_main
     "#{controller_path.split('/').join('-')} #{action_name}"
   end
+
+  def link_to_sort_by(column)
+    direction =
+      if params['column'] == 'total_points'
+        params['direction'] == 'DESC' ? 'ASC' : 'DESC'
+      else
+        params['direction'] == 'ASC' ? 'DESC' : 'ASC'
+      end
+    link_to t(".#{column}"), column: column, direction: direction
+  end
 end
