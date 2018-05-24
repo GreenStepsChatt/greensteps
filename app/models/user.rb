@@ -16,7 +16,7 @@ class User < ApplicationRecord
     select <<~SQL
       users.*,
       (
-        SELECT SUM(trash_bags) FROM deeds
+        SELECT COALESCE(SUM(trash_bags), 0) FROM deeds
         WHERE user_id = users.id
       ) AS total_trash_bags
     SQL

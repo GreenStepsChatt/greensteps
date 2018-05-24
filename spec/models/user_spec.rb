@@ -14,8 +14,10 @@ RSpec.describe User, type: :model do
     it 'should order the users by total points (desc)' do
       one_point_user = create :user, total_points: 1
       three_point_user = create :user, total_points: 3
+      no_point_user = create :user
 
-      expect(User.by_total_points).to eq [three_point_user, one_point_user]
+      expect(User.by_total_points).to eq \
+        [three_point_user, one_point_user, no_point_user]
     end
 
     it 'should respond to `page`' do
