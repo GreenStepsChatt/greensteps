@@ -10,6 +10,27 @@ RSpec.describe User, type: :model do
 
   it_should_behave_like 'a devise model'
 
+  describe '.by_total_points' do
+    it 'should order the users by total points (desc)' do
+      one_point_user = create :user, total_points: 1
+      three_point_user = create :user, total_points: 3
+
+      expect(User.by_total_points).to eq [three_point_user, one_point_user]
+    end
+
+    it 'should respond to `page`' do
+      expect(User.by_total_points).to respond_to :page
+    end
+  end
+
+  describe '.with_total_trash_bags' do
+    it 'should include a `total_trash_bags` column' do
+      user = create :user, total_points: 5
+
+      expect(User.with_total_trash_bags.first.total_trash_bags).to eq 5
+    end
+  end
+
   describe '#total_points' do
     it 'should give the total number of trash bags the user has collected' do
       user = create :user

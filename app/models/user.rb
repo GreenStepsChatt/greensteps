@@ -8,6 +8,20 @@ class User < ApplicationRecord
 
   scope :soft_deleted, -> { where.not(deleted_at: nil) }
 
+  def self.by_total_points
+    with_total_trash_bags.order('total_trash_bags DESC')
+  end
+
+  def self.with_total_trash_bags
+    select <<~SQL
+      users.*,
+      (
+        SELECT SUM(trash_bags) FROM deeds
+        WHERE user_id = users.id
+      ) AS total_trash_bags
+    SQL
+  end
+
   def total_points
     deeds.total_trash_bags
   end
