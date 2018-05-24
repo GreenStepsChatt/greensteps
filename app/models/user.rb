@@ -57,11 +57,17 @@ class User < ApplicationRecord
   end
 
   def active_for_authentication?
-    super && deleted_at.blank?
+    super && deleted_at.blank? && strikes.count < 3
   end
 
   def inactive_message
-    deleted_at.blank? ? super : :account_deleted
+    if deleted_at.present?
+      :account_deleted
+    elsif strikes.count >= 3
+      :deactivated_by_admin
+    else
+      super
+    end
   end
 
   def send_devise_notification(mailer_method_name, *args)

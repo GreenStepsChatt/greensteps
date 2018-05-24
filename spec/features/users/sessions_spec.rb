@@ -33,6 +33,28 @@ RSpec.describe 'User Sessions', type: :feature do
     expect(page).to_not show :dashboard
   end
 
+  scenario 'A user 3 or more strikes cannot sign in' do
+    user = create :user
+    create_list :strike, 3, user: user
+
+    visit root_path
+    welcome_page.open_log_in_form
+    log_in_form.fill_and_submit_for user
+
+    expect(page).to flash_message t('devise.failure.user.deactivated_by_admin')
+  end
+
+  scenario 'A logged in user is logged out when they get a third strike' do
+    user = create :user
+    stubbed_login_as user
+
+    visit root_path
+    create_list :strike, 3, user: user
+    dashboard.log_deed
+
+    expect(page).to_not show :dashboard
+  end
+
   # js enabled b/c error only shows in this case
   scenario 'User signs out from welcome page', :js do
     create_and_login_user
