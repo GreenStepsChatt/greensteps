@@ -8,11 +8,11 @@ class User < ApplicationRecord
 
   scope :soft_deleted, -> { where.not(deleted_at: nil) }
 
-  def self.by_total_points(direction = DESC)
   # TODO: We definitely need to do some refactoring in here. One idea I had was
   #       to make a scorecard model that is essentially a cache of point
   #       calculations.
 
+  def self.by_total_points(direction = 'DESC')
     with_total_trash_bags.order("total_trash_bags #{direction}")
   end
 

@@ -12,11 +12,15 @@ module ApplicationHelper
   # TODO: this should really be a view object
   def link_to_sort_by(column)
     direction =
-      if params['column'] == 'total_points'
-        params['direction'] == 'DESC' ? 'ASC' : 'DESC'
+      if column == 'total_points'
+        sort_column == 'total_points' && sort_direction == 'DESC' ? 'ASC' : 'DESC'
       else
-        params['direction'] == 'ASC' ? 'DESC' : 'ASC'
+        column == sort_column && sort_direction == 'ASC' ? 'DESC' : 'ASC'
       end
-    link_to t(".#{column}"), column: column, direction: direction
+    css_classes =
+      sort_column == column ? "sorted_by_this #{sort_direction.downcase}" : ''
+    link_to t(".#{column}"),
+            { column: column, direction: direction },
+            class: css_classes
   end
 end

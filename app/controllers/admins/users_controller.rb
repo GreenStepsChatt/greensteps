@@ -16,19 +16,21 @@ module Admins
     end
 
     def sort_column
-      if ['email', 'total_points'].include?(params['column'])
+      if %w[email total_points].include?(params['column'])
         params['column']
       else
         'total_points'
       end
     end
+    helper_method :sort_column
 
     def sort_direction
-      if ['ASC', 'DESC'].include?(params['direction'])
+      if %w[ASC DESC].include?(params['direction'])
         params['direction']
       else
         sort_column == 'total_points' ? 'DESC' : 'ASC'
       end
     end
+    helper_method :sort_direction
   end
 end

@@ -1,6 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe 'admins/users/index' do
+  before(:each) do
+    without_partial_double_verification do
+      allow(view).to receive(:sort_column).and_return('')
+      allow(view).to receive(:sort_direction).and_return('')
+    end
+  end
+
   it 'should list the user email' do
     user = create :user
 
