@@ -11,8 +11,8 @@ RSpec.describe 'rake db:populate', type: :task do
   end
 
   describe 'sample users' do
-    it 'there are 50 total' do
-      expect(User.without_role(:admin)).to have(50).records
+    it 'there are 6 total' do
+      expect(User.without_role(:admin)).to have(6).records
     end
 
     it '3 are admins' do
@@ -23,12 +23,12 @@ RSpec.describe 'rake db:populate', type: :task do
       expect(User.first(5)).to all(be_confirmed)
     end
 
-    it 'the first 5 have enough points to redeem prizes' do
-      expect(User.first(5).map(&:total_points)).to all(be >= 10)
+    it 'the first 3 have requested a gift card' do
+      expect(User.first(3).map(&:redeemed_points)).to all(be > 0)
     end
 
-    it 'the first 3 users have redeemed one prize each' do
-      expect(User.first(3).map(&:prizes).map(&:count)).to all(eq 1)
+    it 'the next 2 users have 3 points each' do
+      expect(User.offset(3).first(2).map(&:total_points)).to all(eq 3)
     end
   end
 

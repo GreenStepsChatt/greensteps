@@ -4,6 +4,10 @@ module PageObjects
       this.find('.stats .add').click
     end
 
+    def request_gift_card
+      this.find('.new_redemption button[type="submit"]').click
+    end
+
     def lifetime_points
       this.find('#lifetime_points + .value').text.to_i
     end

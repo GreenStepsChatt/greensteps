@@ -3,51 +3,19 @@ require Rails.root.join('lib', 'factory_helpers', 'add_points_to_user.rb')
 
 RSpec.describe Redemption, type: :model do
   it { should belong_to :user }
-  it { should belong_to :prize }
-
-  it 'should be invalid if the user does not have enough points' do
-    redemption = build :redemption, :invalid, user: create(:user)
-
-    expect(redemption.errors[:base]).to include \
-      t('activerecord.errors.models.redemption.not_enough_points')
-  end
-
-  it 'should be valid when it is re-instantiated (even if the user is out of '\
-     'points)' do
-    user = create :user
-    AddPointsToUser.new(user, 1)
-    prize = create :prize, cost: 1
-    redemption = create :redemption, prize: prize, user: user
-
-    expect(redemption).to be_valid
-  end
-
-  it 'should be invalid if the user would be over 30 points' do
-    user = create :user
-    AddPointsToUser.new(user, 35)
-    prize = create :prize, cost: 28
-    create :redemption, prize: prize, user: user
-
-    redemption = build(:redemption, prize: prize, user: user)
-    expect(redemption.errors[:base]).to include \
-      t('activerecord.errors.models.redemption.would_be_over_quota')
-  end
+  it { should validate_presence_of :value }
 
   describe '.this_month' do
     it 'returns redemptions that were created this month' do
-      user = create :user
-      AddPointsToUser.new(user, 1)
-      prize = create :prize, cost: 1
-      redemption = create :redemption, prize: prize, user: user
+      user = create :user, total_points: 1
+      redemption = create :redemption, value: 1, user: user
 
       expect(Redemption.this_month).to include redemption
     end
 
     it 'does not return redemptions created before this month' do
-      user = create :user
-      AddPointsToUser.new(user, 1)
-      prize = create :prize, cost: 1
-      create :redemption, prize: prize, user: user, created_at: 2.months.ago
+      user = create :user, total_points: 1
+      create :redemption, value: 1, user: user, created_at: 2.months.ago
 
       expect(Redemption.this_month).to be_empty
     end

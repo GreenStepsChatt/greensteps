@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'dashboards/_user_stats' do
   let(:user) { create :user, total_points: 35 }
   before(:each) do
-    create :redemption, prize: create(:prize, cost: 10), user: user
+    create :redemption, value: 10, user: user
     render 'dashboards/user_stats', current_user: user
   end
 

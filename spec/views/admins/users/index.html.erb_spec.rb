@@ -26,7 +26,7 @@ RSpec.describe 'admins/users/index' do
 
   it 'should list the user\'s total redeemed points' do
     user = create :user, total_points: 6
-    create :redemption, user: user, prize: create(:prize, cost: 2)
+    create :redemption, user: user, value: 2
 
     render template: 'admins/users/index', locals: { users: User.page(1) }
 
@@ -36,11 +36,8 @@ RSpec.describe 'admins/users/index' do
 
   it 'should list how many points the user has redeemed this month' do
     user = create :user, total_points: 6
-    create :redemption, user: user, prize: create(:prize, cost: 3)
-    create :redemption,
-           user: user,
-           prize: create(:prize, cost: 2),
-           created_at: 2.months.ago
+    create :redemption, user: user, value: 3
+    create :redemption, user: user, value: 2, created_at: 2.months.ago
 
     render template: 'admins/users/index', locals: { users: User.page(1) }
 

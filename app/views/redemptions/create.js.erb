@@ -1,5 +1,5 @@
-newPrizeArticle = $("<%= j render 'dashboards/redeem_a_prize' %>")
+newGiftCardButton = $("<%= j render 'dashboards/request_gift_card' %>")
 newStatsArticle = $("<%= j render 'dashboards/user_stats' %>")
-$('.prizes').replaceWith(newPrizeArticle)
+$('.new_redemption').replaceWith(newGiftCardButton)
 $('.stats').replaceWith(newStatsArticle)
 <%= render 'shared/update_flash' %>

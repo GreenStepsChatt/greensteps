@@ -3,8 +3,7 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   it { should have_many(:deeds).dependent(:destroy) }
   it { should have_and_belong_to_many :roles }
-  it { should have_many(:redemptions).dependent(:nullify) }
-  it { should have_many(:prizes).through(:redemptions) }
+  it { should have_many(:redemptions).dependent(:destroy) }
   it { should have_many(:strikes).dependent(:destroy) }
   it { should have_db_column(:strikes_count) }
 
@@ -62,21 +61,12 @@ RSpec.describe User, type: :model do
   end
 
   describe '#redeemed_points' do
-    it 'should give the sum of the cost of each prize the user has redeemed' do
+    it 'should give the sum of the redemption values' do
       user = create :user
       create :deed, trash_bags: 2, user: user
-      create :redemption, prize: create(:prize, cost: 1), user: user
+      create_list :redemption, 2, value: 1, user: user
 
-      expect(user.redeemed_points).to eq 1
-    end
-
-    xit 'should not query the db if there have been no relevant changes' do
-      user = create :user
-      create :deed, trash_bags: 2, user: user
-      create :redemption, prize: create(:prize, cost: 1), user: user
-
-      user.points_spent
-      expect { user.points_spent }.to_not make_database_queries
+      expect(user.redeemed_points).to eq 2
     end
   end
 
@@ -84,7 +74,7 @@ RSpec.describe User, type: :model do
     it 'should give the total number of points that have not been redeemed' do
       user = create :user
       create :deed, trash_bags: 2, user: user
-      create :redemption, prize: create(:prize, cost: 1), user: user
+      create :redemption, value: 1, user: user
 
       expect(user.unredeemed_points).to eq 1
     end
@@ -102,9 +92,26 @@ RSpec.describe User, type: :model do
 
     it 'should account for the maximum of 30 points per month' do
       user = create :user, total_points: 35
-      create :redemption, prize: create(:prize, cost: 10), user: user
+      create :redemption, value: 10, user: user
 
       expect(user.available_points).to eq 20
+    end
+  end
+
+  describe '#points_redeemed_this_month' do
+    it 'should include this month\'s redemptions' do
+      user = create :user, total_points: 5
+      create :redemption, value: 5, user: user
+
+      expect(user.points_redeemed_this_month).to eq 5
+    end
+
+    it 'should not include last month\'s redemptions' do
+      user = create :user, total_points: 5
+      create :redemption, value: 5, user: user
+      create :redemption, value: 3, user: user, created_at: 2.months.ago
+
+      expect(user.points_redeemed_this_month).to eq 5
     end
   end
 

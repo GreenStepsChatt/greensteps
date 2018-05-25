@@ -2,8 +2,7 @@ class User < ApplicationRecord
   rolify
 
   has_many :deeds, dependent: :destroy
-  has_many :redemptions, dependent: :nullify
-  has_many :prizes, through: :redemptions
+  has_many :redemptions, dependent: :destroy
   has_many :strikes, dependent: :destroy
 
   scope :soft_deleted, -> { where.not(deleted_at: nil) }
@@ -39,7 +38,7 @@ class User < ApplicationRecord
   end
 
   def redeemed_points
-    prizes.total_cost
+    redemptions.total_cost
   end
 
   def unredeemed_points
@@ -47,7 +46,7 @@ class User < ApplicationRecord
   end
 
   def points_redeemed_this_month
-    prizes.merge(redemptions.this_month).total_cost
+    redemptions.this_month.total_cost
   end
 
   def available_points

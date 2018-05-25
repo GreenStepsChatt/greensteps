@@ -7,59 +7,6 @@
     margin: $small-spacing;
   }
 
-  .prizes {
-    margin-left: 0;
-    margin-right: 0;
-    width: 100%;
-
-    button {
-      align-items: center;
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-      justify-content: space-between;
-      padding: $base-spacing;
-      width: 100%;
-    }
-
-    form {
-      display: flex;
-      overflow: auto;
-      white-space: nowrap;
-      width: 100%;
-
-      * {
-        white-space: normal;
-      }
-    }
-
-    header {
-      h2 {
-        text-align: center;
-      }
-
-      h3 {
-        font-weight: normal;
-        font-style: italic;
-        text-align: center;
-      }
-    }
-
-    input {
-      display: none;
-    }
-
-    label {
-      flex: 0 0 20%;
-      margin: 0 $small-spacing;
-      height: 10em;
-
-      @media screen and (max-width: $medium-screen) {
-        flex: 0 0 70%;
-      }
-    }
-  }
-
   .station_map {
     position: relative;
     flex: 1 1 30em;
