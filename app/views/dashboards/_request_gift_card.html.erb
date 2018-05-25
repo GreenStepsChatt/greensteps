@@ -1,3 +1,5 @@
-<%= button_to redemptions_path, form_class: 'new_redemption', remote: true do %>
-  <%= t('.button_label', balance: current_user.available_points) %>
+<% if current_user.available_points >= 5 %>
+  <%= button_to redemptions_path, form_class: 'new_redemption', remote: true do %>
+    <%= t('.button_label', balance: current_user.available_points) %>
+  <% end %>
 <% end %>

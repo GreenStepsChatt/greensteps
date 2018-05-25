@@ -16,6 +16,10 @@ module PageObjects
       this.find('#points_redeemed_this_month + .value').text.to_i
     end
 
+    def has_gift_card_button?
+      this.has_selector?('.new_redemption button[type="submit"]')
+    end
+
     def selector
       '.dashboards'
     end
