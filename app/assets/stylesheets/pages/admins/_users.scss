@@ -1,0 +1,40 @@
+.admins-users.index {
+  .users {
+    text-align: right;
+
+    th {
+      .sorted_by_this {
+        font-style: italic;
+      }
+
+      .asc:after {
+        content: "▲";
+        font-style: normal;
+        margin-left: $tiny-spacing;
+      }
+
+      .desc:after {
+        content: "▼";
+        font-style: normal;
+        margin-left: $tiny-spacing;
+      }
+    }
+  }
+
+  .pagination {
+    margin: $base-spacing;
+    text-align: center;
+
+    .first, .prev {
+      margin-right: $small-spacing;
+    }
+
+    .next, .last {
+      margin-left: $small-spacing;
+    }
+
+    .page {
+      margin-right: $tiny-spacing
+    }
+  }
+}

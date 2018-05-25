@@ -4,8 +4,35 @@ class User < ApplicationRecord
   has_many :deeds, dependent: :destroy
   has_many :redemptions, dependent: :nullify
   has_many :prizes, through: :redemptions
+  has_many :strikes, dependent: :destroy
 
   scope :soft_deleted, -> { where.not(deleted_at: nil) }
+
+  # TODO: We definitely need to do some refactoring in here. One idea I had was
+  #       to make a scorecard model that is essentially a cache of point
+  #       calculations.
+
+  def self.by_total_points(direction = 'DESC')
+    with_total_trash_bags.order("total_trash_bags #{direction}")
+  end
+
+  def self.with_total_trash_bags
+    select <<~SQL
+      users.*,
+      (
+        SELECT COALESCE(SUM(trash_bags), 0) FROM deeds
+        WHERE user_id = users.id
+      ) AS total_trash_bags
+    SQL
+  end
+
+  def self.order_by(attribute, direction = 'ASC')
+    if column_names.include? attribute.to_s
+      order("#{attribute} #{direction}")
+    else
+      send("by_#{attribute}", direction)
+    end
+  end
 
   def total_points
     deeds.total_trash_bags
@@ -38,11 +65,17 @@ class User < ApplicationRecord
   end
 
   def active_for_authentication?
-    super && deleted_at.blank?
+    super && deleted_at.blank? && strikes.count < 3
   end
 
   def inactive_message
-    deleted_at.blank? ? super : :account_deleted
+    if deleted_at.present?
+      :account_deleted
+    elsif strikes.count >= 3
+      :deactivated_by_admin
+    else
+      super
+    end
   end
 
   def send_devise_notification(mailer_method_name, *args)

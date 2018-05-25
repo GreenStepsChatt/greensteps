@@ -22,6 +22,9 @@ Rails.application.routes.draw do
     resource :dashboard, only: [:show]
     resources 'prizes', only: [:new, :create, :edit, :update]
     resources 'stations', only: [:new, :create]
+    resources 'users', only: [:index] do
+      resources :strikes, only: :create
+    end
     resources 'admins', only: [:index, :new, :create, :destroy]
   end
 

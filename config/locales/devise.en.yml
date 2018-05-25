@@ -67,6 +67,7 @@ en:
     failure:
       user:
         account_deleted: "You cannot login because your account has been deleted."
+        deactivated_by_admin: "Your account has been deactived by an admin."
   errors:
     messages:
       already_confirmed: "was already confirmed, please try signing in"
