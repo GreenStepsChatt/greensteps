@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Three strikes and you\'re out', type: :feature do
+RSpec.describe 'Admins can give strikes', type: :feature do
   scenario 'Admin views a list of all users and adds a strike to one of them' do
     users = create_list :user, 3
     bad_user = users.first

@@ -11,7 +11,7 @@ module Admins
     private
 
     def strike_params
-      { user_id: params[:user_id] }
+      params.permit(:user_id)
     end
   end
 end

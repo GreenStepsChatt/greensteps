@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe 'Admin\'s list of users', type: :feature do
-  scenario 'The list is paginated, with 25 users per page' do
+RSpec.describe 'Admins can view a list of users', type: :feature do
+  it 'is paginated with 25 users per page' do
     create_and_login_admin
-    users = create_list :user, 30
+    create_list :user, 30
 
     visit admins_users_path
 
@@ -11,47 +11,47 @@ RSpec.describe 'Admin\'s list of users', type: :feature do
     expect(page).to have_selector '.pagination'
   end
 
-  scenario 'By default, the list is sorted by total points (desc)' do
+  it 'is sorted by total points, in descending order, by default' do
     create_list :user, 3
     user = create :user, total_points: 3
     create_and_login_admin
 
     visit admins_users_path
 
-    expect(user_list.first_user_li.id).to eq user.id
+    expect(user_list.first_user_li).to be_for user
   end
 
-  scenario 'It can be sorted by email' do
+  it 'can be sorted by email' do
     create_list :user, 3
     user = create :user, email: 'aaa@example.com'
     create_and_login_admin
 
     visit admins_users_path
-    click_on 'Email'
+    click_on t('admins.users.index.email')
 
-    expect(user_list.first_user_li.id).to eq user.id
+    expect(user_list.first_user_li).to be_for user
   end
 
-  scenario 'Clicking on the total points header sorts by total points' do
+  scenario 'Admin clicks on the email header, then the total points header' do
     create_list :user, 3
     user = create :user, total_points: 3
     create_and_login_admin
 
     visit admins_users_path
-    click_on 'Email'
-    click_on 'Total Points'
+    click_on t('admins.users.index.email')
+    click_on t('admins.users.index.total_points')
 
-    expect(user_list.first_user_li.id).to eq user.id
+    expect(user_list.first_user_li).to be_for user
   end
 
-  scenario 'The sort direction flips when an admin clicks on the header for which the list is currently sorted' do
-    user = create :user, total_points: 1
+  it 'can have the sort order reversed' do
+    admin = create(:admin, total_points: 3)
     create_list :user, 3, total_points: 5
-    stubbed_login_as create(:admin, total_points: 3)
+    stubbed_login_as admin
 
     visit admins_users_path
-    click_on 'Total Points'
+    click_on t('admins.users.index.total_points')
 
-    expect(user_list.first_user_li.id).to eq user.id
+    expect(user_list.first_user_li).to be_for admin
   end
 end

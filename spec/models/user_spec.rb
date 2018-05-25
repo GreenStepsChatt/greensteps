@@ -5,7 +5,7 @@ RSpec.describe User, type: :model do
   it { should have_and_belong_to_many :roles }
   it { should have_many(:redemptions).dependent(:nullify) }
   it { should have_many(:prizes).through(:redemptions) }
-  it { should have_many(:strikes) }
+  it { should have_many(:strikes).dependent(:destroy) }
   it { should have_db_column(:strikes_count) }
 
   it_should_behave_like 'a devise model'
@@ -27,9 +27,25 @@ RSpec.describe User, type: :model do
 
   describe '.with_total_trash_bags' do
     it 'should include a `total_trash_bags` column' do
-      user = create :user, total_points: 5
+      create :user, total_points: 5
 
       expect(User.with_total_trash_bags.first.total_trash_bags).to eq 5
+    end
+  end
+
+  describe '.order_by' do
+    context 'when the attribute is a column name' do
+      it 'delegates to `order`' do
+        expect(User).to receive :order
+        User.order_by('email')
+      end
+    end
+
+    context 'when the attribute is not a column name' do
+      it 'delegates to `by_attribute`' do
+        expect(User).to receive :by_total_points
+        User.order_by('total_points')
+      end
     end
   end
 

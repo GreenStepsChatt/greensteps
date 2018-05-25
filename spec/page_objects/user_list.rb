@@ -24,8 +24,8 @@ module PageObjects
       @this = this
     end
 
-    def id
-      this[:id].scan(/\d+/).first.to_i
+    def for?(user)
+      id == user.id
     end
 
     def has_one_strike?
@@ -34,6 +34,12 @@ module PageObjects
 
     def has_strikes?(number)
       this.has_selector?('.strikes', text: number.to_s)
+    end
+
+    private
+
+    def id
+      this[:id].scan(/\d+/).first.to_i
     end
   end
 end

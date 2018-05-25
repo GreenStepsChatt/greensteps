@@ -33,7 +33,7 @@ RSpec.describe 'User Sessions', type: :feature do
     expect(page).to_not show :dashboard
   end
 
-  scenario 'A user 3 or more strikes cannot sign in' do
+  scenario 'A user with 3 or more strikes cannot sign in' do
     user = create :user
     create_list :strike, 3, user: user
 

@@ -2,6 +2,7 @@ en:
   admins:
     users:
       index:
+        header: "Users"
         email: "Email"
         total_points: "Total Points"
         redeemed_points: "Total Redeemed Points"

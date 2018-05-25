@@ -4,7 +4,7 @@ class User < ApplicationRecord
   has_many :deeds, dependent: :destroy
   has_many :redemptions, dependent: :nullify
   has_many :prizes, through: :redemptions
-  has_many :strikes
+  has_many :strikes, dependent: :destroy
 
   scope :soft_deleted, -> { where.not(deleted_at: nil) }
 
@@ -24,6 +24,14 @@ class User < ApplicationRecord
         WHERE user_id = users.id
       ) AS total_trash_bags
     SQL
+  end
+
+  def self.order_by(attribute, direction = 'ASC')
+    if column_names.include? attribute.to_s
+      order("#{attribute} #{direction}")
+    else
+      send("by_#{attribute}", direction)
+    end
   end
 
   def total_points
