@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :redemption do
     user
-    value 1
+    value 5
 
     trait :invalid do
       value nil

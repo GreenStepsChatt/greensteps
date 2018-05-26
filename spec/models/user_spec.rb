@@ -63,20 +63,20 @@ RSpec.describe User, type: :model do
   describe '#redeemed_points' do
     it 'should give the sum of the redemption values' do
       user = create :user
-      create :deed, trash_bags: 2, user: user
-      create_list :redemption, 2, value: 1, user: user
+      create :deed, trash_bags: 10, user: user
+      create_list :redemption, 2, value: 5, user: user
 
-      expect(user.redeemed_points).to eq 2
+      expect(user.redeemed_points).to eq 10
     end
   end
 
   describe '#unredeemed_points' do
     it 'should give the total number of points that have not been redeemed' do
       user = create :user
-      create :deed, trash_bags: 2, user: user
-      create :redemption, value: 1, user: user
+      create :deed, trash_bags: 7, user: user
+      create :redemption, value: 5, user: user
 
-      expect(user.unredeemed_points).to eq 1
+      expect(user.unredeemed_points).to eq 2
     end
   end
 
@@ -107,9 +107,9 @@ RSpec.describe User, type: :model do
     end
 
     it 'should not include last month\'s redemptions' do
-      user = create :user, total_points: 5
+      user = create :user, total_points: 12
       create :redemption, value: 5, user: user
-      create :redemption, value: 3, user: user, created_at: 2.months.ago
+      create :redemption, value: 7, user: user, created_at: 2.months.ago
 
       expect(user.points_redeemed_this_month).to eq 5
     end
