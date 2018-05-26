@@ -1,7 +1,7 @@
 module Admins
   class RedemptionsController < BaseController
     expose :redemption
-    expose :redemptions, -> { Redemption.includes(:user).all }
+    expose :redemptions, -> { Redemption.unfulfilled.includes(:user) }
 
     def index; end
 

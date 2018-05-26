@@ -22,4 +22,18 @@ RSpec.describe Redemption, type: :model do
       expect(Redemption.this_month).to be_empty
     end
   end
+
+  describe '.unfulfilled' do
+    it 'should include redemptions that do not have a confirmation number' do
+      redemption = create :redemption
+
+      expect(Redemption.unfulfilled).to include redemption
+    end
+
+    it 'should not include redemptions that have a confirmation number' do
+      redemption = create :redemption, :fulfilled
+
+      expect(Redemption.unfulfilled).to_not include redemption
+    end
+  end
 end
