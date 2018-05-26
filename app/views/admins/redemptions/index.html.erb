@@ -4,9 +4,10 @@
     <th>User Email</th>
     <th>Gift Card Value</th>
     <th>Date Requested</th>
+    <th></th>
   </tr>
   <% redemptions.each do |redemption| %>
-    <tr>
+    <tr id="redemption_<%= redemption.id %>">
       <td>
         <%= redemption.user.email %>
       </td>
@@ -15,6 +16,12 @@
       </td>
       <td>
         <%= redemption.created_at.in_time_zone("Eastern Time (US & Canada)").to_s(:long_ordinal) %>
+      </td>
+      <td>
+        <%= form_for redemption, url: admins_redemption_path(redemption), remote: true do |form| %>
+          <%= form.text_field :confirmation_number, placeholder: t('.confirmation_number') %>
+          <%= form.submit %>
+        <% end %>
       </td>
     </tr>
   <% end %>

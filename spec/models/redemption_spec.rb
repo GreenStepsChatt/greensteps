@@ -5,6 +5,7 @@ RSpec.describe Redemption, type: :model do
   it { should belong_to :user }
   it { should validate_presence_of :value }
   it { should validate_numericality_of(:value).is_greater_than_or_equal_to(5) }
+  it { should have_db_column :confirmation_number }
 
   describe '.this_month' do
     it 'returns redemptions that were created this month' do

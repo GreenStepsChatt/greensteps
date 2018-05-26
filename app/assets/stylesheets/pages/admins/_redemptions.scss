@@ -1,0 +1,20 @@
+.admins-redemptions.index {
+  table {
+    form {
+      @include attach-input-and_button;
+      width: 26em;
+    }
+
+    input {
+      display: inline;
+    }
+
+    th:last-child {
+      width: 26em;
+    }
+
+    #redemption_confirmation_number {
+      width: 17em;
+    }
+  }
+}

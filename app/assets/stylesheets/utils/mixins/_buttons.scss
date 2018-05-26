@@ -1,3 +1,20 @@
+@mixin attach-input-and-button($button_selector: 'input[type="submit"]') {
+  display: flex;
+
+  input:not(#{$button_selector}) {
+    border-bottom-right-radius: 0;
+    border-right: 0;
+    border-top-right-radius: 0;
+    line-height: $base-line-height;
+    margin: 0;
+  }
+  #{$button_selector} {
+    line-height: $base-line-height;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
+
 @mixin convert_button_to_link {
   background-color: transparent;
   border-radius: 0;

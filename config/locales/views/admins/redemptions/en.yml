@@ -3,3 +3,6 @@ en:
     redemptions:
       index:
         header: "Gift Card Requests"
+        confirmation_number: "Confirmation number"
+      update:
+        success: "Gift card request was successfully marked as fulfilled!"

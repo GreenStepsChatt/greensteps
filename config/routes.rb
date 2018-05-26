@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 
   namespace :admins do
     resource :dashboard, only: [:show]
-    resources :redemptions, only: [:index]
+    resources :redemptions, only: [:index, :update]
     resources 'prizes', only: [:new, :create, :edit, :update]
     resources 'stations', only: [:new, :create]
     resources 'users', only: [:index] do
