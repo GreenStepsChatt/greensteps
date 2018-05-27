@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_23_133433) do
+ActiveRecord::Schema.define(version: 2018_05_26_192823) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -81,20 +81,12 @@ ActiveRecord::Schema.define(version: 2018_05_23_133433) do
     t.index ["priority", "run_at"], name: "delayed_jobs_priority"
   end
 
-  create_table "prizes", id: :serial, force: :cascade do |t|
-    t.string "title"
-    t.integer "quantity"
-    t.integer "cost"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "redemptions", force: :cascade do |t|
     t.bigint "user_id"
-    t.bigint "prize_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["prize_id"], name: "index_redemptions_on_prize_id"
+    t.integer "value"
+    t.string "confirmation_number"
     t.index ["user_id"], name: "index_redemptions_on_user_id"
   end
 
@@ -156,7 +148,6 @@ ActiveRecord::Schema.define(version: 2018_05_23_133433) do
   end
 
   add_foreign_key "deeds", "users"
-  add_foreign_key "redemptions", "prizes"
   add_foreign_key "redemptions", "users"
   add_foreign_key "strikes", "users"
 end

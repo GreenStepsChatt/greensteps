@@ -1,19 +1,5 @@
 <h2><%= t('.header') %></h2>
 
-<section class="prize_management">
-  <h3><%= t('.prize_management.header') %></h3>
-
-  <ul class="prizes">
-    <% prizes.each do |prize| %>
-      <li><%= prize.title %> <%= link_to edit_admins_prize_path(prize), class: 'edit_prize' do %> <%= fa_icon 'edit' %> <% end %> </li>
-    <% end %>
-  </ul>
-
-  <%= link_to new_admins_prize_path, class: 'add_prize' do %>
-    <%= fa_icon 'plus' %>
-  <% end %>
-</section>
-
 <section class="station_management">
   <h3><%= t('.station_management.header') %></h3>
 
@@ -34,5 +20,6 @@
   <div class="links">
     <%= link_to t('.miscellaneous.admins'), admins_admins_path %>
     <%= link_to t('.miscellaneous.user_list'), admins_users_path %>
+    <%= link_to t('.miscellaneous.gift_card_requests'), admins_redemptions_path %>
   </div>
 </section>

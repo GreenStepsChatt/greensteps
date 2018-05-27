@@ -1,0 +1,25 @@
+<h1><%= t('.header') %></h1>
+<table class="work_list">
+  <tr>
+    <th>User Email</th>
+    <th>Gift Card Value</th>
+    <th>Date Requested</th>
+    <th></th>
+  </tr>
+  <% redemptions.each do |redemption| %>
+    <tr id="redemption_<%= redemption.id %>">
+      <td>
+        <%= redemption.user.email %>
+      </td>
+      <td>
+        <%= redemption.value %>
+      </td>
+      <td>
+        <%= redemption.created_at.in_time_zone("Eastern Time (US & Canada)").to_s(:long_ordinal) %>
+      </td>
+      <td>
+        <%= render 'form', redemption: redemption %>
+      </td>
+    </tr>
+  <% end %>
+</table>

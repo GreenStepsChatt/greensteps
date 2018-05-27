@@ -1,20 +1,20 @@
 class RedemptionsController < ApplicationController
-  expose :redemption_form
+  expose :redemption
 
   def create
     respond_to :js
-    if redemption_form.save
+    if redemption.save
       flash.now[:notice] = t('.success')
       render 'create'
     else
-      flash.now[:alert] = redemption_form.errors.full_messages.to_sentence
+      flash.now[:alert] = redemption.errors.full_messages.to_sentence
       render 'shared/update_flash'
     end
   end
 
   private
 
-  def redemption_form_params
-    params.require(:redemption).permit(:prize_id).merge(user: current_user)
+  def redemption_params
+    { user_id: current_user.id, value: current_user.available_points }
   end
 end

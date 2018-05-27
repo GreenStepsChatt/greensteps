@@ -1,0 +1,4 @@
+en:
+  dashboards:
+    request_gift_card:
+      button_label: "Request $%{balance} gift card"
