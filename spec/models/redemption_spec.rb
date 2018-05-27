@@ -23,6 +23,14 @@ RSpec.describe Redemption, type: :model do
     end
   end
 
+  describe '.total_cost' do
+    it 'sums up the value of all redemptions included in the scope' do
+      user = create :user, total_points: 12
+      [5, 7].each { |value| create :redemption, user: user, value: value }
+      expect(Redemption.total_cost).to eq 12
+    end
+  end
+
   describe '.unfulfilled' do
     it 'should include redemptions that do not have a confirmation number' do
       redemption = create :redemption
