@@ -18,10 +18,7 @@
         <%= redemption.created_at.in_time_zone("Eastern Time (US & Canada)").to_s(:long_ordinal) %>
       </td>
       <td>
-        <%= form_for redemption, url: admins_redemption_path(redemption), remote: true do |form| %>
-          <%= form.text_field :confirmation_number, placeholder: t('.confirmation_number'), required: true %>
-          <%= form.submit %>
-        <% end %>
+        <%= render 'form', redemption: redemption %>
       </td>
     </tr>
   <% end %>
