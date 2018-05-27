@@ -7,6 +7,14 @@
     margin: $small-spacing;
   }
 
+  .new_redemption {
+    button {
+      display: block;
+      margin: $base-spacing auto;
+      padding: $base-spacing;
+    }
+  }
+
   .station_map {
     position: relative;
     flex: 1 1 30em;
