@@ -19,7 +19,7 @@
       </td>
       <td>
         <%= form_for redemption, url: admins_redemption_path(redemption), remote: true do |form| %>
-          <%= form.text_field :confirmation_number, placeholder: t('.confirmation_number') %>
+          <%= form.text_field :confirmation_number, placeholder: t('.confirmation_number'), required: true %>
           <%= form.submit %>
         <% end %>
       </td>
