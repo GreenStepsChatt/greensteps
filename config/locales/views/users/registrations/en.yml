@@ -1,5 +1,9 @@
 en:
   users:
+    shared:
+      terms:
+        message_html: "By signing up, you agree to the %{link}."
+        link_text: "terms and conditions"
     registrations:
       create:
         account_deleted: "An account with that email already exists, but is deleted."
