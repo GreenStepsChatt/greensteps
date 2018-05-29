@@ -2,3 +2,6 @@ en:
   deeds:
     create:
       success: "Trash bag successfully logged!"
+    form:
+      before_photo_guidelines: "must show dirty area"
+      after_photo_guidelines: "must show cleaned up area and trash bags"

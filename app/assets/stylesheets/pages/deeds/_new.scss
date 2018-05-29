@@ -1,6 +1,24 @@
 .deeds.new, .deeds.create {
   max-width: 31em;
 
+  input {
+    margin-bottom: $base-spacing;
+  }
+
+  p {
+    margin-bottom: $tiny-spacing;
+  }
+
+  .note {
+    color: $secondary-text-dark;
+    font-size: modular-scale(-1);
+    font-style: italic;
+  }
+
+  label[for$="_photo"] {
+    margin-bottom: $tiny-spacing / 2;
+  }
+
   #deed_trash_bags {
     max-width: 5em;
   }
