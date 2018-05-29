@@ -74,6 +74,8 @@
 
   #map_info {
     background-color: rgba($primary-color, 0.85);
+    border-bottom-left-radius: $base-border-radius;
+    border-top-right-radius: $base-border-radius;
     color: $primary-text-light;
     bottom: 0;
     display: none;
