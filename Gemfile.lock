@@ -252,6 +252,7 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.0.4)
       loofah (~> 2.2, >= 2.2.2)
+    rails_serve_static_assets (0.0.5)
     railties (5.2.0)
       actionpack (= 5.2.0)
       activesupport (= 5.2.0)
@@ -407,6 +408,7 @@ DEPENDENCIES
   puma (~> 3.0)
   rails (~> 5.2.0)
   rails-controller-testing
+  rails_serve_static_assets
   record_tag_helper
   rgeo-geojson
   rolify
