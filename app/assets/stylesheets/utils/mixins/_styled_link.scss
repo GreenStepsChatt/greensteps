@@ -10,3 +10,16 @@
     cursor: pointer;
   }
 }
+
+@mixin styled-link-tint($color: $primary-text-light) {
+  color: $color;
+  text-decoration: none;
+  transition: color $base-duration $base-timing;
+
+  &:active,
+  &:focus,
+  &:hover {
+    color: tint($color, 30%);
+    cursor: pointer;
+  }
+}
