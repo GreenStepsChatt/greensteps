@@ -66,4 +66,23 @@ RSpec.describe 'User Sessions', type: :feature do
     expect(page).to flash_message t('users.sessions.signed_out')
     expect(page).to show :welcome_page
   end
+
+  scenario 'User log in fails', :js do
+    skip 'Not sure what is going on here. The turoblinks cache seems to always'\
+         ' be using an outdated version of the page. To see this, try opening '\
+         'the login form, filling in an email address and hitting submit. Then'\
+         ' hit the browser back button, open the log in form and hit submit. '\
+         ' Continue this, alternating whether or no you fill in the email '\
+         'field an you will see what I mean.'
+    user = create :user
+
+    visit root_path
+    welcome_page.open_log_in_form
+    log_in_form.email = user.email
+    log_in_form.submit
+    click_browser_back_button
+
+    expect(page).to show :log_in_form
+    expect(log_in_form.email).to have_text user.email
+  end
 end
