@@ -1,4 +1,4 @@
-.users-registrations, .users-sessions {
+.devise-registrations, .devise-sessions, .users-registrations, .users-sessions {
   br {
     display: none;
   }
@@ -11,7 +11,18 @@
     }
   }
 
-  .field label {
-    margin-top: $base-spacing;
+  .field {
+    margin-bottom: $base-spacing;
+  }
+
+  label[for="user_remember_me"] {
+    display: inline;
+    margin-bottom: $tiny-spacing;
+  }
+
+  .terms {
+    color: $secondary-text-dark;
+    font-size: modular-scale(-1);
+    font-style: italic;
   }
 }

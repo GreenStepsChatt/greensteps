@@ -67,4 +67,10 @@
   #sign_up header {
     margin-right: auto;
   }
+
+  .terms {
+    color: $secondary-text-dark;
+    font-size: modular-scale(-1);
+    font-style: italic;
+  }
 }
