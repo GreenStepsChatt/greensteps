@@ -11,6 +11,7 @@
     <%= form.password_field :password, autocomplete: 'off' %>
     <%= form.label :password_confirmation, t('.password_confirmation') %>
     <%= form.password_field :password_confirmation, autocomplete: 'off' %>
+    <%= render 'users/shared/terms' %>
     <%= form.submit t('.submit') %>
   <% end %>
 </article>
