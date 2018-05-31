@@ -1,5 +1,4 @@
 require 'rails_helper'
-require Rails.root.join('lib', 'factory_helpers', 'add_points_to_user.rb')
 
 RSpec.describe Redemption, type: :model do
   it { should belong_to :user }
@@ -20,6 +19,15 @@ RSpec.describe Redemption, type: :model do
       create :redemption, value: 5, user: user, created_at: 2.months.ago
 
       expect(Redemption.this_month).to be_empty
+    end
+
+    it 'works on the last day of the month' do
+      Timecop.travel(Time.zone.today.end_of_month) do
+        user = create :user, total_points: 5
+        redemption = create :redemption, value: 5, user: user
+
+        expect(Redemption.this_month).to include redemption
+      end
     end
   end
 
