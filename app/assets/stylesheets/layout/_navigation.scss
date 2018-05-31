@@ -39,14 +39,37 @@
   flex-direction: column;
   float: right;
   height: 100%;
+  min-width: 10em;
   padding: $base-spacing;
 
-  >*:not(last-child) {
-    padding-bottom: $small-spacing;
+  > * {
+    margin-bottom: $small-spacing;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 
-  .button_to input {
+  i {
+    margin-right: $tiny-spacing;
+  }
+
+  .button_to button {
     @include convert_button_to_link;
+  }
+
+  .bottom_links {
+    display: flex;
+    flex-direction: column;
+    margin-top: auto;
+
+    > * {
+      margin-bottom: $small-spacing;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
   }
 }
 

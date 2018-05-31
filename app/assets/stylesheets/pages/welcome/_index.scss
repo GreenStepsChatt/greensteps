@@ -1,6 +1,11 @@
 .welcome.index {
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
+
+  > :not(first-child) {
+    margin-top: $small-spacing;
+  }
 
   @media screen and (min-width: $medium-screen) {
     flex-direction: row;
@@ -15,22 +20,30 @@
 }
 
 #site_entry {
+  @include elevation(4);
+
+  background-color: white;
+  border-radius: $base-border-radius;
+  height: 28em;
+  max-width: 31em;
   position: relative;
 
   form {
-    margin: 0 auto;
-    max-width: 25em;
+    margin: $base-spacing auto;
+    max-width: 22em;
     min-width: 14em;
   }
 
   h2 {
-    border-bottom: $dark-border;
+    border-bottom: 2px solid $secondary-text-light;
     display: inline;
-    padding-bottom: $tiny-spacing;
+    padding-bottom: $tiny-spacing / 2;
   }
 
   header {
-    padding: $small-spacing;
+    background-color: $primary-color;
+    color: $primary-text-light;
+    padding: $base-spacing;
     margin-bottom: $small-spacing;
     text-align: center;
     width: 50%;
@@ -55,16 +68,24 @@
       }
 
       header {
-        @include styled-link($secondary-text-dark);
+        @include styled-link-tint($secondary-text-light);
       }
     }
   }
 
   #log_in header {
+    border-top-right-radius: $base-border-radius;
     margin-left: auto;
   }
 
   #sign_up header {
+    border-top-left-radius: $base-border-radius;
     margin-right: auto;
+  }
+
+  .terms {
+    color: $secondary-text-dark;
+    font-size: modular-scale(-1);
+    font-style: italic;
   }
 }

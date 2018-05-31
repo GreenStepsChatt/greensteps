@@ -13,8 +13,24 @@
       <% if current_user.has_role?(:admin) %>
         <%= link_to t('.user_dashboard'), dashboard_path %>
       <% end %>
-      <%= link_to 'Profile', edit_user_registration_path %>
-      <%= button_to 'Log out', destroy_user_session_path, method: :delete %>
+      <%= link_to edit_user_registration_path do %>
+        <%= fa_icon 'user-circle' %>
+        Profile
+      <% end %>
+      <%= button_to destroy_user_session_path, method: :delete do %>
+        <%= fa_icon 'sign-out' %>
+        Log out
+      <% end %>
+      <div class="bottom_links">
+        <%= link_to 'https://www.greenstepschatt.com/volunteer/' do %>
+          <%= fa_icon 'envelope' %>
+          Contact Us
+        <% end %>
+        <%= link_to "/documents/terms.pdf", target: "_blank" do %>
+          <%= fa_icon 'info-circle' %>
+          Terms
+        <% end %>
+      </div>
     </nav>
   </div>
 <% end %>

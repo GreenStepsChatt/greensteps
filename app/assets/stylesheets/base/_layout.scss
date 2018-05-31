@@ -20,4 +20,8 @@ body {
 
 main {
   margin: $base-spacing;
+
+  @media (screen and max-width: $medium-screen) {
+    margin: $small-spacing;
+  }
 }
