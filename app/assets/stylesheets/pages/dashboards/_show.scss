@@ -67,6 +67,9 @@
   }
 
   #map {
+    border: $tiny-spacing solid $primary-text-light;
+    border-bottom-left-radius: $base-border-radius;
+    border-bottom-right-radius: $base-border-radius;
     height: 20em;
     max-width: 45em;
     width: 100%;
