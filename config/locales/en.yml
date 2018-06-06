@@ -37,6 +37,8 @@ en:
     label:
       admin:
         email: "User's email"
+      deed:
+        trash_bags: "Trash bags"
       station_form:
         name: "Name"
         street: "Street"

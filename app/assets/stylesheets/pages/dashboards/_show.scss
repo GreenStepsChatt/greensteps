@@ -24,6 +24,23 @@
     }
   }
 
+  .instructions {
+    max-width: 50em;
+
+    ol {
+      list-style: decimal;
+      padding-left: $base-spacing;
+
+      ol {
+        list-style: lower-alpha;
+      }
+    }
+
+    > ol {
+      margin: $base-spacing;
+    }
+  }
+
   .new_redemption {
     button {
       display: block;

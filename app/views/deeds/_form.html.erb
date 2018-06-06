@@ -2,12 +2,33 @@
   <%= render 'shared/errors', record: deed %>
 
   <%= f.label :before_photo %>
+  <p class="note">
+    <%= t('.before_photo_guidelines') %>
+  </p>
   <%= f.file_field :before_photo, direct_upload: true, required: true %>
 
   <%= f.label :after_photo %>
+  <p class="note">
+    <%= t('.after_photo_guidelines') %>
+  </p>
   <%= f.file_field :after_photo, direct_upload: true, required: true %>
 
   <%= f.label :trash_bags %>
+  <%= fa_icon 'question-circle' %>
+  <div id="trash_bag_instructions">
+    <p>
+      What is considered one bag?
+    </p>
+    <ul>
+      <li>doggie poop bag</li>
+      <li>grocery bag</li>
+      <li>Green Steps bag</li>
+      <li>trash bag</li>
+      <li>box of trash</li>
+      <li>a large, bulky item</li>
+    </ul>
+    <p>When in doubt, just use your best judgement!</p>
+  </div>
   <%= f.number_field :trash_bags, min: 0, step: 1 %>
 
   <%= f.submit %>
