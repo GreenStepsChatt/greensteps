@@ -1,12 +1,6 @@
 <%= form_with model: deed, id: 'new_deed' do |f| %>
   <%= render 'shared/errors', record: deed %>
 
-  <%= f.label :before_photo %>
-  <p class="note">
-    <%= t('.before_photo_guidelines') %>
-  </p>
-  <%= f.file_field :before_photo, direct_upload: true, required: true %>
-
   <%= f.label :after_photo %>
   <p class="note">
     <%= t('.after_photo_guidelines') %>

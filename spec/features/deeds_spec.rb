@@ -4,7 +4,6 @@ RSpec.describe 'User logs deed', type: :feature do
   scenario 'from dashboard' do
     create_and_login_user follow_to_default_path: true
 
-    deed_form.upload_before_photo file_fixture('trashed_park.jpeg')
     deed_form.upload_after_photo file_fixture('clean_park.jpeg')
     deed_form.trash_bags = 3
     deed_form.submit

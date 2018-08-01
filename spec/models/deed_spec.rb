@@ -19,14 +19,6 @@ RSpec.describe Deed, type: :model do
     expect(deed.trash_bags).to eq 1
   end
 
-  context 'with out a before photo' do
-    it 'is invalid' do
-      deed = build :deed, with_before_photo: false
-
-      expect(deed).to be_invalid
-    end
-  end
-
   context 'with out an after photo' do
     it 'is invalid' do
       deed = build :deed, with_after_photo: false
