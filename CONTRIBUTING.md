@@ -1,20 +1,18 @@
 # Contributing
 
-**Thanks for your interest in this project! For the the next month or two we will not be accepting pull requests. Thank you (in advance) for understanding. If you have questions you can email Amanda. - 5/13/18**
-
 ## How to Find Something to Work On
 First, checkout the issues that [are labelled as "ready" and listed under the
-current milestone (#1)](
-https://github.com/crawfoal/greensteps/issues?q=is%3Aopen+is%3Aissue+label%3Aready+milestone%3A%22Milestone+%231+%28MVP%29%22).
+current milestone (#2)](https://github.com/crawfoal/greensteps/milestone/2).
 Pull requests that address these issues will be a top priority. Pull requests
-that address issues that are labelled "ready" but aren't in the current
-milestone are still appreciated :slightly_smiling_face:. Other pull requests,
-including those that update gems or the Ruby version unnecessarily, will be a
-lower priority and might even be closed without merging. That said, we'd love to
-hear your suggestions on how to make the web app better, so please don't
-hesitate to open an issue if you think of something!
+that address issues that are labelled "ready" and "help wanted" but aren't in 
+the current milestone are still appreciated :slightly_smiling_face:. Other 
+pull requests, including those that update gems or the Ruby version 
+unnecessarily, will be a lower priority and might even be closed without 
+merging. That said, we'd love to hear your suggestions on how to make the app 
+better, so please don't hesitate to open an issue if you think of something!
 
-From time to time we also have [abandonded PRs](https://github.com/crawfoal/greensteps/pulls?q=is%3Aopen+is%3Apr+label%3Aabandoned) that need to be finished - if there are any in that list we'd love your help there too!
+From time to time we also have [abandonded PRs](https://github.com/crawfoal/greensteps/pulls?q=is%3Aopen+is%3Apr+label%3Aabandoned) that need to be finished - if there are
+any PRs in that list we'd love your help there too!
 
 ### Tips for Beginners
 - Issues labelled "good first issue" or "first-timers-only" are a good place to
