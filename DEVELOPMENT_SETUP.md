@@ -8,8 +8,9 @@ a local clone to work with. If you need help with things like forking, cloning,
 and git in general, we recommend Udacity's [How to Use Git and
 GitHub](https://www.udacity.com/course/how-to-use-git-and-github--ud775) course.
 
-You will also need [PhantomJS](http://phantomjs.org/) installed. You can
-download it from that webpage, or on a Mac simply run `brew install phantomjs`.
+You will also need
+[ChromeDriver](https://sites.google.com/a/chromium.org/chromedriver/) installed.
+On a Mac simply run `brew install chromedriver`.
 
 Once you have a copy of this project on your machine, you should run
 `bin/setup`. At this point, it's a good idea to

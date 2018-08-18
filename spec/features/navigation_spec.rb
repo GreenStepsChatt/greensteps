@@ -29,7 +29,7 @@ RSpec.describe 'Navigation' do
   scenario 'User clicks on the logo and is taken to the root path' do
     create_and_login_user
 
-    visit new_deed_path
+    visit edit_user_registration_path
     app_bar.click_on_logo
 
     expect(page).to have_current_path root_path

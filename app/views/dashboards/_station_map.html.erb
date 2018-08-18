@@ -1,6 +1,8 @@
-<script async defer
-src="https://maps.googleapis.com/maps/api/js?key=<%=ENV.fetch('GOOGLE_MAPS_KEY', '')%>&callback=Greensteps.initMap">
-</script>
+<% unless Rails.env.test? %>
+  <script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=<%=ENV.fetch('GOOGLE_MAPS_KEY', '')%>&callback=Greensteps.initMap">
+  </script>
+<% end %>
 
 <article class="station_map">
   <header>

@@ -61,7 +61,7 @@ group :test do
   gem 'database_cleaner'
   gem 'db-query-matchers'
   gem 'launchy'
-  gem 'poltergeist'
+  gem 'capybara-selenium'
   gem 'rails-controller-testing'
   gem 'rspec-collection_matchers'
   gem 'shoulda-matchers'

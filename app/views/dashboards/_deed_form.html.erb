@@ -1,0 +1,7 @@
+<article class="deed_form">
+  <header>
+    <h2><%= t('.title') %></h2>
+  </header>
+
+  <%= render 'deeds/form', deed: current_user.deeds.build %>
+</article>

@@ -1,9 +1,5 @@
 module PageObjects
   class Dashboard < Base
-    def log_deed
-      this.find('.stats .add').click
-    end
-
     def request_gift_card
       this.find('.new_redemption button[type="submit"]').click
     end
