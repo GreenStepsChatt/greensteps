@@ -9,7 +9,7 @@ class Deed < ApplicationRecord
   scope :total_trash_bags, -> { sum(:trash_bags) }
 
   def photos_are_attached
-    errors.add(:before_photo, :required) unless before_photo.attached?
+    # errors.add(:before_photo, :required) unless before_photo.attached?
     errors.add(:after_photo, :required) unless after_photo.attached?
   end
 

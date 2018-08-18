@@ -1,8 +1,6 @@
 class DeedsController < ApplicationController
   expose :deed, scope: -> { current_user.deeds }
 
-  def new; end
-
   def create
     if deed.save
       flash[:notice] = t('.success')
