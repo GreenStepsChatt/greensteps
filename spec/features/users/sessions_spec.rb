@@ -50,7 +50,7 @@ RSpec.describe 'User Sessions', type: :feature do
 
     visit root_path
     create_list :strike, 3, user: user
-    dashboard.log_deed
+    app_bar.click_on_logo
 
     expect(page).to_not show :dashboard
   end

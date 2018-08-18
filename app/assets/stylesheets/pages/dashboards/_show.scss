@@ -24,6 +24,50 @@
     }
   }
 
+  .deed_form {
+    width: 23em;
+
+    form {
+      padding: $base-spacing;
+    }
+
+    i {
+      color: $primary-color;
+      font-size: modular-scale(2);
+      margin-left: $tiny-spacing;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    input {
+      margin-bottom: $base-spacing;
+    }
+
+    p {
+      margin-bottom: $tiny-spacing;
+    }
+
+    .note {
+      color: $secondary-text-dark;
+      font-size: modular-scale(-1);
+      font-style: italic;
+    }
+
+    label[for$="_photo"] {
+      margin-bottom: $tiny-spacing / 2;
+    }
+
+    label[for="deed_trash_bags"] {
+      display: inline-block;
+    }
+
+    #deed_trash_bags {
+      max-width: 5em;
+    }
+  }
+
   .instructions {
     max-width: 50em;
 

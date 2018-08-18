@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: { registrations: 'users/registrations' }
 
-  resources :deeds, only: [:new, :create]
+  resources :deeds, only: :create
 
   namespace :admins do
     resource :dashboard, only: [:show]
@@ -32,7 +32,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :geojson do
       namespace :v1 do
-        resources 'stations', only: [:index]
+        resources 'stations', only: :index
       end
     end
   end
