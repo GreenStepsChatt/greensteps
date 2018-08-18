@@ -1,21 +1,23 @@
 require 'capybara/rspec'
-require 'capybara/poltergeist'
+require 'selenium/webdriver'
 require 'capybara-screenshot/rspec'
 
-Capybara.register_driver :poltergeist_debug do |app|
-  Capybara::Poltergeist::Driver.new(app, debug: true)
+Capybara.asset_host = 'http://localhost:3000/public'
+
+Capybara.register_driver :chrome do |app|
+  Capybara::Selenium::Driver.new(app, browser: :chrome)
 end
 
-Capybara.asset_host = 'http://localhost:3000/public'
-Capybara.javascript_driver = :poltergeist
+Capybara.register_driver :headless_chrome do |app|
+  capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
+    chromeOptions: { args: %w(headless disable-gpu) }
+  )
+
+  Capybara::Selenium::Driver.new app,
+    browser: :chrome,
+    desired_capabilities: capabilities
+end
+Capybara.javascript_driver = :headless_chrome
+
 Capybara::Screenshot.autosave_on_failure = true
 Capybara::Screenshot.prune_strategy = :keep_last_run
-
-RSpec.configure do |config|
-  config.before(:each, :js) do
-    page.driver.browser.url_blacklist = [
-      'https://maps.googleapis.com',
-      'https://fonts.googleapis.com'
-    ]
-  end
-end
